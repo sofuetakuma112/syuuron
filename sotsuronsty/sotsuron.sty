@@ -1,0 +1,482 @@
+% sotsuron.sty   by Y.Ono       <16 Mar 1992>
+%       Modefied by S.Sakashita <15 Feb 1993>
+
+\typeout{Original Style `sotsuron'. <15 Feb 1993>}
+
+% from `jrep12.sty' *************************************************
+
+\def\@normalsize{\@setsize\normalsize{16pt}\xiipt\@xiipt
+%\kanjiskip=0pt plus .4pt minus .5pt % inserted
+\kanjiskip=0zw plus .1zw minus .05zw % inserted
+\abovedisplayskip 12pt plus3pt minus7pt\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip \z@ plus3pt\belowdisplayshortskip 6.5pt plus3.5pt
+minus3pt\let\@listi\@listI} 
+\def\small{\@setsize\small{13.6pt}\xipt\@xipt
+\kanjiskip=0zw plus .1zw minus .05zw % inserted
+\abovedisplayskip 11pt plus3pt minus6pt\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip \z@ plus3pt\belowdisplayshortskip 6.5pt plus3.5pt
+minus3pt
+\def\@listi{\leftmargin\leftmargini \parsep 4.5pt plus 2pt minus 1pt
+ \itemsep \parsep
+ \topsep 9pt plus 3pt minus 5pt}}
+\def\footnotesize{\@setsize\footnotesize{12pt}\xpt\@xpt
+\kanjiskip=0zw plus .1zw minus .05zw % inserted
+\abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip \z@ plus3pt\belowdisplayshortskip 6pt plus3pt minus3pt
+\def\@listi{\leftmargin\leftmargini \topsep 6pt plus 2pt minus 2pt\parsep 3pt
+plus 2pt minus 1pt
+\itemsep \parsep}}
+%\def\scriptsize{\@setsize\scriptsize{9.5pt}\viiipt\@viiipt}
+%\def\tiny{\@setsize\tiny{7pt}\vipt\@vipt}
+%\def\large{\@setsize\large{21pt}\xivpt\@xivpt}
+%\def\Large{\@setsize\Large{25pt}\xviipt\@xviipt}
+%\def\LARGE{\@setsize\LARGE{28pt}\xxpt\@xxpt}
+%\def\huge{\@setsize\huge{33pt}\xxvpt\@xxvpt}
+%\let\Huge=\huge
+\normalsize 
+
+%\parskip 0pt plus 1pt \parindent 1.5em \partopsep 3pt plus 2pt minus 2pt 
+\parskip 0pt \parindent 1zw \partopsep 3pt plus 2pt minus 2pt 
+
+\def\@makechapterhead#1{ \vspace*{50pt} { \parindent 0pt \raggedright 
+ \ifnum \c@secnumdepth >\m@ne \huge\bf \@chapapp{} \par 
+ \vskip 20pt \fi \Huge \bf #1\par 
+ \nobreak \vskip 40pt } }
+
+\def\chapter{\clearpage \thispagestyle{myplain}
+ \global\@topnum\z@
+\@afterindenttrue \secdef\@chapter\@schapter} 
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+ \refstepcounter{chapter}
+ \addcontentsline{toc}{chapter}{%
+%\protect\numberline{\thechapter}#1}\else
+\protect\numberline{\@chapapp}#1}\else
+%\@chapapp \ \ #1}\else
+ \addcontentsline{toc}{chapter}{#1}\fi
+ \chaptermark{#1}
+ \addtocontents{lof}{\protect\addvspace{10pt}}
+\addtocontents{lot}{\protect\addvspace{10pt}} \if@twocolumn
+\@topnewpage[\@makechapterhead{#2}] 
+ \else \@makechapterhead{#2}
+ \@afterheading \fi} 
+\def\@schapter#1{\if@twocolumn \@topnewpage[\@makeschapterhead{#1}]
+ \else \@makeschapterhead{#1} 
+ \@afterheading\fi}
+
+\def\section{\@startsection {section}{1}{-23.8mm}{%
+ 3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}{\Large\bf}}
+\def\subsection{\@startsection{subsection}{2}{-17.8mm}{3.25ex plus 1ex minus
+ .2ex}{1.5ex plus .2ex}{\large\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{3.25ex plus
+ 1ex minus .2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+\def\paragraph{\@startsection
+ {paragraph}{4}{\z@}{3.25ex plus 1ex minus .2ex}{-1em}{\normalsize\bf}}
+\def\subparagraph{\@startsection
+ {subparagraph}{4}{\parindent}{3.25ex plus 1ex minus
+ .2ex}{-1em}{\normalsize\bf}}
+
+\def\appendix{\par
+ \setcounter{chapter}{0}
+ \setcounter{section}{0}
+% \setcounter{page}{1}
+ \def\@chapapp{付録 \thechapter}
+ \def\thechapter{\Alph{chapter}}
+ \def\thesection{\thechapter.\arabic{section}}
+% \def\thepage{\Roman{page}}
+ \parindent=0cm
+% \def\section{\@startsection {section}{1}{-16.2mm}{%
+ \def\section{\@startsection {section}{1}{-23.8mm}{%
+  3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}{\Large\bf}}}
+
+%\leftmargini 2.5em
+\leftmargini 3zw
+%\leftmarginii 2.2em \leftmarginiii 1.87em \leftmarginiv 1.7em \leftmarginv 1em
+\leftmarginii 2zw \leftmarginiii 2zw \leftmarginiv 2zw \leftmarginv 1zw
+%\leftmarginvi 1em
+\leftmarginvi 1zw
+\leftmargin\leftmargini
+\labelwidth\leftmargini\advance\labelwidth-\labelsep
+%\labelsep .5em
+\def\@listI{\leftmargin\leftmargini \parsep 5pt plus 2.5pt minus 1pt\topsep
+%10pt plus 4pt minus 6pt\itemsep 5pt plus 2.5pt minus 1pt}
+8pt plus 4pt minus 4pt\itemsep 0pt plus 2.5pt\relax}
+\let\@listi\@listI
+\@listi 
+\def\@listii{\leftmargin\leftmarginii
+ \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+% \topsep 5pt plus 2.5pt minus 1pt
+ \topsep 2.5pt plus 1pt minus 1pt
+% \parsep 2.5pt plus 1pt minus 1pt
+ \parsep \z@
+ \itemsep \parsep}
+%\def\@listiii{\leftmargin\leftmarginiii
+% \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+% \topsep 2.5pt plus 1pt minus 1pt 
+% \parsep \z@ \partopsep 1pt plus 0pt minus 1pt
+% \itemsep \topsep}
+%\def\@listiv{\leftmargin\leftmarginiv
+% \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+%\def\@listv{\leftmargin\leftmarginv
+% \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+%\def\@listvi{\leftmargin\leftmarginvi
+% \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+
+% from `jlfonts2.tex' ************************************************
+
+\def\normalsize{\ifx\@currsize\normalsize \rm\mc \else \@normalsize\fi}
+
+% from `jreport.sty' ************************************************
+
+%\def\descriptionlabel#1{\hspace\labelsep \bf #1}
+%\def\description{\list{}{\labelwidth\z@ \itemindent-\leftmargin
+% \let\makelabel\descriptionlabel}}
+%\let\enddescription\endlist
+\def\descriptionlabel#1{%
+  \setbox0=\hbox{\bf #1}%
+  \dimen0= \wd0 \dimen1=1zw
+  \divide \dimen0 by \dimen1
+  \multiply \dimen0 by \dimen1
+  \ifdim \dimen0<\wd0 \advance \dimen0 by \dimen1 \fi
+  \hbox to \dimen0{\box0 \hfil}\hfil}
+\def\description{\list{}{%
+  \labelwidth=\leftmargin
+  \labelsep=1zw
+  \advance \labelwidth by -\labelsep
+  \let \makelabel=\descriptionlabel}}
+\let\enddescription\endlist
+
+%\def\thepart {\Roman{part}}
+%\def\thechapter {\arabic{chapter}}
+%\def\thesection {\thechapter.\arabic{section}}
+\def\thesection {\thechapter.\arabic{section}節}
+%\def\thesubsection {\thesection.\arabic{subsection}}
+\def\thesubsection {\thechapter.\arabic{section}.\arabic{subsection}}
+%\def\thesubsubsection {\thesubsection.\arabic{subsubsection}}
+%\def\theparagraph {\thesubsubsection.\arabic{paragraph}}
+%\def\thesubparagraph {\theparagraph.\arabic{subparagraph}}
+%\def\@chapapp{Chapter}
+\def\@chapapp{第\thechapter 章}
+
+\def\@pnumwidth{1.55em}
+\def\@tocrmarg {2.55em}
+\def\@dotsep{4.5}
+\setcounter{tocdepth}{2}
+
+\def\tableofcontents{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+% \fi\def\thepage{\roman{page}}\pagestyle{myplain}
+ \fi\def\thepage{\bf\roman{page}}\pagestyle{myplain}
+ \chapter*{目 次\@mkboth{目 次}{目 次}}
+ \setlength\@lnumwidth{4zw}
+ \@starttoc{toc}\if@restonecol\twocolumn\fi}
+\def\l@part#1#2{\addpenalty{-\@highpenalty}
+ \addvspace{2.25em plus 1pt} \begingroup
+ \@tempdima 3em \parindent \z@ \rightskip \@pnumwidth \parfillskip
+-\@pnumwidth 
+ {\large \bf \leavevmode #1\hfil \hbox to\@pnumwidth{\hss #2}}\par
+ \nobreak \endgroup}
+
+\def\l@chapter#1#2{\pagebreak[3] 
+%\vskip 1.0em plus 1pt \@tempdima 1.5em \begingroup
+ \vskip 1.0em plus 1pt \@tempdima 4.0em \begingroup
+ \parindent \z@ \rightskip \@pnumwidth 
+ \parfillskip -\@pnumwidth 
+ \bf \leavevmode \advance\leftskip\@tempdima \hskip -\leftskip #1\nobreak\hfil
+\nobreak\hbox to\@pnumwidth{\hss #2}\par
+ \endgroup}
+%\def\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+\def\l@section{\@dottedtocline{1}{4.0em}{3.5em}}
+%\def\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+\def\l@subsection{\@dottedtocline{2}{7.5em}{3.1em}}
+%\def\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+%\def\l@paragraph{\@dottedtocline{4}{10em}{5em}}
+%\def\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+\def\listoffigures{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{図 目 次\@mkboth
+ {図 目 次}{図 目 次}}\@starttoc{lof}\if@restonecol\twocolumn
+ \fi}
+\def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+\def\listoftables{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{表 目 次\@mkboth
+ {表 目 次}{表 目 次}}\@starttoc{lot}\if@restonecol
+ \twocolumn\fi}
+\let\l@table\l@figure
+
+
+\def\thebibliography#1{\chapter*{参考文献\@mkboth
+ {参 考 文 献}{参 考 文 献}}
+\addcontentsline{toc}{chapter}{参考文献}
+ \list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+
+\setcounter{topnumber}{2}
+\def\topfraction{.7}
+\setcounter{bottomnumber}{1}
+\def\bottomfraction{.3}
+\setcounter{totalnumber}{3}
+\def\textfraction{.2}
+\def\floatpagefraction{.5}
+\setcounter{dbltopnumber}{2}
+\def\dbltopfraction{.7}
+\def\dblfloatpagefraction{.5}
+
+\long\def\@makecaption#1#2{
+ \vskip 10pt 
+% \setbox\@tempboxa\hbox{#1: #2}
+ \setbox\@tempboxa\hbox{\large #1 \quad #2}
+ \ifdim \wd\@tempboxa >\hsize \unhbox\@tempboxa\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil} 
+ \fi}
+
+%\newcounter{figure}[chapter]
+%\def\thefigure{\thechapter.\@arabic\c@figure}
+%\def\fps@figure{tbp}
+%\def\ftype@figure{1}
+%\def\ext@figure{lof}
+%\def\fnum@figure{Figure \thefigure}% --- original
+\def\fnum@figure{図~\thefigure}
+%\def\figure{\@float{figure}}
+%\let\endfigure\end@float
+%\@namedef{figure*}{\@dblfloat{figure}}
+%\@namedef{endfigure*}{\end@dblfloat}
+%\newcounter{table}[chapter]
+%\def\thetable{\thechapter.\@arabic\c@table}
+%\def\fps@table{tbp}
+%\def\ftype@table{2}
+%\def\ext@table{lot}
+%\def\fnum@table{Table \thetable}% --- original
+\def\fnum@table{表~\thetable}
+%\def\table{\@float{table}}
+%\let\endtable\end@float
+%\@namedef{table*}{\@dblfloat{table}}
+%\@namedef{endtable*}{\end@dblfloat}
+%
+%\input titlepage.sty
+%
+%\mark{{}{}} 
+
+% ---------- add length to heading width ----------
+\newdimen\leftheadmargin% --------- left
+\newdimen\rightheadmargin% -------- right
+\newdimen\rightheadoutmargin% ----- (left - right)
+\leftheadmargin 23.8mm
+\rightheadmargin 10mm
+\setlength{\rightheadoutmargin}{\leftheadmargin}
+\addtolength{\rightheadoutmargin}{-\rightheadmargin}
+\marginparsep 5mm% ---------- 傍注
+\setlength{\marginparwidth}{\leftheadmargin}
+\addtolength{\marginparwidth}{-\marginparsep}
+% ---------- headings start ----------
+\if@twoside \def\ps@headings{\let\@mkboth\markboth
+\def\@oddfoot{}\def\@evenfoot{}\def\@evenhead{\rm \thepage\hfil \sl
+ \leftmark}\def\@oddhead{\hbox{}\sl \rightmark \hfil
+ \rm\thepage}\def\chaptermark##1{\markboth {\uppercase{\ifnum \c@secnumdepth
+>\m@ne
+% \@chapapp\ \thechapter. \ \fi ##1}}{}}\def\sectionmark##1{\markright
+ \@chapapp \ \fi ##1}}{}}\def\sectionmark##1{\markright
+{\uppercase{\ifnum \c@secnumdepth >\z@
+ \thesection. \ \fi ##1}}}}
+\else \def\ps@headings{\let\@mkboth\markboth
+%\def\@oddfoot{}\def\@evenfoot{}\def\@oddhead{\hbox{}\sl \rightmark \hfil
+%\rm\thepage}\def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth
+% ---------- footer ----------
+\def\@oddfoot{}\def\@evenfoot{}
+% ---------- header ----------
+\def\@oddhead{\hss\underline{\hbox to \leftheadmargin{\vbox{\hbox{%
+ \rlap{\parbox[b]{\textwidth}{\raggedright{%
+% ---------- left headings ----------
+ {\large Ehime University} \\ \vspace*{-1.1ex}
+ {\small \quad Faculty of Engineering} \\ \hbox{}}}}}}\hfil}%
+ \hbox to \textwidth{\hfil\bf\rightmark}%
+ \hbox to \rightheadmargin{\hfil\large\bf\thepage}}%
+ \hbox to \rightheadoutmargin{\hfil}\hss}
+\def\chaptermark##1{\markright{\uppercase{\ifnum \c@secnumdepth>\m@ne
+% \@chapapp\ \thechapter. \ \fi ##1}}}}
+ \@chapapp\ \ \fi ##1}}}}
+\fi
+% ---------- myplain start ----------
+\def\ps@myplain{\let\@mkboth\@gobbletwo
+\def\@oddhead{\hbox to \textwidth{\hfil}
+ \hbox to \rightheadmargin{\hfil\large\bf\thepage}\hss}
+\def\@evenhead{\hss\hbox to \leftheadmargin{%
+ \large\bf\thepage\hfil}\hbox to \textwidth{\hfil}}
+\def\@oddfoot{}\def\@evenfoot{}\def\chaptermark##1{}%
+\def\sectionmark##1{}\def\subsectionmark##1{}}
+% ---------- myheadings start ----------
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+%\def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage}
+%\def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox}
+\def\@oddhead{\hss\underline{\hbox to \leftheadmargin{\vbox{\hbox{%
+ \rlap{\parbox[b]{\textwidth}{\raggedright{\footnotesize%
+ \bf\rightmark}}}}}\hfil}\hbox to \textwidth{\hfil}%
+ \hbox to \rightheadmargin{\hfil\large\bf\thepage}}%
+ \hbox to \rightheadoutmargin{\hfil}\hss}
+\def\@evenhead{\hss\underline{\hbox to \leftheadmargin{%
+ \large\bf\thepage\hfil}\hbox to \textwidth{\hfil}%
+ \hbox to \rightheadmargin{\vbox{\hbox{\rlap{\parbox[b]{\textwidth}{%
+ \raggedright{\footnotesize\bf\leftmark}}}}}\hfil}}%
+ \hbox to \rightheadoutmargin{\hfil}\hss}
+\def\@oddfoot{}\def\@evenfoot{}\def\chaptermark##1{}%
+\def\sectionmark##1{}\def\subsectionmark##1{}}
+
+% ---------- 欄外への書き込みを常に左側の欄外へとする ----------
+\def\@addmarginpar{\@next\@marbox\@currlist{\@cons\freelist\marbox
+ \@cons\@freelist\@currbox}\@latexbug\@tempcnta\@ne
+ \if@twocolumn \if@firstcolumn \@tempcnta\m@ne \fi
+ \else \if@mparswitch
+% \ifodd\c@page \else\@tempcnta\m@ne \fi
+  \@tempcnta\m@ne % 常に偶数ページと思わせる
+  \fi \if@reversemargin \@tempcnta -\@tempcnta \fi \fi
+ \ifnum\@tempcnta <\z@ \global\setbox\@marbox\box\@currbox \fi
+ \@tempdima\@mparbottom \advance\@tempdima -\@pageht
+  \advance\@tempdima\ht\@marbox \ifdim\@tempdima >\z@
+  \@warning{Marginpar on page \thepage\space moved}\else\@tempdima\z@ \fi
+ \global\@mparbottom\@pageht \global\advance\@mparbottom\@tempdima
+  \global\advance\@mparbottom\dp\@marbox
+  \global\advance\@mparbottom\marginparpush
+ \advance\@tempdima -\ht\@marbox
+ \global\ht\@marbox\z@ \global\dp\@marbox\z@
+ \vskip -\@pagedp \vskip\@tempdima\nointerlineskip
+ \hbox to\columnwidth{\ifnum \@tempcnta >\z@
+  \hskip\columnwidth \hskip\marginparsep
+  \else \hskip -\marginparsep \hskip -\marginparwidth \fi
+  \box\@marbox \hss}%
+ \vskip -\@tempdima \nointerlineskip
+ \hbox{\vrule \@height\z@ \@width\z@ \@depth\@pagedp}}
+
+% from `program.sty' *************************************************
+
+\def\double@line {\hrule\endgraf\vspace*{1pt}\hrule}
+\def\line@number {\makebox[0.7cm][l]{\tt\small \theprogram@list : }}
+
+\newcounter{program@label}
+\newcounter{program@list}
+
+\begingroup \catcode `|=0 \catcode `[= 1
+\catcode`]=2 \catcode `\{=12 \catcode `\}=12
+\catcode`\\=12 |gdef|@xprogram#1\end{program}[|@gobble#1|end[program]]
+|endgroup
+
+%\def\program{\@ifnextchar [{\@program}{\@program[]}}
+\def\program{\hoffset -2.0cm \@ifnextchar [{\@program}{\@program[]}}
+\def\@program[#1]#2{
+\refstepcounter{program@label}\par\bigskip\noindent\label{#1} 
+%{List \theprogram@label\ ~#2}                % use this in article style
+{List \theprogram@label :\ ~#2}              % use this in article style
+%{List \thechapter.\theprogram@label\ ~#2}   % use this in book style
+\vspace*{3pt}\double@line \@verbatim \frenchspacing\@vobeyspaces
+\setcounter{program@list}{1}
+\def\par{\leavevmode\endgraf}\obeylines
+\def\everypar{\line@number\stepcounter{program@list}}
+\@xprogram}
+
+\def\endprogram{\endtrivlist\double@line\bigskip}
+
+% *************************************************
+
+\def\maketitle{\par
+ \begingroup
+ \def\thefootnote{\fnsymbol{footnote}}
+ \def\@makefnmark{\hbox 
+ to 0pt{$^{\@thefnmark}$\hss}} 
+ \if@twocolumn 
+ \twocolumn[\@maketitle] 
+ \else \newpage
+ \global\@topnum\z@ \@maketitle \fi\thispagestyle{plain}\@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+\def\@maketitle{\newpage
+ \null
+ \vskip 2em \begin{center}
+ {\LARGE \@title \par} \vskip 1.5em {\large \lineskip .5em
+\begin{tabular}[t]{c}\@author 
+ \end{tabular}\par} 
+ \vskip 1em {\large \@date} \end{center}
+ \par
+ \vskip 1.5em} 
+
+% ---------- new command definition ----------
+\def\maru#1{{\rm\ooalign{\hfil\lower.168ex\hbox{#1}\hfil
+  \crcr\mathhexbox20D}}}
+\def\ruby#1#2{\leavevmode\setbox0=\hbox{#1}\setbox1=\hbox{\tiny#2}%
+  \ifdim\wd0>\wd1 \dimen0=\wd0 \else \dimen0=\wd1 \fi
+  \hbox{\kanjiskip=\fill\vbox{\hbox to \dimen0{\tiny \hfil#2\hfil}%
+  \nointerlineskip\hbox to \dimen0{\hfil#1\hfil}}}}
+\def\leq{\mathrel{\mathpalette\gl@align<}}
+\def\geq{\mathrel{\mathpalette\gl@align>}}
+\def\gl@align#1#2{\lower.6ex\vbox{\baselineskip\z@skip\lineskip\z@
+  \ialign{$\m@th#1\hfil##\hfil$\crcr#2\crcr=\crcr}}}
+\def\approx{\mathrel{\mathpalette\ap@align{\smash.}}}
+\def\ap@align#1#2{\lower.2ex\vbox{\baselineskip\z@skip\lineskip\z@
+  \def\finsm@sh{\ht\z@.2ex \dp\z@.2ex \box\z@}%
+  \ialign{$\m@th#1\hfil##\hfil$\crcr#2\crcr=\crcr#2\crcr}}}
+\def\FRAC#1#2{\leavevmode\kern-.1em
+  \raise.5ex\hbox{\the\scriptfont0{#1}}\kern-.1em
+  /\kern-.15em\lower.25ex\hbox{\the\scriptfont0{#2}}}
+
+\def\vec#1{\mbox{\boldmath{${#1}$}}}
+%\def\@cite#1#2{\leavevmode\hbox{$^{\mbox{\the\scriptfont0{[{#1}]}}}$}}
+%\def\@cite#1#2{\leavevmode\hbox{$^{\mbox{\scriptsize{[{#1}]}}}$}}
+\def\@cite#1#2{$\mbox{}$\leavevmode\hbox{$^{\mbox{\scriptsize{[{#1}]}}}$}}
+
+\let\pagerefsave=\pageref
+\def\pageref#1{\mbox{\pagerefsave{#1}}}
+\def\eqnarray{%
+  \stepcounter{equation}%
+  \let\@currentlabel=\theequation
+  \global\@eqnswtrue
+  \global\@eqcnt\z@
+  \tabskip\@centering
+  \let\\=\@eqncr
+  $$\halign to \displaywidth\bgroup\@eqnsel\hskip\@centering
+  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne
+  \hfil$\displaystyle{{}##{}}$\hfil
+  &\global\@eqcnt\tw@$\displaystyle\tabskip\z@{##}$\hfil
+  \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+\def\@oval(#1,#2)[#3]{\begingroup\boxmaxdepth \maxdimen
+  \@ovttrue \@ovbtrue \@ovltrue \@ovrtrue
+  \@tfor\@tempa :=#3\do{\csname @ov\@tempa false\endcsname}\@ovxx
+  #1\unitlength \@ovyy #2\unitlength
+  \@tempdimb \ifdim \@ovyy >\@ovxx \@ovxx\else \@ovyy \fi
+  \advance\@tempdimb -2pt\relax % inserted
+  \@getcirc \@tempdimb
+  \@ovro \ht\@tempboxa \@ovri \dp\@tempboxa
+  \@ovdx\@ovxx \advance\@ovdx -\@tempdima \divide\@ovdx \tw@
+  \@ovdy\@ovyy \advance\@ovdy -\@tempdima \divide\@ovdy \tw@
+  \@circlefnt \setbox\@tempboxa
+  \hbox{\if@ovr \@ovvert32\kern -\@tempdima \fi
+  \if@ovl \kern \@ovxx \@ovvert01\kern -\@tempdima \kern -\@ovxx \fi
+  \if@ovt \@ovhorz \kern -\@ovxx \fi
+  \if@ovb \raise \@ovyy \@ovhorz \fi}\advance\@ovdx\@ovro
+  \advance\@ovdy\@ovro \ht\@tempboxa\z@ \dp\@tempboxa\z@
+  \@put{-\@ovdx}{-\@ovdy}{\box\@tempboxa}%
+  \endgroup}
+
+%\input fancyheadings.sty
+
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+%\lhead[\fancyplain{}{\bf\thepage}]{\fancyplain{}{\bf \rightmark}}
+%\chead{}
+%\rhead[\fancyplain{}{\bf\leftmark}]{\fancyplain{}{\bf \thepage}}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+\topmargin -2.0cm
+\headheight 2.5cm
+\headsep .8cm
+\topskip .5cm
+\oddsidemargin 2.0cm
+\evensidemargin 2.0cm
+\textheight 21cm
+\textwidth 14cm

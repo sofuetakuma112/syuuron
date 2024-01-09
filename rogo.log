@@ -1,0 +1,89 @@
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.sjis) (TeX Live 2019/W32TeX) (preloaded format=platex 2019.10.2)  4 FEB 2020 18:19
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**rogo.tex
+(./rogo.tex
+pLaTeX2e <2019-10-01> (based on LaTeX2e <2018-12-01>)
+(c:/w32tex/share/texmf-dist/tex/platex/base/tarticle.cls
+Document Class: tarticle 2019/04/02 v1.8b Standard pLaTeX class
+\c@@paper=\count83
+(c:/w32tex/share/texmf-dist/tex/platex/base/tsize10.clo
+File: tsize10.clo 2019/04/02 v1.8b Standard pLaTeX file (size option)
+)
+(c:/w32tex/share/texmf-dist/tex/platex/base/plext.sty
+Package: plext 2019/09/29 v1.2l pLaTeX package file (community edition)
+\@floatbox=\box43
+\floatwidth=\dimen118
+\floatheight=\dimen119
+\floatruletick=\dimen120
+\captionfloatsep=\dimen121
+\captionwidth=\dimen122
+\@captionbox=\box44
+LaTeX Info: Redefining \parbox on input line 333.
+\save@ybaselineshift=\dimen123
+\save@tbaselineshift=\dimen124
+\@picwd=\dimen125
+\rensujiskip=\skip41
+)
+\c@part=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\c@figure=\count90
+\c@table=\count91
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 618.
+\toclineskip=\dimen126
+\@lnumwidth=\dimen127
+\bibindent=\dimen128
+\heisei=\count92
+) (./rogo.aux)
+\openout1 = `rogo.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+
+《縦組モード》
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <24.88> on input line 20.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <20.74> on input line 20.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 20.
+ [1
+
+] (./rogo.aux) ) 
+Here is how much of TeX's memory you used:
+ 366 strings out of 493203
+ 4006 string characters out of 6145801
+ 70837 words of memory out of 5000000
+ 4452 multiletter control sequences out of 15000+600000
+ 11453 words of font info for 45 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 22i,4n,20p,138b,145s stack positions out of 5000i,500n,10000p,500000b,80000s
+
+Output written on rogo.dvi (1 page, 1304 bytes).

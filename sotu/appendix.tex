@@ -1,0 +1,368 @@
+\chapter{付録}
+%\documentclass[a4j]{jarticle} %ここは関係ない
+%\usepackage{listings,jlisting} %日本語のコメントアウトをする場合jlistingが必要
+%ここからソースコードの表示に関する設定
+%\lstset{
+%language = Python,
+%basicstyle = \ttfamily\scriptsize,
+%  identifierstyle={\small},
+%  commentstyle={\smallitshape},
+%  keywordstyle={\small\bfseries},
+%  ndkeywordstyle={\small},
+%  stringstyle={\small\ttfamily},
+%  frame={tb},
+%  breaklines=true,
+%  columns=[l]{fullflexible},
+%  numbers=left,
+%  xrightmargin=0zw,
+%  xleftmargin=0zw,
+%  numberstyle={\scriptsize},
+%  stepnumber=1,
+%  numbersep=1zw,
+%  lineskip=-0.5ex
+%keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%}
+\lstset{
+	%プログラム言語(複数の言語に対応，C,C++も可)
+ 	language = Python,
+ 	%背景色と透過度
+ 	%backgroundcolor={\color[gray]{.90}},
+ 	%枠外に行った時の自動改行
+ 	breaklines = true,
+ 	%自動開業後のインデント量(デフォルトでは20[pt])	
+ 	breakindent = 10pt,
+ 	%標準の書体
+ 	basicstyle = \ttfamily\footnotesize,
+ 	%basicstyle = {\small}
+ 	%コメントの書体
+% 	commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+ 	%関数名等の色の設定
+ 	classoffset = 0,
+ 	%キーワード(int, ifなど)の書体
+% 	keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+ 	%""で囲まれたなどの"文字"の書体
+% 	stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+ 	%枠 "t"は上に線を記載, "T"は上に二重線を記載
+	%他オプション：leftline，topline，bottomline，lines，single，shadowbox
+% 	frame = TBrl,
+	frame = topline,
+ 	%frameまでの間隔(行番号とプログラムの間)
+ 	framesep = 5pt,
+ 	%行番号の位置
+ 	numbers = left,
+	%行番号の間隔
+ 	stepnumber = 1,
+	%右マージン
+ 	%xrightmargin=0zw,
+ 	%左マージン
+	%xleftmargin=3zw,
+	%行番号の書体
+ 	numberstyle = \tiny,
+	%タブの大きさ
+ 	tabsize = 4,
+ 	%キャプションの場所("tb"ならば上下両方に記載)
+ 	captionpos = t
+}
+%=========================================================================
+\section{水源監視システム(送信用Pythonスクリプト)}
+\centering
+LoRa\_obs\_transmit.pyのソースコードを\ref{loras}に示す．
+\begin{lstlisting}[label=loras,caption=LoRa\_obs\_transmit.py]
+## +++***coding:utf-8***+++
+
+import time
+import os
+from datetime import datetime
+import serial
+
+""" sleep()をいれて, 少し待たないとエラー落ちする """
+time.sleep(60)
+
+class Main() :
+    
+    def __init__(self):
+        """ 初期値および対象ディレクトリの設定 """
+        self.s_num = 0
+
+        self.copy_dir = "C:/Users/taikimizukan/Dropbox/sumitomo/obscsv/" 
+        self.target_dir = "C:/Users/taikimizukan/Desktop/obs_data/"              
+        self.temporary_log = "./temporary_log.txt"
+
+        """ 最終データを取得 """
+        with open(self.temporary_log,"r") as f :
+            self.old_line = f.readline()
+            print("前回のデータ:"+str(self.old_line))
+               
+        """ 起動時 [$RFINF,ON***]コマンド送信 """
+        INF = "$RFINF,ON***"
+        with serial.Serial("COM7",115200,timeout=2) as ser :
+            time.sleep(2)
+            while True :
+                for i in INF :
+                    ser.write(i.encode("utf-8"))
+
+                result = str(ser.readline())
+                if result.find("RESULT,RFINF,ON,OK") > 0 :
+                    break
+                else :
+                    time.sleep(2)
+
+        """ ループ関数実行 """
+        self.Loop()
+        
+
+    """ 作成日時が最新ファイルのフルパスを取得し返す関数 """
+    def get_file_path(self, target_dir) : 
+        """ 対象ディレクトリ下の.datファイルのパスを取得し, [target_files]に納める """
+        target_files = []
+        for root, dir, files in os.walk(target_dir) :
+            target_file = [os.path.join(root,f) for f in files if f.endswith(".dat")]# .txt -> .datへ
+            target_files.extend(target_file)
+        """ 取得した.datファイルのフルパスに作成時間を足してリストに納める """
+        file_ctime = []
+        for f in target_files :
+            file_ctime.append((f,os.path.getctime(f)))        
+        """ 取得時間でソートし最新の.datファイルのパスのみ返す"""
+        sorted_file_ctime = sorted(file_ctime,key=lambda x :x[1])
+                           
+        return sorted_file_ctime[len(sorted_file_ctime)-1][0]
+        
+    """ 最終行を取得, シークエンス番号を加えてコピー　"""    
+    def check_copy(self):
+##        name = self.target_file.replace(self.target_dir,"")
+        with open(self.target_file,"r") as f :
+            """ ファイルデータを全て読み込, 最終行だけを取得 """
+            lines = f.readlines()
+            if len(lines) > 0 :
+                line = lines[len(lines)-1]
+            else :
+                line = self.old_line
+            
+        """ 最終行が前回のものと異なるか？ """
+        if line != self.old_line :
+            
+            """ シークエンス番号を追加 """
+            self.s_num += 1
+            
+            file_name = line.split(",")
+            file_name = "obs_" +"".join(file_name[0:3])
+            self.ymd = "".join(file_name[0:3])
+
+            self.old_line = line
+
+            """ Dropboxにコピー """
+            with open(self.copy_dir+file_name+".csv","a") as cf :
+                data = line.strip() + "," + str(self.s_num)+"\n"
+                cf.write(str(data))
+            
+            """ 最終行を保存 """
+            with open(self.temporary_log,"w") as f :
+                f.write(line)
+
+            self.arduino_serial(data)
+            time.sleep(5)
+            self.TxMSG()
+            self.Ping()
+                    
+        else :
+            print("Not updated")
+            pass
+
+    """ arduinoを経由してLoRaにデータを送信する関数　"""
+    def arduino_serial(self,d) :
+        print("---"*5 + "arduino_serial" + "---"*5)
+        buf = 0
+        with serial.Serial("COM7",115200,timeout=1) as ser :
+            """ ポートを開いて少し待機が必要 """
+            time.sleep(2)            
+            """ごみの吸出し"""
+            buf = ser.readlines()                       
+            d = d.strip()
+            """ 送信コマンドの形に """
+            d = "$RFSND,0004,"+d+"***"
+            print("To arduino Data --> " +d)
+            
+            """ Python(PC) -> arduino -> LoRa だと1文字ずつ送らないといけない？ """
+            for i in d :
+                ser.write(i.encode("utf-8"))                
+
+        """ 0009 : 第二中継機にダミーMSGをとばす, 戻り値を保存 """
+    def TxMSG(self) :
+        target_add = "0009"
+        self.now = datetime.now().strftime("%Y,%m,%d,%H,%M,%S")
+        self.today = datetime.today().strftime("%Y%m%d")
+        
+        msg = "$RFSND,{0},{1},{2},{2}***".format(target_add,self.now,self.counter)
+
+        with serial.Serial("COM7",115200,timeout=15) as ser :
+                time.sleep(2)
+                for i in msg :
+                        ser.write(i.encode("utf-8"))
+                        time.sleep(0.05)
+                print(ser.readline().decode("utf-8"))
+                res = ser.readline().decode("utf-8")
+
+        if len(res) > 10 :
+                res = res.replace(" ",",").replace("*",",").replace(":",",")
+                with open("C:/Users/taikimizukan/Dropbox/sumitomo/RSSI_CHECK_TX/rssi_tx_obs_{}.csv".format(str(self.today)),"a") as f :
+                    f.write(res+"\n")                  
+        else :
+                pass
+
+    """発電所のLoRaにpingを送って生存確認"""
+    def Ping(self) :
+        PING = "$RPING,0004***"
+        with serial.Serial("COM7",115200,timeout=10) as ser :
+            time.sleep(2)
+            for i in PING :
+                ser.write(i.encode("utf-8"))
+                time.sleep(0.05)
+
+            print(ser.readline().decode("utf-8"))
+            res_ping = ser.readline().decode("utf-8")
+                
+        if len(res_ping) > 10 :
+            print(res_ping)
+            now = datetime.now().strftime("%Y,%m,%d,%H,%M,%S")
+            with open("C:/Users/taikimizukan/Dropbox/sumitomo/PING/ping_{}.csv".format(str(self.today)),"a") as f :
+                    f.write(str(now)+","+str(self.s_num)+"," + str(res_ping))
+        else :
+            pass
+
+    """ 繰り返し """
+    def Loop(self):  
+        while True:
+            try :
+                time.sleep(20)
+                self.target_file = self.get_file_path(self.target_dir)
+
+                self.check_copy()
+            
+            except Exception as E :
+                with open("./Error_Log.txt","a") as ef :
+                    ef.write(str(E))
+
+
+if __name__ == "__main__" :
+    Main()
+\end{lstlisting}
+%\end{document}
+%=========================================================================
+\clearpage
+\section{水源監視システム(受信用Pythonスクリプト)}
+\centering
+LoRa\_obs\_receive.pyのソースコードを\ref{lorar}に示す．
+\begin{lstlisting}[label=lorar,caption=LoRa\_obs\_raceive.py]
+## coding:utf-8
+
+import paho.mqtt.client as mqtt
+import serial
+from datetime import datetime
+import time
+
+class Main() :
+    def __init__(self) :
+        self.INF_Input()
+        self.Loop()
+
+    def INF_Input(self) :
+    """ 起動時 [$RFINF,ON***]コマンド送信 """
+    
+        INF = "$RFINF,ON***"
+        with serial.Serial("COM3",115200,timeout=2) as ser :
+            time.sleep(2)
+            while True :
+                for i in INF :
+                    ser.write(i.encode("utf-8"))
+
+                result = str(ser.readline())
+                if result.find("RESULT,RFINF,ON,OK") > 0 :
+                    print("RFINF,OK")
+                    break
+                else :
+                    time.sleep(2)
+
+    def LoRa_Receive(self) :
+        try :
+        """ LoRaからデータを読み込む """
+            while True :
+                with serial.Serial("COM3",115200,timeout=120) as ser :
+                    res = ser.readline().decode("utf-8")
+                    if len(res) > 15 and res.find("RFRX") > 0 and res.find("RECEIVED") < 0 :
+                        print("==="*25)
+                        print("RXData  ==> "+res)
+                        break
+                    
+                    else :
+                        print("==="*25)
+                        print("else_data=>"+res)
+                        
+            """ 必要なデータを取り出す """
+            res_list = res.split("*")[0].split(",")[1:]
+            data = ",".join(res_list)
+            add = res_list[0]
+
+            """ データの日付を確認(ymd) """
+            ymd = "".join(res_list[1:4])
+
+
+            return = res, data, add, ymd
+
+        except Exception as E :
+            now = datetime.now().strftime("%y/%m/%d %H:%M:%S")
+            with open("LoRa_Receive_Error_LOG.txt","a") as ef :
+                    ef.write(now +" : "+ str(E)+"\n")
+            self.Loop()
+
+                        
+
+    def MQTT_Publish(self, res):
+    """ MQTT情報(publish) """
+        host = "133.71.***.***"
+        port = 1883
+        topic = "***********"
+        """ MQTT-Publish """
+        try :   
+            print("publish ==> " +str(res))
+            client = mqtt.Client(protocol=mqtt.MQTTv311)
+            client.connect(host,port=port,keepalive=10)
+            client.publish(topic,res)
+                        
+        except Exception as E :
+            now = datetime.now().strftime("%y/%m/%d %H:%M:%S")
+            with open("Publish_Error_LOG.txt","a") as ef :
+                    ef.write(now +" : "+ str(E)+"\n")
+                
+    def Storage(self,res,data,ymd):
+        try :
+            """ メタデータを保存 """
+            with open("./meta_data/meta_data_{}.txt".format(ymd),"a") as f :
+                f.write(res+"\n")
+
+            """ データを保存 """
+            with open("./data/data_{}.txt".format(ymd),"a") as f :
+                f.write(data+"\n")
+
+            """ Dropboxに保存 """
+            with open("C:/Users/sumitomo02/Dropbox/test_folder/RX/DATA/RX_{}.txt".format(ymd),"a") as f :
+                f.write(data+"\n")
+
+            with open("C:/Users/sumitomo02/Dropbox/test_folder/RX/META_DATA/RX_{}.txt".format(ymd),"a") as f :
+                f.write(res+"\n")
+                
+        except Exception as E :
+            now = datetime.now().strftime("%y/%m/%d %H:%M:%S")
+            with open("Storage_Error_LOG.txt","a") as ef :
+                ef.write(now +" : "+ str(E)+"\n")
+            print(E)
+            
+    def Loop(self) :
+        while True :
+            res, data, add, ymd = self.LoRa_Receive()
+            self.Storage(res, data, ymd)
+            self.MQTT_Publish(res)
+            self.Ping(add)
+            
+
+main = Main()
+\end{lstlisting}

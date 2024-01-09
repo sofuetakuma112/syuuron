@@ -1,0 +1,39 @@
+\documentclass[12pt,openany]{jreport}
+\usepackage{listings}
+\usepackage{bezier}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{sotsuron}
+\usepackage{misc}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{ascmac}
+\usepackage{amsmath}
+\usepackage{cite}
+%\usepackage{color}
+\newcommand{\myfrac}[2]{\frac{\,{#1}\,}{\,{#2}\,}}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\begin{document}
+  \input{sotu/title}        % 卒論の表紙です
+  \pagestyle{headings}
+  \pagenumbering{Roman}
+  \include{sotu/chapter0}   % 内容梗概
+  \clearpage
+  \tableofcontents          % 目次が勝手に生成されます%
+  \clearpage
+  \pagestyle{headings}
+  \pagenumbering{roman}
+  \pagestyle{headings}
+  \pagenumbering{arabic}
+  \include{sotu/chapter1}   % 緒論
+  \include{sotu/chapter2}   % 2章
+  \include{sotu/chapter3}   % 3章
+  \include{sotu/chapter4}   % 4章
+  \include{sotu/chapter5}   % 5章
+  \include{sotu/chapter6}   % 結論
+  \include{sotu/syazi}      % 謝辞
+  \include{sotu/refer}      % 参考文献
+  \appendix
+  \include{sotu/appendix}  % 付録
+\end{document}
