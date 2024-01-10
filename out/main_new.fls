@@ -157,6 +157,26 @@ INPUT extractbb -B cropbox -O sotu/figure/temp.png
 OUTPUT out/sotu/chapter3.aux
 INPUT sotu/chapter3.tex
 INPUT sotu/chapter3.tex
+INPUT sotu/figure/docker-vmware.png
+INPUT extractbb -B cropbox -O sotu/figure/docker-vmware.png
+INPUT sotu/figure/elasticsearch-image.png
+INPUT extractbb -B cropbox -O sotu/figure/elasticsearch-image.png
+INPUT sotu/figure/curl-same.png
+INPUT extractbb -B cropbox -O sotu/figure/curl-same.png
+INPUT sotu/figure/curl-different.png
+INPUT extractbb -B cropbox -O sotu/figure/curl-different.png
+INPUT sotu/figure/log.png
+INPUT extractbb -B cropbox -O sotu/figure/log.png
+INPUT sotu/figure/es04-cluster.png
+INPUT extractbb -B cropbox -O sotu/figure/es04-cluster.png
+INPUT sotu/figure/3nodes-cluster.png
+INPUT extractbb -B cropbox -O sotu/figure/3nodes-cluster.png
+INPUT sotu/figure/3nodes-list.png
+INPUT extractbb -B cropbox -O sotu/figure/3nodes-list.png
+INPUT sotu/figure/4nodes-list.png
+INPUT extractbb -B cropbox -O sotu/figure/4nodes-list.png
+INPUT sotu/figure/es04-log.png
+INPUT extractbb -B cropbox -O sotu/figure/es04-log.png
 OUTPUT out/sotu/chapter4.aux
 INPUT sotu/chapter4.tex
 INPUT sotu/chapter4.tex
