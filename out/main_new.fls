@@ -125,6 +125,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin8.tfm
 OUTPUT out/main_new.toc
 OUTPUT out/sotu/chapter1.aux
 INPUT sotu/chapter1.tex
@@ -141,8 +142,59 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT sotu/figure/pwmduty.png
-INPUT extractbb -B cropbox -O sotu/figure/pwmduty.png
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+INPUT sotu/figure/2022_ppm.png
+INPUT extractbb -B cropbox -O sotu/figure/2022_ppm.png
+INPUT sotu/figure/2022_rh.png
+INPUT extractbb -B cropbox -O sotu/figure/2022_rh.png
+INPUT sotu/figure/2022_temp.png
+INPUT extractbb -B cropbox -O sotu/figure/2022_temp.png
+INPUT sotu/figure/2023_ppm.png
+INPUT extractbb -B cropbox -O sotu/figure/2023_ppm.png
+INPUT sotu/figure/2023_rh.png
+INPUT extractbb -B cropbox -O sotu/figure/2023_rh.png
+INPUT sotu/figure/2023_temp.png
+INPUT extractbb -B cropbox -O sotu/figure/2023_temp.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT sotu/figure/ppm.png
+INPUT extractbb -B cropbox -O sotu/figure/ppm.png
+INPUT sotu/figure/rh.png
+INPUT extractbb -B cropbox -O sotu/figure/rh.png
+INPUT sotu/figure/temp.png
+INPUT extractbb -B cropbox -O sotu/figure/temp.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
+INPUT sotu/figure/1.png
+INPUT extractbb -B cropbox -O sotu/figure/1.png
+INPUT sotu/figure/2.png
+INPUT extractbb -B cropbox -O sotu/figure/2.png
+INPUT sotu/figure/ppm.png
+INPUT sotu/figure/rh.png
+INPUT sotu/figure/temp.png
+INPUT sotu/figure/indexes.png
+INPUT extractbb -B cropbox -O sotu/figure/indexes.png
+INPUT sotu/figure/197leaf.png
+INPUT extractbb -B cropbox -O sotu/figure/197leaf.png
+INPUT sotu/figure/141leaf.png
+INPUT extractbb -B cropbox -O sotu/figure/141leaf.png
+INPUT sotu/figure/197pcs.png
+INPUT extractbb -B cropbox -O sotu/figure/197pcs.png
+INPUT sotu/figure/141pcs.png
+INPUT extractbb -B cropbox -O sotu/figure/141pcs.png
+INPUT sotu/figure/co2PPM.png
+INPUT extractbb -B cropbox -O sotu/figure/co2PPM.png
+INPUT sotu/figure/co2ModbusPPM.png
+INPUT extractbb -B cropbox -O sotu/figure/co2ModbusPPM.png
+INPUT sotu/figure/co2RH.png
+INPUT extractbb -B cropbox -O sotu/figure/co2RH.png
+INPUT sotu/figure/co2ModbusRH.png
+INPUT extractbb -B cropbox -O sotu/figure/co2ModbusRH.png
+INPUT sotu/figure/co2Temp.png
+INPUT extractbb -B cropbox -O sotu/figure/co2Temp.png
+INPUT sotu/figure/co2ModbusTemp.png
+INPUT extractbb -B cropbox -O sotu/figure/co2ModbusTemp.png
 OUTPUT out/sotu/chapter3.aux
 INPUT sotu/chapter3.tex
 INPUT sotu/chapter3.tex
