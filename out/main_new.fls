@@ -189,6 +189,14 @@ INPUT extractbb -B cropbox -O sotu/figure/es04-log.png
 OUTPUT out/sotu/chapter4.aux
 INPUT sotu/chapter4.tex
 INPUT sotu/chapter4.tex
+INPUT sotu/figure/apt-grep.png
+INPUT extractbb -B cropbox -O sotu/figure/apt-grep.png
+INPUT sotu/figure/apt-list.png
+INPUT extractbb -B cropbox -O sotu/figure/apt-list.png
+INPUT sotu/figure/version-check.png
+INPUT extractbb -B cropbox -O sotu/figure/version-check.png
+INPUT sotu/figure/downtime.png
+INPUT extractbb -B cropbox -O sotu/figure/downtime.png
 OUTPUT out/sotu/chapter5.aux
 INPUT sotu/chapter5.tex
 INPUT sotu/chapter5.tex

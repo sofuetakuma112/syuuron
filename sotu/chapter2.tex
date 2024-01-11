@@ -93,7 +93,7 @@ SQLiteデータベースはリレーショナルデータベースの一種で�
 
 計2回のCO\textsubscript{2}データを移行した後のco2\_modbusインデックスについて, 横軸をタイムスタンプ(utctime)とし, 縦軸をPPM, RH, TEMPとしてそれぞれプロットしたものを図 \ref{p12} 〜 図 \ref{p14}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
     \begin{center}
         \includegraphics[width=160mm]{sotu/figure/ppm.png}
         \caption{co2\_modbusのPPM}
@@ -101,7 +101,7 @@ SQLiteデータベースはリレーショナルデータベースの一種で�
     \end{center}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}
     \begin{center}
         \includegraphics[width=160mm]{sotu/figure/rh.png}
         \caption{co2\_modbusのRH}
@@ -109,7 +109,7 @@ SQLiteデータベースはリレーショナルデータベースの一種で�
     \end{center}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}
     \begin{center}
         \includegraphics[width=160mm]{sotu/figure/temp.png}
         \caption{co2\_modbusのTEMP}
@@ -175,84 +175,6 @@ movement\_diaryとmovement\_diary01のドキュメントの違いより, movemen
 
 \subsection{データのインポート}
 pythonのelasticsearchライブラリを使用し, 移行先のElasticsearchにmovement\_diary01という名前のインデックスを作成して, エクスポートしたデータを全てインサートした.
-
-% \section{概要}
-% 今回は, CO\textsubscript{2}データの収集を行っているラズベリーパイの一部が, データ移行作業の移行先である133.71.106.141のElasticSearchサーバーのco2インデックスに対してインサートを行っていたことにより, 正しいデータ移行先であるco2\_modbusインデックス以外のインデックスに一部のCO\textsubscript{2}データが保存されている問題を解消したことについて報告する.
-
-% \section{データ移行手順について}
-
-% ラズベリーパイからco2インデックスに対してインサートした全てのドキュメントをローカルマシンにJSON形式でエクスポートした後, 作成したPythonプログラムを実行してco2\_modbusインデックスにインサートした.
-
-% \subsection{データのエクスポート}
-% 移行元のElasticSearchサーバーのデータのローカルマシンへのエクスポートには, elasticdump \cite{1}ライブラリを使用してJSON形式でエクスポートした.
-
-% co2インデックスに対してラズベリーパイからインサートしたデータにはJPtimeフィールドが存在しないため, JPtimeフィールドが存在しないドキュメントのみを対象としてエクスポートした.
-
-% また, エクスポートしたJSONデータを解析したところ, 最も古いutctimeフィールドの日付は2023年7月5日だった.
-
-% \subsection{データのインポート}
-% エクスポートしたJSONファイルを, 作成したPythonプログラムから読み込み, Pythonのelasticsearchライブラリを用いてco2\_modbusインデックスにインサートした.
-
-% \section{データ移行が正常に行えたか確認}
-% 図 \ref{p20}にco2インデックスの2023年7月1日以降のPPM値の推移をグラフにしたものを, 図 \ref{p3}にco2\_modbusインデックスの2023年7月1日以降のPPM値の推移をグラフにしたものを示す.
-
-% 図 \ref{p20}と図 \ref{p21}より, co2インデックスのデータが正常にco2\_modbusインデックスに移行できていることが分かる.
-
-% \begin{figure}[!ht]
-%     \begin{center}
-%         \includegraphics[width=160mm]{sotu/figure/co2PPM.png}
-%         \caption{co2インデックスのPPM}
-%         \label{p20}
-%     \end{center}
-% \end{figure}
-
-% \begin{figure}[!ht]
-%     \begin{center}
-%         \includegraphics[width=160mm]{sotu/figure/co2ModbusPPM.png}
-%         \caption{co2\_modbusインデックスのPPM}
-%         \label{p21}
-%     \end{center}
-% \end{figure}
-
-% 次に, 図 \ref{p22}にco2インデックスの2023年7月1日以降のRH値の推移をグラフにしたものを, 図 \ref{p5}にco2\_modbusインデックスの2023年7月1日以降のRH値の推移をグラフにしたものを示す.
-
-% 図 \ref{p22}と図 \ref{p23}より, co2インデックスのデータが正常にco2\_modbusインデックスに移行できていることが分かる.
-
-% \begin{figure}[!ht]
-%     \begin{center}
-%         \includegraphics[width=160mm]{sotu/figure/co2RH.png}
-%         \caption{co2インデックスのRH}
-%         \label{p22}
-%     \end{center}
-% \end{figure}
-
-% \begin{figure}[!ht]
-%     \begin{center}
-%         \includegraphics[width=160mm]{sotu/figure/co2ModbusRH.png}
-%         \caption{co2\_modbusインデックスのRH}
-%         \label{p23}
-%     \end{center}
-% \end{figure}
-
-% 次に, 図 \ref{p24}にco2インデックスの2023年7月1日以降のTEMP値の推移をグラフにしたものを, 図 \ref{p28}にco2\_modbusインデックスの2023年7月1日以降のTEMP値の推移をグラフにしたものを示す.
-
-% 図 \ref{p24}と図 \ref{p28}より, co2インデックスのデータが正常にco2\_modbusインデックスに移行できていることが分かる.
-
-% \begin{figure}[!ht]
-%     \begin{center}
-%         \includegraphics[width=160mm]{sotu/figure/co2Temp.png}
-%         \caption{co2インデックスのTEMP}
-%         \label{p24}
-%     \end{center}
-% \end{figure}
-
-% \begin{figure}[!ht]
-%     \begin{center}
-%         \includegraphics[width=160mm]{sotu/figure/co2ModbusTemp.png}
-%         \caption{co2\_modbusインデックスのTEMP}
-%         \label{p28}
-%     \end{center}
-% \end{figure}
 
 \section{結言}
 本章学内ゾーンにおける Elasticsearch クラスタへのデータ移行について述べた。
