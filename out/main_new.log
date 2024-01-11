@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2023.8.28)  10 JAN 2024 16:55
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2023.8.28)  11 JAN 2024 15:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -177,15 +177,6 @@ File: l3backend-dvips.def 2020-02-03 L3 backend support: dvips
 
 LaTeX Warning: Label `sc1' multiply defined.
 
-
-LaTeX Warning: Label `sc2' multiply defined.
-
-
-LaTeX Warning: Label `sc1' multiply defined.
-
-
-LaTeX Warning: Label `sc2' multiply defined.
-
 ) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/chapter6.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux) (out/sotu/appendix.aux))
 \openout1 = `main_new.aux'.
 
@@ -347,136 +338,132 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 52--53
  []
 
 [14]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 70--71
+Overfull \hbox (59.91063pt too wide) in paragraph at lines 70--71
 [][][][][][][][][][][][][][][][] 
  []
 
 [15]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 82--83
+Overfull \hbox (59.91063pt too wide) in paragraph at lines 82--83
 [][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 92--93
+Overfull \hbox (59.91063pt too wide) in paragraph at lines 92--93
 [][][][][][][][][][][][][][][][] 
  []
 
-[16]
-File: sotu/figure/curl-same.png Graphic file (type bmp)
-<sotu/figure/curl-same.png>
+File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
+<sotu/figure/all-7.19.9.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 136--137
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 111--112
  [] 
  []
 
-[17]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 153--154
-[][][][][][][][][][][][][][][][] 
+[16] [17]
+File: sotu/figure/curl-same.png Graphic file (type bmp)
+<sotu/figure/curl-same.png>
+
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 148--149
+ [] 
  []
 
 [18]
+File: sotu/figure/2-7.19.9-and-1-7.17.6.png Graphic file (type bmp)
+<sotu/figure/2-7.19.9-and-1-7.17.6.png>
+
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 164--165
+ [] 
+ []
+
 File: sotu/figure/curl-different.png Graphic file (type bmp)
 <sotu/figure/curl-different.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 165--166
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 187--188
  [] 
  []
 
 File: sotu/figure/log.png Graphic file (type bmp)
 <sotu/figure/log.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 177--178
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 199--200
  [] 
  []
 
-[19] [20]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 206--207
-[][][][][][][][][][][][][][][][] 
+[19]
+File: sotu/figure/1-7.17.9.png Graphic file (type bmp)
+<sotu/figure/1-7.17.9.png>
+
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 218--219
+ [] 
  []
+
+
+LaTeX Warning: Float too large for page by 32.39725pt on input line 222.
 
 File: sotu/figure/es04-cluster.png Graphic file (type bmp)
 <sotu/figure/es04-cluster.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 230--231
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 252--253
  [] 
  []
 
+[20]
+Overfull \vbox (5.51767pt too high) has occurred while \output is active []
+
 [21]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 256--257
-[][][][][][][][][][][][][][][][] 
+File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
+<sotu/figure/all-7.19.9.png>
+
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 268--269
+ [] 
  []
 
-[22]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 269--270
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 280--281
-[][][][][][][][][][][][][][][][] 
- []
-
-[23]
 File: sotu/figure/3nodes-cluster.png Graphic file (type bmp)
 <sotu/figure/3nodes-cluster.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 308--309
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 338--339
  [] 
  []
 
 File: sotu/figure/3nodes-list.png Graphic file (type bmp)
 <sotu/figure/3nodes-list.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 320--321
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 350--351
  [] 
  []
 
-[24]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 350--351
-[][][][][][][][][][][][][][][][] 
+File: sotu/figure/4-7.17.9.png Graphic file (type bmp)
+<sotu/figure/4-7.17.9.png>
+
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 368--369
+ [] 
  []
 
-[25]
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 363--364
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 374--375
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (45.81065pt too wide) in paragraph at lines 385--386
-[][][][][][][][][][][][][][][][] 
- []
-
-[26]
 File: sotu/figure/4nodes-list.png Graphic file (type bmp)
 <sotu/figure/4nodes-list.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 415--416
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 453--454
  [] 
  []
 
 File: sotu/figure/es04-log.png Graphic file (type bmp)
 <sotu/figure/es04-log.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 427--428
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 465--466
  [] 
  []
 
-[27] [28]) [29]
+[22]) [23] [24] [25] [26] [27] [28]
 \openout2 = `sotu/chapter4.aux'.
 
-(./sotu/chapter4.tex) [30
+(./sotu/chapter4.tex) [29
 
 
 
 ]
 \openout2 = `sotu/chapter5.aux'.
 
-(./sotu/chapter5.tex) [31
+(./sotu/chapter5.tex) [30
 
 
 
@@ -486,7 +473,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 427--428
 No file sotu/chapter6.tex.
 \openout2 = `sotu/syazi.aux'.
 
-(./sotu/syazi.tex) [32
+(./sotu/syazi.tex) [31
 
 
 
@@ -510,7 +497,7 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 4--5
 \OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
-) [33
+) [32
 
 
 
@@ -538,7 +525,7 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 73.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 73.
-[34
+[33
 
 
 
@@ -546,9 +533,9 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 96.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [35] [36] [37] [38] [39] [40
+) [34] [35] [36] [37] [38] [39
 
-] [41] [42]) [43] (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/chapter6.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux) (out/sotu/appendix.aux))
+] [40] [41]) [42] (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/chapter6.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux) (out/sotu/appendix.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -557,12 +544,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3877 strings out of 481768
- 51740 string characters out of 5933620
- 598940 words of memory out of 5000000
- 19183 multiletter control sequences out of 15000+600000
+ 3897 strings out of 481768
+ 52203 string characters out of 5933620
+ 599151 words of memory out of 5000000
+ 19199 multiletter control sequences out of 15000+600000
  551022 words of font info for 98 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  33i,14n,44p,739b,2043s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (47 pages, 121808 bytes).
+Output written on out/main_new.dvi (46 pages, 109860 bytes).

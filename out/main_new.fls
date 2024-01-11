@@ -161,18 +161,27 @@ INPUT sotu/figure/docker-vmware.png
 INPUT extractbb -B cropbox -O sotu/figure/docker-vmware.png
 INPUT sotu/figure/elasticsearch-image.png
 INPUT extractbb -B cropbox -O sotu/figure/elasticsearch-image.png
+INPUT sotu/figure/all-7.19.9.png
+INPUT extractbb -B cropbox -O sotu/figure/all-7.19.9.png
 INPUT sotu/figure/curl-same.png
 INPUT extractbb -B cropbox -O sotu/figure/curl-same.png
+INPUT sotu/figure/2-7.19.9-and-1-7.17.6.png
+INPUT extractbb -B cropbox -O sotu/figure/2-7.19.9-and-1-7.17.6.png
 INPUT sotu/figure/curl-different.png
 INPUT extractbb -B cropbox -O sotu/figure/curl-different.png
 INPUT sotu/figure/log.png
 INPUT extractbb -B cropbox -O sotu/figure/log.png
+INPUT sotu/figure/1-7.17.9.png
+INPUT extractbb -B cropbox -O sotu/figure/1-7.17.9.png
 INPUT sotu/figure/es04-cluster.png
 INPUT extractbb -B cropbox -O sotu/figure/es04-cluster.png
+INPUT sotu/figure/all-7.19.9.png
 INPUT sotu/figure/3nodes-cluster.png
 INPUT extractbb -B cropbox -O sotu/figure/3nodes-cluster.png
 INPUT sotu/figure/3nodes-list.png
 INPUT extractbb -B cropbox -O sotu/figure/3nodes-list.png
+INPUT sotu/figure/4-7.17.9.png
+INPUT extractbb -B cropbox -O sotu/figure/4-7.17.9.png
 INPUT sotu/figure/4nodes-list.png
 INPUT extractbb -B cropbox -O sotu/figure/4nodes-list.png
 INPUT sotu/figure/es04-log.png
