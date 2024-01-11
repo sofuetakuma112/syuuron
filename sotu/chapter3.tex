@@ -20,7 +20,7 @@ Dockerは, 軽量で独立したコンテナ型仮想環境用のプラットフ
 しかし, DockerはホストOS上にゲストOSなしで独立したコンテナ型の仮想環境として構築される.
 Dockerコンテナを利用する場合は, Docker Engineをインストールすることでコンテナの立ち上げ, 停止, 削除といった操作を行うことができる.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/docker-vmware.png}
     \caption{仮想マシンとDockerの違い \cite{2}}
@@ -47,7 +47,7 @@ DockerイメージはDocker Hubやその他のレジストリで共有されて�
 
 今回はElasticsearchの開発元であるElastic社が提供しているElasticsearchのDockerイメージを使って検証を行う.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/elasticsearch-image.png}
     \caption{ElasticsearchのDockerイメージ}
@@ -106,7 +106,7 @@ Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用して�
 
 また, 図 \ref{d1}にListing \ref{sc1}のdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/all-7.19.9.png}
     \caption{docker-compose.ymlを図で表現したもの}
@@ -143,7 +143,7 @@ Listing \ref{sc1}のdocker-compose.ymlファイルで記述している内容に
 
 docker compose up -dコマンドを実行した後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{p1}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/curl-same.png}
     \caption{クラスタに参加しているノードを一覧表示した結果}
@@ -159,7 +159,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 図 \ref{d2}に変更後のdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/2-7.19.9-and-1-7.17.6.png}
     \caption{変更後のdocker-compose.ymlを図で表現したもの}
@@ -167,22 +167,11 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
   \end{center}
 \end{figure}
 
-% \begin{lstlisting}[caption=Listing \ref{sc1}のdocker-compose.ymlから変更を加えた箇所, label=sc2]
-% version: '2.2'
-% services:
-%   ...
-%   es03:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.6
-%     ...
-
-% ...
-% \end{lstlisting}
-
 変更後, docker compose up -dコマンドを実行してクラスタを起動する.
 
 クラスタの起動後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{p2}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/curl-different.png}
     \caption{クラスタに参加しているノードを一覧表示した結果}
@@ -194,7 +183,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 また, Elasticsearch起動時に出力されたログを確認したところ, 図 \ref{p3}に示すように, クラスタに参加できなかったes03のコンテナでElasticsearchがエラーログを出力して終了していることが分かった.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/log.png}
     \caption{es03のログ}
@@ -213,7 +202,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 図 \ref{d3}にクラスタAの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/1-7.17.9.png}
     \caption{クラスタAの構築の際に使用したdocker-compose.ymlを図で表現したもの}
@@ -221,33 +210,9 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
   \end{center}
 \end{figure}
 
-% \begin{lstlisting}[caption=クラスタAの構築の際に使用したdocker-compose.yml, label=sc1]
-% version: '2.2'
-% services:
-%   es04:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es04
-%     environment:
-%       - node.name=es04
-%       - discovery.type=single-node
-%     volumes:
-%       - data04:/usr/share/elasticsearch/data
-%     ports:
-%       - 9200:9200
-%     networks:
-%       - esnet
-
-% volumes:
-%   data04:
-%     driver: local
-
-% networks:
-%   esnet:
-% \end{lstlisting}
-
 docker-composeを用いてノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{p1-1}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/es04-cluster.png}
     \caption{クラスタの情報について問い合わせた結果}
@@ -263,7 +228,7 @@ docker-composeを用いてノードを起動した後, クラスタの情報に�
 
 図 \ref{d4}にクラスタBの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/all-7.19.9.png}
     \caption{クラスタBの構築の際に使用したdocker-compose.ymlを図で表現したもの}
@@ -271,69 +236,9 @@ docker-composeを用いてノードを起動した後, クラスタの情報に�
   \end{center}
 \end{figure}
 
-% \begin{figure}[!ht]
-%   \begin{center}
-%     \includegraphics[width=160mm]{sotu/figure/3nodes.png}
-%     \caption{クラスタBの構築の際に使用したdocker-compose.yml}
-%     \label{p2}
-%   \end{center}
-% \end{figure}
-
-% \begin{lstlisting}[caption=クラスタBの構築の際に使用したdocker-compose.yml, label=sc2]
-% version: '2.2'
-% services:
-%   es01:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es01
-%     environment:
-%       - node.name=es01
-%       - discovery.seed_hosts=es01,es02,es03
-%       - cluster.initial_master_nodes=es01,es02,es03
-%     volumes:
-%       - data01:/usr/share/elasticsearch/data
-%     ports:
-%       - 9200:9200
-%     networks:
-%       - elastic
-%   es02:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es02
-%     environment:
-%       - node.name=es02
-%       - discovery.seed_hosts=es01,es02,es03
-%       - cluster.initial_master_nodes=es01,es02,es03
-%     volumes:
-%       - data02:/usr/share/elasticsearch/data
-%     networks:
-%       - elastic
-%   es03:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es03
-%     environment:
-%       - node.name=es03
-%       - discovery.seed_hosts=es01,es02,es03
-%       - cluster.initial_master_nodes=es01,es02,es03
-%     volumes:
-%       - data03:/usr/share/elasticsearch/data
-%     networks:
-%       - elastic
-
-% volumes:
-%   data01:
-%     driver: local
-%   data02:
-%     driver: local
-%   data03:
-%     driver: local
-
-% networks:
-%   elastic:
-%     driver: bridge
-% \end{lstlisting}
-
 docker-composeを用いて3つのノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{p2-1}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/3nodes-cluster.png}
     \caption{クラスタの情報について問い合わせた結果}
@@ -345,7 +250,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{p2-2}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/3nodes-list.png}
     \caption{クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果}
@@ -363,7 +268,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 図 \ref{d5}に, 合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/4-7.17.9.png}
     \caption{合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したもの}
@@ -371,84 +276,9 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
   \end{center}
 \end{figure}
 
-% Listing \ref{sc3}のes04コンテナでは, Listing \ref{sc1}でes04コンテナに指定したボリュームと同一のボリュームをボリュームマウントに指定しているため, 
-
-% \begin{figure}[!ht]
-%   \begin{center}
-%     \includegraphics[width=160mm]{sotu/figure/4nodes.png}
-%     \caption{合計4ノードでクラスタBを起動する際に使用したdocker-compose.yml}
-%     \label{p3}
-%   \end{center}
-% \end{figure}
-
-% \begin{lstlisting}[caption=合計4ノードでクラスタBを起動する際に使用したdocker-compose.yml, label=sc3]
-% version: '2.2'
-% services:
-%   es01:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es01
-%     environment:
-%       - node.name=es01
-%       - discovery.seed_hosts=es01,es02,es03,es04
-%       - cluster.initial_master_nodes=es01,es02,es03,es04
-%     volumes:
-%       - data01:/usr/share/elasticsearch/data
-%     ports:
-%       - 9200:9200
-%     networks:
-%       - elastic
-%   es02:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es02
-%     environment:
-%       - node.name=es02
-%       - discovery.seed_hosts=es01,es02,es03,es04
-%       - cluster.initial_master_nodes=es01,es02,es03,es04
-%     volumes:
-%       - data02:/usr/share/elasticsearch/data
-%     networks:
-%       - elastic
-%   es03:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es03
-%     environment:
-%       - node.name=es03
-%       - discovery.seed_hosts=es01,es02,es03,es04
-%       - cluster.initial_master_nodes=es01,es02,es03,es04
-%     volumes:
-%       - data03:/usr/share/elasticsearch/data
-%     networks:
-%       - elastic
-%   es04:
-%     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%     container_name: es04
-%     environment:
-%       - node.name=es04
-%       - discovery.seed_hosts=es01,es02,es03,es04
-%       - cluster.initial_master_nodes=es01,es02,es03,es04
-%     volumes:
-%       - data04:/usr/share/elasticsearch/data
-%     networks:
-%       - elastic
-
-% volumes:
-%   data01:
-%     driver: local
-%   data02:
-%     driver: local
-%   data03:
-%     driver: local
-%   data04:
-%     driver: local
-
-% networks:
-%   elastic:
-%     driver: bridge
-%   \end{lstlisting}
-
 クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{p3-1}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/4nodes-list.png}
     \caption{合計4ノードでクラスタの起動を試みた後, クラスタに参加しているノードの一覧を取得した結果}
@@ -460,7 +290,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 es04コンテナ（クラスタAのノード）で出力されたログの一部を図 \ref{p3-2}に示す.
 
-\begin{figure}[!ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/es04-log.png}
     \caption{es04コンテナのログ}
@@ -471,11 +301,6 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 図 \ref{p3-2}には, 異なるクラスタIDを持つクラスタにノードが参加することは禁止されており, これを行うためにはインデックスやドキュメント情報などが格納されているデータパス配下のフォルダ, ファイルを削除する必要があると書かれている.
 
 以上の検証結果から, 既に稼働しているノードを別のクラスタに新しいノードとして参加させることは出来ないことが分かった.
-
-% \section{まとめ}
-% 今回は, CO\textsubscript{2}データなどが保存されている3ノードで構築されたクラスタに対して, リサイクル館の太陽光パネルの計測データを保存しているElasticsearchノードが新たなノードとしてクラスタに参加できるか, Dockerを用いて検証した.
-
-% 検証の結果, Elasticsearchのノードは異なるクラスタIDを持つクラスタに参加することはできないことが分かった.ノードが別のクラスタに参加するためには, インデックスやドキュメント情報などを格納しているデータパスのフォルダやファイルを削除する必要があるが, これはそのノードのデータを失うことを意味する.
 
 したがって, リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードをクラスタに参加させるには以下の2通りの方法が考えられる.
 

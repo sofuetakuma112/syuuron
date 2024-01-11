@@ -25,12 +25,12 @@
 \contentsline {section}{\numberline {3.5節}検証環境のセットアップ}{14}%
 \contentsline {subsection}{\numberline {3.5.1}全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}{14}%
 \contentsline {subsection}{\numberline {3.5.2}異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}{19}%
-\contentsline {section}{\numberline {3.6節}異なるElasticsearchクラスタへのノード参加検証}{20}%
-\contentsline {section}{\numberline {3.7節}手順}{20}%
-\contentsline {subsection}{\numberline {3.7.1}単一ノードで稼働するクラスタAの構築}{20}%
-\contentsline {subsection}{\numberline {3.7.2}クラスタBの構築}{21}%
-\contentsline {subsection}{\numberline {3.7.3}クラスタBへの参加試行}{22}%
-\contentsline {section}{\numberline {3.8節}結言}{23}%
+\contentsline {section}{\numberline {3.6節}異なるElasticsearchクラスタへのノード参加検証}{19}%
+\contentsline {section}{\numberline {3.7節}手順}{22}%
+\contentsline {subsection}{\numberline {3.7.1}単一ノードで稼働するクラスタAの構築}{22}%
+\contentsline {subsection}{\numberline {3.7.2}クラスタBの構築}{22}%
+\contentsline {subsection}{\numberline {3.7.3}クラスタBへの参加試行}{26}%
+\contentsline {section}{\numberline {3.8節}結言}{28}%
 \contentsline {chapter}{\numberline {第4章}4章のタイトル}{29}%
 \contentsline {section}{\numberline {4.1節}緒言}{29}%
 \contentsline {section}{\numberline {4.2節}結言}{29}%
