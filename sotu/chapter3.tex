@@ -1,315 +1,235 @@
-\chapter{サーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証}
+
+\chapter{学内ゾーンにおけるElasticsearchクラスタへのデータ移行}
 \label{chap:third}
 
 \section{緒言}
-本章では、サーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証ついて述べる。
+本章では学内ゾーンで稼働している Elasticsearch クラスタへのデータ移行について述べる．
 
-\section{サーバーゾーンで稼働しているElasticsearchシステムの状況}
-サーバーゾーンでは, 133.71.201.197で単一ノードのElasticsearchが稼働しており, リサイクル館の太陽光パネルの計測データが保存されている.
+\section{Elasticsearchの概要}
+Elasticsearchは、分散処理に対応した全文検索エンジンである。主な特徴は、以下の通りである。
 
-133.71.201.197のElasticsearchのバージョン7.17.6であり, 学内ゾーンで稼働しているElasticsearchクラスタに参加しているElastisearchノードのバージョンは7.17.9である.
+\begin{itemize}
+  \item 高速な検索性能: ビッグデータなどの巨大で複雑なデータの集合にも対応可能
+  \item 部分一致検索が可能: 検索キーワードの一部に一致するドキュメントも検索可能
+  \item ほぼリアルタイムの検索: ドキュメントにインデックスを付けてから検索可能になるまで約1秒程度
+  \item スケーラビリティ: サーバー数を増やすことで、検索性能と処理能力を拡張可能
+\end{itemize}
 
-本研究室では現在, バージョン7.17.9のElasticsearchを採用しているため, サーバーゾーンで構築しようとしているクラスタのElasticsearchのバージョンも, 学内ゾーンで稼働しているElasticsearchクラスタと同様, バージョン7.17.9を採用する.
+これらの特徴から、Elasticsearchは、以下のような用途に適している。
 
-そこで, Docker, Docker Compose を使用して, 異なるバージョンである7.17.6 と 7.17.9 の Elasticsearch ノードをクラスタリングすることが可能かどうかを確認するために実施した.
+\begin{itemize}
+  \item ログ分析: Webサイトやアプリケーションのログから、アクセス状況やエラー情報を分析する
+  \item セキュリティインテリジェンス: ネットワークやシステムから、セキュリティ脅威を検知する
+  \item ビジネス分析: 顧客データや販売データから、トレンドや傾向を分析する
+\end{itemize}
 
-\section{Dockerとは}
-Dockerは, 軽量で独立したコンテナ型仮想環境用のプラットフォームである.
+\section{kibanaの概要}
 
-従来の仮想化では, VMWareなどの仮想化ソフトウェアを用いて, ホストOS上にゲストOSを構築する形式だった.
-しかし, DockerはホストOS上にゲストOSなしで独立したコンテナ型の仮想環境として構築される.
-Dockerコンテナを利用する場合は, Docker Engineをインストールすることでコンテナの立ち上げ, 停止, 削除といった操作を行うことができる.
+Kibanaは、Elasticsearchに保存されたデータを可視化するためのツールである。主な特徴は、以下の通りである。
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/docker-vmware.png}
-    \caption{仮想マシンとDockerの違い \cite{2}}
-    \label{p0}
-  \end{center}
-\end{figure}
+\begin{itemize}
+  \item 直感的な操作性: ドラッグ＆ドロップで簡単に可視化を作成できる
+  \item 豊富な可視化機能: グラフ、表、地図など、さまざまな可視化機能を提供
+  \item 高度なフィルタリング機能: 条件を指定して、データを詳細に絞り込むことができる
+\end{itemize}
 
-\subsection{コンテナとは}
+これらの特徴から、Kibanaは、以下のような用途に適している。
 
-コンテナは, アプリケーションとそのすべての依存関係（ライブラリ, 実行環境など）をカプセル化した軽量な実行単位である.
-Dockerの場合, コンテナの作成にはDockerイメージが必要となる.
+\begin{itemize}
+  \item ログ分析: Webサイトやアプリケーションのログから、アクセス状況やエラー情報を可視化する
+  \item セキュリティインテリジェンス: ネットワークやシステムから、セキュリティ脅威を可視化する
+  \item ビジネス分析: 顧客データや販売データから、トレンドや傾向を可視化する
+\end{itemize}
 
-\subsection{Dockerイメージとは}
+\section{学内ゾーンで稼働しているElasticsearchシステムの状況}
+学内ゾーンでは, 133.71.106.168で単一ノードのElasticsearchと, 133.71.106.170, 133.71.106.141, 133.71.106.136のElasticsearchノードによって構成されたElasticsearchクラスタが稼働している.
 
-Dockerイメージとは, Dockerコンテナを作成するためのテンプレートであり, Dockerイメージの中には, Docker コンテナの実行に必要な Linux ファイルシステムとメタ情報を含む.
+133.71.106.168のElasticsearchには, CO\textsubscript{2}濃度監視システムによって計測されたデータとLEAFの運行日誌に関するデータが保存されている.
 
-Linux ファイルシステムというのは,  / ディレクトリ以下の /etc /bin /sbin /usr などのディレクトリ階層およびファイルである. 
+% \section{CO\textsubscript{2}濃度監視システムの概要}
+% CO\textsubscript{2}濃度監視システムとは共通講義棟 C, 工学部 5 号館，工学部 4 号館の各講義室(計 24 部屋)の CO2 濃度を学内ネットワーク内の web サイトで閲覧することができるシステムである．
 
-Docker では, コンテナとして動かしたいアプリケーションが必要とする, 最小限のファイルを Docker イメージの中に入れる. 
+% Elasticsearchに保存されたデータには, 計測した日時, 部屋番号, 部屋の気温, CO\textsubscript{2}濃度などの情報が含まれている.
 
-さらに, そのアプリケーションを動かすために必要なデフォルトのコマンドや引数の指定, 外に公開するポート番号の情報などの情報がある. これらをメタ情報として, 同じく Docker イメージの中に入れられる 
+\section{データ移行対象のElasticsearchインデックスについて}
 
-DockerイメージはDocker Hubやその他のレジストリで共有されており, これらのサービスから取得することが可能である.
+133.71.106.168で稼働している単一ノードのElasticsearchに保存されたCO\textsubscript{2}データとLEAFの運行日誌に関するデータを, 学内ゾーンで稼働しているElasticsearchクラスタへ移行する.
 
-今回はElasticsearchの開発元であるElastic社が提供しているElasticsearchのDockerイメージを使って検証を行う.
+\section{CO\textsubscript{2}データの移行手順について}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/elasticsearch-image.png}
-    \caption{ElasticsearchのDockerイメージ}
-    \label{s0}
-  \end{center}
-\end{figure}
+CO\textsubscript{2}のデータ移行を行う上で, タイムスタンプと部屋番号の組み合わせが重複しているデータが一部存在しており, この重複データを取り除いた上でデータ移行を行う必要がある. そこで一度, 移行元のElasticSearchサーバーのデータをローカルマシンにエクスポートして, 重複データを取り除いた上で, 移行先のElasticSearchサーバーにデータをインサートする.
 
-\section{Docker Composeとは}
-Docker Composeは, 複数のコンテナを定義し, 実行するためのツールである. これはYAMLファイルを使用して設定され, 複数のコンテナで協調して動作するアプリケーションの開発を単純化する.
+\subsection{データのエクスポート}
+移行元のElasticSearchサーバーのデータのローカルマシンへのエクスポートには, elasticdumpライブラリを使用して, JSON形式でエクスポートした.その際, co2という文字列を含むインデックスのデータのみをエクスポートした.
 
-\section{検証環境のセットアップ}
-\subsection{全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}
+\subsection{データの重複削除}
+重複データの削除はSQLiteデータベースを用いて行った.
 
-Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlをを示す.
+SQLiteは、軽量で自己完結型のデータベースエンジンです。これは、多くのアプリケーションに組み込まれており、以下の特徴を持っています：
 
-\begin{lstlisting}[caption=全て同じバージョンのElasticsearchを使用したクラスタを構成するdocker-compose.yml, label=sc1]
-  version: '2.2'
-  services:
-    es01:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-      container_name: es01
-      environment:
-        - node.name=es01
-        - cluster.name=es-docker-cluster
-        - discovery.seed_hosts=es02,es03
-        - cluster.initial_master_nodes=es01,es02,es03
-      ports:
-        - 9200:9200
-      networks:
-        - elastic
-    es02:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-      container_name: es02
-      environment:
-        - node.name=es02
-        - cluster.name=es-docker-cluster
-        - discovery.seed_hosts=es01,es03
-        - cluster.initial_master_nodes=es01,es02,es03
-      networks:
-        - elastic
-    es03:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-      container_name: es03
-      environment:
-        - node.name=es03
-        - cluster.name=es-docker-cluster
-        - discovery.seed_hosts=es01,es02
-        - cluster.initial_master_nodes=es01,es02,es03
-      networks:
-        - elastic
-  
-  networks:
-    elastic:
-      driver: bridge
+軽量: SQLiteは非常に小さく、リソースの少ない環境でも動作します。例えば、組み込みシステムやモバイルアプリケーションなどです。
+自己完結型: SQLiteはサーバーレスで、設定や管理が不要です。これは、データベースが単一のファイルとして存在し、外部の依存関係がないことを意味します。
+トランザクション: SQLiteはACIDトランザクションをサポートしており、データの整合性を保ちます。
+言語のサポート: 多くのプログラミング言語で使用できます。
+幅広い用途: デスクトップ、モバイル、ウェブアプリケーションなど、さまざまな環境で利用されています。
+フリーかつオープンソース: SQLiteはパブリックドメインに属し、誰でも自由に使用、変更、配布できます。
+SQL標準準拠: 多くのSQL標準機能をサポートしていますが、全てではありません。
+
+SQLiteは、その単純さと効率性から、広く使われているデータベースエンジンの一つです。特に、大規模なデータベースシステムのオーバーヘッドが不要な場合や、独立したアプリケーションでの使用に適しています。
+
+SQLiteデータベースはリレーショナルデータベースの一種であり, 複合主キーを使って複数のテーブルカラムの組み合わせを一意の識別子として扱うことができる. これにより, 同じ組み合わせのデータを重複して挿入しようとした場合, データベースエンジンがコンフリクトエラーを発生させ, 重複データの挿入を阻止する. そのため, 今回の重複データ削除には適していると判断した.
+
+今回使用したSQLiteデータベースでは, 部屋番号(number)とタイムスタンプ(utctime)を一意のキーとして設定した. 以下のリスト\ref{sc1}, リスト\ref{sc2}に示すように, 移行元のElasticSearchサーバーに保存されているco2インデックスのドキュメントは, フィールドのメンバーが統一されておらず, 一部センサー情報が存在しない場合がある. そのため, データの挿入時にコンフリクトエラーが発生した場合は, 既存のレコードと挿入しようとしたレコードを比較し, 既存レコードの値がNULLであるカラムにおいて, 挿入しようとしているレコードの値が非NULLである場合には, 既存レコードのカラムの値を更新するようにした. これにより, 重複データ削除時に一部センサー情報などが欠けてしまう問題を解決した.
+
+\begin{lstlisting}[caption=\_sourceフィールドのメンバー数が少ないドキュメント, label=sc1]
+{
+  "_index": "co2_e411",
+  "_type": "_doc",
+  "_id": "nEi2nnoB2-iFXnrMOobM",
+  "_score": 1,
+  "_source": {
+      "utctime": "2020-10-09T05:09:06+00:00",
+      "number": "E411",
+      "PPM": "481",
+      "data": "Thingspeak"
+  }
+}
   \end{lstlisting}
 
-また, 図 \ref{d1}にListing \ref{sc1}のdocker-compose.ymlを図で表現したものを示す.
+\begin{lstlisting}[caption=\_sourceフィールドのメンバー数が多いドキュメント, label=sc2]
+{
+  "_index": "co2_e411",
+  "_type": "_doc",
+  "_id": "YKBqU4QBugDzeydA2gyi",
+  "_score": 1,
+  "_source": {
+      "RH": 26.98,
+      "PPM": 423,
+      "JPtime": "2022-11-06T22:45:30.080925",
+      "ip": "172.23.68.19/16",
+      "utctime": "2022-11-06T13:45:30.080895",
+      "TEMP": 24.47,
+      "index_name": "co2_e411",
+      "ms": "",
+      "number": "E411"
+  }
+}
+    \end{lstlisting}
+
+\subsection{データのインポート}
+重複データ削除後のデータが保存されたSQLiteテーブルからすべてのレコードを読み出して, ターゲットのElasticSearchサーバーに移行した.
+
+その際, pythonのelasticsearchライブラリを使用し, co2\_modbusという名前のインデックスに保存した.
+
+\section{一度目のデータ移行で移行できなかったCO\textsubscript{2}データの移行について}
+
+実装したデータ移行プログラムを使用して133.71.201.197から133.71.106.141のElasticSearchサーバーへCO\textsubscript{2}データを移行したのが2023年5月中旬頃であり, CO\textsubscript{2}濃度監視システムを開発, 運用している高木君が, 移行先である133.71.106.141のElasticSearchサーバーに対してラズベリーパイからCO\textsubscript{2}データのインサートを行うよう対応したのが2023年7月中旬であったため, 2023年5月中旬から2023年7月中旬までの間の約2ヶ月間のCO\textsubscript{2}データが移行先のElasticSearchサーバーに移行出来ていなかった. そこで, 追加の移行作業を行った.
+
+移行方法は以下のとおりである.
+
+\begin{enumerate}
+  \item まず, 2023年5月中旬に移行した際の全移行データの中で最も最新のutctimeフィールドの値を検索する.
+        \begin{itemize}
+          \item 検索した結果, 2023年5月中旬に移行した際の全移行データの中で最も最新のutctimeは「2023-05-16T05:48:30.081305」であった.
+        \end{itemize}
+  \item 次に, 移行先ElasticSearchサーバーに対してラズベリーパイからインサートされた全データの中で最も古いutctimeフィールドの値を検索する.
+        \begin{itemize}
+          \item 検索した結果, ラズベリーパイからインサートされた全データの中で最も古いutctimeは「2023-07-20T07:15:39.314008」であった.
+        \end{itemize}
+  \item 前回のCO\textsubscript{2}データの移行は2023年5月中旬頃に行ったため, 2023年5月1日0時0分0秒以降のutctimeを持つドキュメントを, 移行元ElasticSearchサーバーのインデックス名にco2という文字列を含むインデックスからelasticdump \cite{1}ライブラリを使用してローカルマシンにエクスポートする.
+  \item 部屋番号(number)とタイムスタンプ(utctime)の組み合わせがユニークになるようにエクスポートしたデータをフィルタリングする.
+  \item 更に, 1と2で得られたutctimeの範囲に含まれるutctimeを持つドキュメントのみになるようフィルタリングする.
+  \item フィルタリング後のデータを移行先ElasticSearchサーバーにバルクインサートする.
+\end{enumerate}
+
+\section{kibanaによるデータの可視化}
+
+計2回のCO\textsubscript{2}データを移行した後のco2\_modbusインデックスについて, 横軸をタイムスタンプ(utctime)とし, 縦軸をPPM, RH, TEMPとしてそれぞれプロットしたものを図 \ref{p12} 〜 図 \ref{p14}に示す.
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/all-7.19.9.png}
-    \caption{docker-compose.ymlを図で表現したもの}
-    \label{d1}
+    \includegraphics[width=160mm]{sotu/figure/ppm.png}
+    \caption{co2\_modbusのPPM}
+    \label{p12}
   \end{center}
 \end{figure}
-
-Listing \ref{sc1}のdocker-compose.ymlファイルで記述している内容について説明する.
-
-\subsubsection*{サービスの定義}
-\begin{itemize}
-  \item \textbf{es01, es02, es03}: これらはElasticsearchのノード（サーバー）である. 各ノードは異なるコンテナとして定義されている. es01, es02, es03はそれぞれ異なるコンテナ名で, Elasticsearchの異なるインスタンスを実行する.
-\end{itemize}
-
-\subsubsection*{各ノードの設定}
-\begin{itemize}
-  \item \textbf{image}: 使用するDockerイメージ. ここではElasticsearchの7.17.9バージョンを使用している.
-  \item \textbf{container\_name}: コンテナに割り当てられる名前.
-  \item \textbf{environment}: 環境変数の設定. Elasticsearchのクラスタ設定を含む.
-  \item \textbf{ports}: ホストマシンとコンテナ間のポートマッピング. 例えば, `9200:9200`はホストマシンの9200ポートをコンテナの9200ポートにマッピングする.
-  \item \textbf{networks}: コンテナ間通信のためのネットワーク設定. ここではelasticネットワークが使用されている.
-\end{itemize}
-
-\subsubsection*{ボリュームとネットワークの設定}
-\begin{itemize}
-  \item \textbf{networks}: デフォルトのドライバであるbridgeドライバを使用するelasticネットワークを定義している. これにより, 異なるコンテナが相互に通信できるようになる.
-\end{itemize}
-
-この設定により, Elasticsearchの3ノードを含むクラスタがDocker上で動作するようセットアップされる.
-
-以降, 説明を簡単にするため, docker-compose.ymlを図で表現したもののみを掲示する.
-
-クラスタの起動には, docker compose up -dコマンドを使用する.
-
-docker compose up -dコマンドを実行した後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{p1}に示す.
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/curl-same.png}
-    \caption{クラスタに参加しているノードを一覧表示した結果}
-    \label{p1}
+    \includegraphics[width=160mm]{sotu/figure/rh.png}
+    \caption{co2\_modbusのRH}
+    \label{p13}
   \end{center}
 \end{figure}
-
-図 \ref{p1}より, 3つのノード（es01, es02, es03）すべてが正常にクラスタに参加できていることが確認できる.
-
-\subsection{異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}
-
-図 \ref{d1}のdocker-compose.ymlのes03のコンテナが使用するDockerイメージを変更して, es03のノードで使用するElasticsearchのバージョンを7.17.9から7.17.6に変更する.
-
-図 \ref{d2}に変更後のdocker-compose.ymlを図で表現したものを示す.
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/2-7.19.9-and-1-7.17.6.png}
-    \caption{変更後のdocker-compose.ymlを図で表現したもの}
-    \label{d2}
+    \includegraphics[width=160mm]{sotu/figure/temp.png}
+    \caption{co2\_modbusのTEMP}
+    \label{p14}
   \end{center}
 \end{figure}
 
-変更後, docker compose up -dコマンドを実行してクラスタを起動する.
+2回目のCO\textsubscript{2}データの移行によって, 2023年5月中旬から2023年7月中旬までの期間とその前後の期間において, 図 \ref{p12} 〜 図 \ref{p14}より, 連続的にデータが変化していることが目視で確認できるので, データ移行は正常に出来たと判断できる.
 
-クラスタの起動後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{p2}に示す.
+\section{LEAFの運行日誌に関するデータの移行について}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/curl-different.png}
-    \caption{クラスタに参加しているノードを一覧表示した結果}
-    \label{p2}
-  \end{center}
-\end{figure}
-
-図 \ref{p2}より, バージョンが7.17.9である2つのノード（es01, es02）のみが正常にクラスタに参加できていることが確認できる.
-
-また, Elasticsearch起動時に出力されたログを確認したところ, 図 \ref{p3}に示すように, クラスタに参加できなかったes03のコンテナでElasticsearchがエラーログを出力して終了していることが分かった.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/log.png}
-    \caption{es03のログ}
-    \label{p3}
-  \end{center}
-\end{figure}
-
-\section{異なるElasticsearchクラスタへのノード参加検証}
-サーバーゾーンでのクラスタ構築において, リサイクル館の太陽光パネルの計測データを保存しているElasticsearchノードを新たなノードとして構築したクラスタに参加できるか, Dockerを用いて検証した.
-
-\section{手順}
-
-\subsection{単一ノードで稼働するクラスタAの構築}
-
-まず, docker-composeを用いて単一ノード(コンテナ名はes04)でクラスタ以後このクラスタをクラスタAと呼ぶを構築する. 以後このクラスタをクラスタAと呼ぶ.
-
-図 \ref{d3}にクラスタAの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/1-7.17.9.png}
-    \caption{クラスタAの構築の際に使用したdocker-compose.ymlを図で表現したもの}
-    \label{d3}
-  \end{center}
-\end{figure}
-
-docker-composeを用いてノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{p1-1}に示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/es04-cluster.png}
-    \caption{クラスタの情報について問い合わせた結果}
-    \label{p1-1}
-  \end{center}
-\end{figure}
-
-クラスタの情報について問い合わせた後, Dockerコンテナを停止してノードをシャットダウンした.
-
-\subsection{クラスタBの構築}
-
-次に, クラスタAに使用したノードとは別の3ノード(コンテナ名はそれぞれes01, es02, es03)でクラスタを構築する. 以後このクラスタをクラスタBと呼ぶ.
-
-図 \ref{d4}にクラスタBの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/all-7.19.9.png}
-    \caption{クラスタBの構築の際に使用したdocker-compose.ymlを図で表現したもの}
-    \label{d4}
-  \end{center}
-\end{figure}
-
-docker-composeを用いて3つのノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{p2-1}に示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/3nodes-cluster.png}
-    \caption{クラスタの情報について問い合わせた結果}
-    \label{p2-1}
-  \end{center}
-\end{figure}
-
-図 \ref{p1-1}, \ref{p2-1}より, クラスタAとクラスタBはそれぞれ異なるクラスタIDを付与されたことが分かる.
-
-クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{p2-2}に示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/3nodes-list.png}
-    \caption{クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果}
-    \label{p2-2}
-  \end{center}
-\end{figure}
-
-図 \ref{p2-2}より, es01, es02, es03ノードが全てクラスタBに参加できていることが分かる.
-
-クラスタに参加しているノードの一覧を取得した後, 全てのDockerコンテナを停止してノードを全てシャットダウンした.
-
-\subsection{クラスタBへの参加試行}
-
-次に, 図 \ref{d4}のdocker-compose.ymlに対して, クラスタAのノード(es04コンテナ)を追加し, 合計4ノードでのクラスタBの起動を試みる.
-
-図 \ref{d5}に, 合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したものを示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/4-7.17.9.png}
-    \caption{合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したもの}
-    \label{d5}
-  \end{center}
-\end{figure}
-
-クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{p3-1}に示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/4nodes-list.png}
-    \caption{合計4ノードでクラスタの起動を試みた後, クラスタに参加しているノードの一覧を取得した結果}
-    \label{p3-1}
-  \end{center}
-\end{figure}
-
-図 \ref{p3-1}より, クラスタAのノードがクラスタBに参加できていないことが分かる.
-
-es04コンテナ（クラスタAのノード）で出力されたログの一部を図 \ref{p3-2}に示す.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/es04-log.png}
-    \caption{es04コンテナのログ}
-    \label{p3-2}
-  \end{center}
-\end{figure}
-
-図 \ref{p3-2}には, 異なるクラスタIDを持つクラスタにノードが参加することは禁止されており, これを行うためにはインデックスやドキュメント情報などが格納されているデータパス配下のフォルダ, ファイルを削除する必要があると書かれている.
-
-以上の検証結果から, 既に稼働しているノードを別のクラスタに新しいノードとして参加させることは出来ないことが分かった.
-
-したがって, リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードをクラスタに参加させるには以下の2通りの方法が考えられる.
+LEAFの運行日誌に関するデータが保存されたインデックスは以下の2つである.
 
 \begin{itemize}
-  \item リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードのバックアップを取り, ノードに保存されたインデックスやドキュメントのデータを削除した上で, CO\textsubscript{2}データなどが保存されたクラスタに新しいノードとして参加させる
-  \item CO\textsubscript{2}データなどが保存されたクラスタとは別で, サーバーゾーンに新たにクラスタを構築する. クラスタの構築にはリサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードが所属するクラスタを使用する.
+  \item movement\_diary
+  \item movement\_diary01
 \end{itemize}
+
+これらのインデックスのデータ移行は, 同名のインデックスを移行先のElasticSearchサーバーに作成して, 作成したインデックスにデータを挿入することで行った.
+
+次に, 上記のインデックスに保存されているデータについて説明する.
+
+以下にmovement\_diaryとmovement\_diary01のドキュメントの違いを列挙する.
+
+\begin{enumerate}
+  \item driverフィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントでは, driverフィールドは文字列である.
+          \item movement\_diary01のドキュメントでは, driverフィールドは配列で, その中に文字列と2つのnull値が含まれている.
+        \end{itemize}
+        
+  \item ``destination''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントでは, ``destination''フィールドは単一の文字列である.
+          \item movement\_diary01のドキュメントでは, ``destination''フィールドは配列で, その中に2つの文字列が含まれている.
+        \end{itemize}
+        
+  \item ``charge\_place''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントには, ``charge\_place''フィールドは存在しない.
+          \item movement\_diary01のドキュメントでは, ``charge\_place''フィールドが追加されているが, その値は空文字列である.
+        \end{itemize}
+        
+  \item ``battery\_rate''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントには, ``battery\_rate''フィールドは存在しない.
+          \item movement\_diary01のドキュメントでは, ``battery\_rate''フィールドが追加されており, その値は数値である.
+        \end{itemize}
+        
+  \item ``battery\_rate\_distance''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントには, ``battery\_rate\_distance''フィールドは存在しない.
+          \item movement\_diary01のドキュメントでは, ``battery\_rate\_distance''フィールドが追加されており, その値は数値である.
+        \end{itemize}
+\end{enumerate}
+
+movement\_diaryとmovement\_diary01のドキュメントの違いより, movement\_diary01はmovement\_diaryのもつ情報量を全て保持しており, その上で追加のフィールドを持っていることから, 移行するのはmovement\_diary01インデックスのみで十分であることが分かった.
+
+\section{LEAFの運行日誌に関するデータの移行手順について}
+
+\subsection{データのエクスポート}
+移行元のElasticSearchサーバーのデータのローカルマシンへのエクスポートには, elasticdumpライブラリを使用して, movement\_diary01インデックスの全ドキュメントをJSON形式でエクスポートした.
+
+\subsection{データのインポート}
+pythonのelasticsearchライブラリを使用し, 移行先のElasticsearchにmovement\_diary01という名前のインデックスを作成して, エクスポートしたデータを全てインサートした.
 
 \section{結言}
-本章では、サーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証について述べた．
+本章では学内ゾーンで稼働している Elasticsearch クラスタへのデータ移行について述べた。
 
-次章ではサーバーゾーンでのクラスタ構築について述べる。
+次章ではサーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証について述べる。

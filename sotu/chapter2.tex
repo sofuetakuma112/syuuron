@@ -1,223 +1,214 @@
 
-\chapter{学内ゾーンにおけるElasticsearchクラスタへのデータ移行}
+\chapter{太陽光発電の計測データの補正}
 \label{chap:second}
 
 \section{緒言}
-本章では学内ゾーンで稼働している Elasticsearch クラスタへのデータ移行について述べる．
+本章では太陽光発電の計測データの補正について述べる．
 
-\section{Elasticsearchの概要}
-Elasticsearchは、分散処理に対応した全文検索エンジンである。主な特徴は、以下の通りである。
+% 20220523
 
-\begin{itemize}
-    \item 高速な検索性能: ビッグデータなどの巨大で複雑なデータの集合にも対応可能
-    \item 部分一致検索が可能: 検索キーワードの一部に一致するドキュメントも検索可能
-    \item ほぼリアルタイムの検索: ドキュメントにインデックスを付けてから検索可能になるまで約1秒程度
-    \item スケーラビリティ: サーバー数を増やすことで、検索性能と処理能力を拡張可能
-\end{itemize}
+\section{太陽光発電の計測データの問題点について}
+CSVデータなどで保存された太陽光発電の環境データはオフライン環境でファイル書き込みを行っているため, PCの内部時計がずれており日時情報が誤っている場合がある.
+そこで, 任意の緯度経度と日射量から日時を求めることの第一段階として, 任意の緯度経度と日時から日射量を計算するプログラムを開発した.
 
-これらの特徴から、Elasticsearchは、以下のような用途に適している。
+\section{日射量の式の導出}
+任意の緯度経度, 日時における日射量$Q$は, 任意の緯度$\phi$, 経度$\lambda$の地点における任意の日時, 太陽高度$\alpha$から求めることができる.
 
-\begin{itemize}
-    \item ログ分析: Webサイトやアプリケーションのログから、アクセス状況やエラー情報を分析する
-    \item セキュリティインテリジェンス: ネットワークやシステムから、セキュリティ脅威を検知する
-    \item ビジネス分析: 顧客データや販売データから、トレンドや傾向を分析する
-\end{itemize}
+まず, 次式により元旦からの通し日数$dn$に基いて定めた$\theta$を用いて, 当該日の太陽赤緯$\delta$, 地心太陽距離$\frac{r}{r^{*}}$, 均時差$E_q$をそれぞれ以下の式により求める.
+\begin{eqnarray}
+  \theta =  \frac{2\pi (dn-1)}{365}
+\end{eqnarray}
 
-\section{kibanaの概要}
+\begin{eqnarray}
+\begin{split}
+  \delta =  0.006918-0.399912\cos \theta+0.070257\sin \theta-0.006758\cos 2\theta\\
+  +0.000907\sin 2\theta-0.002697\cos 3\theta+0.001480\sin 3\theta
+\end{split}
+\end{eqnarray}
 
-Kibanaは、Elasticsearchに保存されたデータを可視化するためのツールである。主な特徴は、以下の通りである。
+\begin{eqnarray}
+  \frac{r}{r^{*}} =  \frac{1}{\sqrt{1.000110+0.034221\cos \theta+0.001280\sin \theta+0.000719\cos 2\theta+0.000077\sin 2\theta}}
+\end{eqnarray}
 
-\begin{itemize}
-    \item 直感的な操作性: ドラッグ＆ドロップで簡単に可視化を作成できる
-    \item 豊富な可視化機能: グラフ、表、地図など、さまざまな可視化機能を提供
-    \item 高度なフィルタリング機能: 条件を指定して、データを詳細に絞り込むことができる
-\end{itemize}
+\begin{eqnarray}
+  E_q =  0.000075+0.001868\cos \theta-0.032077\sin \theta-0.014615\cos 2\theta-0.040849\sin 2\theta
+\end{eqnarray}
 
-これらの特徴から、Kibanaは、以下のような用途に適している。
+日本標準時間から, 太陽の時角$h$を求める.
 
-\begin{itemize}
-    \item ログ分析: Webサイトやアプリケーションのログから、アクセス状況やエラー情報を可視化する
-    \item セキュリティインテリジェンス: ネットワークやシステムから、セキュリティ脅威を可視化する
-    \item ビジネス分析: 顧客データや販売データから、トレンドや傾向を可視化する
-\end{itemize}
+\begin{eqnarray}
+  h = \frac{(日本標準時間-12)\pi}{12}+標準子午線からの経度差+E_q
+\end{eqnarray}
 
-\section{学内ゾーンで稼働しているElasticsearchシステムの状況}
-学内ゾーンでは, 133.71.106.168で単一ノードのElasticsearchと, 133.71.106.170, 133.71.106.141, 133.71.106.136のElasticsearchノードによって構成されたElasticsearchクラスタが稼働している.
+$\delta$, $\phi$, $h$の値が既知となったので$\alpha$は
 
-133.71.106.168のElasticsearchには, CO\textsubscript{2}濃度監視システムによって計測されたデータとLEAFの運行日誌に関するデータが保存されている.
+\begin{eqnarray}
+  \alpha = \arcsin (\sin \phi\sin \delta+\cos \phi\cos \delta\cos h)
+\end{eqnarray}
 
-\section{CO\textsubscript{2}濃度監視システムの概要}
-CO\textsubscript{2}濃度監視システムとは共通講義棟 C, 工学部 5 号館，工学部 4 号館の各講義室(計 24 部屋)の CO2 濃度を学内ネットワーク内の web サイトで閲覧することができるシステムである．
+として求めることができる.
 
-Elasticsearchに保存されたデータには, 計測した日時, 部屋番号, 部屋の気温, CO\textsubscript{2}濃度などの情報が含まれている.
+最後に, $Q$を
 
-\section{データ移行対象のElasticsearchインデックスについて}
+\begin{eqnarray}
+  Q = 1367(\frac{r^{*}}{r})^{2}\sin \alpha
+\end{eqnarray}
 
-133.71.106.168で稼働している単一ノードのElasticsearchに保存されたCO\textsubscript{2}データとLEAFの運行日誌に関するデータを, 学内ゾーンで稼働しているElasticsearchクラスタへ移行する.
+により求めることができる.
+また, 1367\si{\watt}/\si{\metre\squared}は太陽定数である.
 
-\section{CO\textsubscript{2}データの移行手順について}
+\section{日射量を計算するプログラムの開発}
+式(1)から式(7)をもとに, 日射量を求めるプログラムを開発した.
+% なお, ソースコード\ref{sc1}では式(7)の計算について, 式変形によって得られた以下の式(8), (9)を用いて計算している.
 
-CO\textsubscript{2}のデータ移行を行う上で, タイムスタンプと部屋番号の組み合わせが重複しているデータが一部存在しており, この重複データを取り除いた上でデータ移行を行う必要がある. そこで一度, 移行元のElasticSearchサーバーのデータをローカルマシンにエクスポートして, 重複データを取り除いた上で, 移行先のElasticSearchサーバーにデータをインサートする.
+% \begin{eqnarray}
+%   (\frac{r^{*}}{r})^{2} = 1.000110+0.034221\cos \theta+0.001280\sin \theta+0.000719\cos 2\theta+0.000077\sin 2\theta
+% \end{eqnarray}
 
-\subsection{データのエクスポート}
-移行元のElasticSearchサーバーのデータのローカルマシンへのエクスポートには, elasticdumpライブラリを使用して, JSON形式でエクスポートした.その際, co2という文字列を含むインデックスのデータのみをエクスポートした.
+% \begin{eqnarray}
+%   \sin \alpha = \sin \{\arcsin (\sin \phi\sin \delta+\cos \phi\cos \delta\cos h)\} = \sin \phi\sin \delta+\cos \phi\cos \delta\cos h
+% \end{eqnarray}
 
-\subsection{データの重複削除}
-重複データの削除はSQLiteデータベースを用いて行った.
+% \begin{lstlisting}[caption=任意の緯度経度と日時から日射量を計算するプログラム, label=sc1]
+% import numpy as np
+% import datetime
 
-SQLiteデータベースはリレーショナルデータベースの一種であり, 複合主キーを使って複数のテーブルカラムの組み合わせを一意の識別子として扱うことができる. これにより, 同じ組み合わせのデータを重複して挿入しようとした場合, データベースエンジンがコンフリクトエラーを発生させ, 重複データの挿入を阻止する. そのため, 今回の重複データ削除には適していると判断した.
+% dt = datetime.datetime(2022, 5, 17, 17, 53)
+% dt_new_year = datetime.datetime(dt.year, 1, 1)
+% dt_delta = dt - dt_new_year  # 元旦からの通し日数
 
-今回使用したSQLiteデータベースでは, 部屋番号(number)とタイムスタンプ(utctime)を一意のキーとして設定した. 以下のリスト\ref{sc1}, リスト\ref{sc2}に示すように, 移行元のElasticSearchサーバーに保存されているco2インデックスのドキュメントは, フィールドのメンバーが統一されておらず, 一部センサー情報が存在しない場合がある. そのため, データの挿入時にコンフリクトエラーが発生した場合は, 既存のレコードと挿入しようとしたレコードを比較し, 既存レコードの値がNULLであるカラムにおいて, 挿入しようとしているレコードの値が非NULLである場合には, 既存レコードのカラムの値を更新するようにした. これにより, 重複データ削除時に一部センサー情報などが欠けてしまう問題を解決した.
+% dn = dt_delta.days + 1
+% theta = 2 * np.pi * (dn - 1) / 365
 
-\begin{lstlisting}[caption=\_sourceフィールドのメンバー数が少ないドキュメント, label=sc1]
-{
-  "_index": "co2_e411",
-  "_type": "_doc",
-  "_id": "nEi2nnoB2-iFXnrMOobM",
-  "_score": 1,
-  "_source": {
-      "utctime": "2020-10-09T05:09:06+00:00",
-      "number": "E411",
-      "PPM": "481",
-      "data": "Thingspeak"
-  }
-}
-  \end{lstlisting}
+% # 太陽赤緯(単位はラジアン)
+% delta = (
+%     0.006918
+%     - (0.399912 * np.cos(theta))
+%     + (0.070257 * np.sin(theta))
+%     - (0.006758 * np.cos(2 * theta))
+%     + (0.000907 * np.sin(2 * theta))
+%     - (0.002697 * np.cos(3 * theta))
+%     + (0.001480 * np.sin(3 * theta))
+% )
 
-\begin{lstlisting}[caption=\_sourceフィールドのメンバー数が多いドキュメント, label=sc2]
-{
-  "_index": "co2_e411",
-  "_type": "_doc",
-  "_id": "YKBqU4QBugDzeydA2gyi",
-  "_score": 1,
-  "_source": {
-      "RH": 26.98,
-      "PPM": 423,
-      "JPtime": "2022-11-06T22:45:30.080925",
-      "ip": "172.23.68.19/16",
-      "utctime": "2022-11-06T13:45:30.080895",
-      "TEMP": 24.47,
-      "index_name": "co2_e411",
-      "ms": "",
-      "number": "E411"
-  }
-}
-    \end{lstlisting}
+% # 地心太陽距離のルートの中身
+% geocentri_distance_like = (
+%     1.000110
+%     + 0.034221 * np.cos(theta)
+%     + 0.001280 * np.sin(theta)
+%     + 0.000719 * np.cos(2 * theta)
+%     + 0.000077 * np.sin(2 * theta)
+% )
 
-\subsection{データのインポート}
-重複データ削除後のデータが保存されたSQLiteテーブルからすべてのレコードを読み出して, ターゲットのElasticSearchサーバーに移行した.
+% eq = (  # 均時差
+%     0.000075
+%     + 0.001868 * np.cos(theta)
+%     - 0.032077 * np.sin(theta)
+%     - 0.014615 * np.cos(2 * theta)
+%     - 0.040849 * np.sin(2 * theta)
+% )
 
-その際, pythonのelasticsearchライブラリを使用し, co2\_modbusという名前のインデックスに保存した.
+% lng_deg = 132.75093  # 任意の経度(longitude)
+% lng_rad = lng_deg * np.pi / 180
 
-\section{一度目のデータ移行で移行できなかったCO\textsubscript{2}データの移行について}
+% lat_deg = 33.82794  # 任意の緯度(latitude)
+% phi = lat_deg * np.pi / 180
 
-実装したデータ移行プログラムを使用して133.71.201.197から133.71.106.141のElasticSearchサーバーへCO\textsubscript{2}データを移行したのが2023年5月中旬頃であり, CO\textsubscript{2}濃度監視システムを開発, 運用している高木君が, 移行先である133.71.106.141のElasticSearchサーバーに対してラズベリーパイからCO\textsubscript{2}データのインサートを行うよう対応したのが2023年7月中旬であったため, 2023年5月中旬から2023年7月中旬までの間の約2ヶ月間のCO\textsubscript{2}データが移行先のElasticSearchサーバーに移行出来ていなかった. そこで, 追加の移行作業を行った.
+% lng_diff = (lng_deg - 135) / 180 * np.pi  # 経度差
 
-移行方法は以下のとおりである.
 
-\begin{enumerate}
-    \item まず, 2023年5月中旬に移行した際の全移行データの中で最も最新のutctimeフィールドの値を検索する.
-          \begin{itemize}
-              \item 検索した結果, 2023年5月中旬に移行した際の全移行データの中で最も最新のutctimeは「2023-05-16T05:48:30.081305」であった.
-          \end{itemize}
-    \item 次に, 移行先ElasticSearchサーバーに対してラズベリーパイからインサートされた全データの中で最も古いutctimeフィールドの値を検索する.
-          \begin{itemize}
-              \item 検索した結果, ラズベリーパイからインサートされた全データの中で最も古いutctimeは「2023-07-20T07:15:39.314008」であった.
-          \end{itemize}
-    \item 前回のCO\textsubscript{2}データの移行は2023年5月中旬頃に行ったため, 2023年5月1日0時0分0秒以降のutctimeを持つドキュメントを, 移行元ElasticSearchサーバーのインデックス名にco2という文字列を含むインデックスからelasticdump \cite{1}ライブラリを使用してローカルマシンにエクスポートする.
-    \item 部屋番号(number)とタイムスタンプ(utctime)の組み合わせがユニークになるようにエクスポートしたデータをフィルタリングする.
-    \item 更に, 1と2で得られたutctimeの範囲に含まれるutctimeを持つドキュメントのみになるようフィルタリングする.
-    \item フィルタリング後のデータを移行先ElasticSearchサーバーにバルクインサートする.
-\end{enumerate}
+% def calc_h(dt, lng_diff, eq):
+%     return (dt.hour + dt.minute / 60 - 12) / 12 * np.pi + lng_diff + eq
 
-\section{kibanaによるデータの可視化}
 
-計2回のCO\textsubscript{2}データを移行した後のco2\_modbusインデックスについて, 横軸をタイムスタンプ(utctime)とし, 縦軸をPPM, RH, TEMPとしてそれぞれプロットしたものを図 \ref{p12} 〜 図 \ref{p14}に示す.
+% # 太陽高度のarcsinの引数になる値
+% def calc_sun_altitude_like(h, delta, phi):
+%     return np.sin(phi) * np.sin(delta) + np.cos(phi) * np.cos(delta) * np.cos(h)
 
-\begin{figure}
-    \begin{center}
-        \includegraphics[width=160mm]{sotu/figure/ppm.png}
-        \caption{co2\_modbusのPPM}
-        \label{p12}
-    \end{center}
-\end{figure}
+
+% h = calc_h(dt, lng_diff, eq)  # 時角
+
+% sin_alpha = calc_sun_altitude_like(h, delta, phi)
+% print(f"日射量:{1367*geocentri_distance_like*sin_alpha}")
+% \end{lstlisting}
+
+日射量を求めるプログラムでは, 2022年5月17日17時53分0秒における, 経度132.75093, 緯度33.82794の地点での日射量を計算している.
+日射量を求めるプログラムより, 図\ref{20220523-p1}が算出される.
+図\ref{20220523-p1}から, 今回与えた日時, 緯度経度における日射量は, 約299.15\si{\watt}/\si{\metre\squared}となった.
 
 \begin{figure}
-    \begin{center}
-        \includegraphics[width=160mm]{sotu/figure/rh.png}
-        \caption{co2\_modbusのRH}
-        \label{p13}
-    \end{center}
+  \begin{center}
+    \includegraphics[width=160mm]{sotu/figure/2/output.png}
+    \caption{日射量を求めるプログラムの結果}
+    \label{20220523-p1}
+  \end{center}
 \end{figure}
+
+% \section{おわりに}
+% 今回は, 任意の緯度経度と日時から日射量を計算するプログラムを開発した.
+% 次回は実際に測定したリサイクル館の日射量計測データと, 開発したプログラムによって計算した日射量を比較することで計算精度を検証する.
+
+% 20220529
+
+\section{実測値と計算値のプロット}
+取得したElasticsearchサーバーの日射量データと, 計算式を用いて求めた日射量データをプロットしたものを図\ref{20220529-p1}に示す.
+図\ref{20220529-p1}はElasticsearchサーバーから取得した2022年6月2日の日射量データと, リサイクル館の緯度経度と日付情報(2022年6月2日)を入力として求めた日射量の計算値をプロットしている.
 
 \begin{figure}
-    \begin{center}
-        \includegraphics[width=160mm]{sotu/figure/temp.png}
-        \caption{co2\_modbusのTEMP}
-        \label{p14}
-    \end{center}
+  \begin{center}
+    \includegraphics[width=160mm]{sotu/figure/2/original-20220602-corr.png}
+    \caption{2022年6月2日の日射量の実測値と計算値をプロットしたもの}
+    \label{20220529-p1}
+  \end{center}
 \end{figure}
 
-2回目のCO\textsubscript{2}データの移行によって, 2023年5月中旬から2023年7月中旬までの期間とその前後の期間において, 図 \ref{p12} 〜 図 \ref{p14}より, 連続的にデータが変化していることが目視で確認できるので, データ移行は正常に出来たと判断できる.
+% 20220620
 
-\section{LEAFの運行日誌に関するデータの移行について}
+\section{相互相関を用いたずれ時間の特定}
+相互相関を用いて, 実測データと計算データとの時間的遅延を検出することで, 実測データの計測日時のずれ時間を特定する.
 
-LEAFの運行日誌に関するデータが保存されたインデックスは以下の2つである.
+\section{実測値データの補間}
+相互相関の計算を行う前に, 実測データの計測日時の間隔を均一にするため, 線形補間を行い, 日時間隔を1 \si{\second}に統一する.
 
-\begin{itemize}
-    \item movement\_diary
-    \item movement\_diary01
-\end{itemize}
+\section{相互相関による最小ラグの選定}
+相互相関の計算に使用する実測データの範囲を, 2022年6月2日0時0分から2022年6月2日23時59分まで期間とする.
 
-これらのインデックスのデータ移行は, 同名のインデックスを移行先のElasticSearchサーバーに作成して, 作成したインデックスにデータを挿入することで行った.
+次に, 実測データのタイムスタンプ列を入力として求めた計算データを1分ずつスライドさせ, その都度実測値データとの相互相関を計算する.
 
-次に, 上記のインデックスに保存されているデータについて説明する.
+相互相関の計算結果より, 計算値の日時を実測値より124秒進めた際に, 相互相関の値が最大となることが分かった.
 
-以下にmovement\_diaryとmovement\_diary01のドキュメントの違いを列挙する.
+しかし, 実測データには計測日時のズレは殆どないため, 0秒進めた際に相互相関の値が最大となるのが正しい.
 
-\begin{enumerate}
-    \item driverフィールド:
-          \begin{itemize}
-              \item movement\_diaryのドキュメントでは, driverフィールドは文字列である.
-              \item movement\_diary01のドキュメントでは, driverフィールドは配列で, その中に文字列と2つのnull値が含まれている.
-          \end{itemize}
-          
-    \item ``destination''フィールド:
-          \begin{itemize}
-              \item movement\_diaryのドキュメントでは, ``destination''フィールドは単一の文字列である.
-              \item movement\_diary01のドキュメントでは, ``destination''フィールドは配列で, その中に2つの文字列が含まれている.
-          \end{itemize}
-          
-    \item ``charge\_place''フィールド:
-          \begin{itemize}
-              \item movement\_diaryのドキュメントには, ``charge\_place''フィールドは存在しない.
-              \item movement\_diary01のドキュメントでは, ``charge\_place''フィールドが追加されているが, その値は空文字列である.
-          \end{itemize}
-          
-    \item ``battery\_rate''フィールド:
-          \begin{itemize}
-              \item movement\_diaryのドキュメントには, ``battery\_rate''フィールドは存在しない.
-              \item movement\_diary01のドキュメントでは, ``battery\_rate''フィールドが追加されており, その値は数値である.
-          \end{itemize}
-          
-    \item ``battery\_rate\_distance''フィールド:
-          \begin{itemize}
-              \item movement\_diaryのドキュメントには, ``battery\_rate\_distance''フィールドは存在しない.
-              \item movement\_diary01のドキュメントでは, ``battery\_rate\_distance''フィールドが追加されており, その値は数値である.
-          \end{itemize}
-\end{enumerate}
+これは, 計算データの精度が実測値と乖離していることが原因であると考えられる.
 
-movement\_diaryとmovement\_diary01のドキュメントの違いより, movement\_diary01はmovement\_diaryのもつ情報量を全て保持しており, その上で追加のフィールドを持っていることから, 移行するのはmovement\_diary01インデックスのみで十分であることが分かった.
+\section{日射量の計算値の精度改善}
 
-\section{LEAFの運行日誌に関するデータの移行手順について}
+日射量の計算値の予測精度を改善するため, 自作の日射量計算プログラムではなく, pvlibというライブラリを使用して, 任意の緯度経度と日時における日射量を求め, 相互相関を計算する.
 
-\subsection{データのエクスポート}
-移行元のElasticSearchサーバーのデータのローカルマシンへのエクスポートには, elasticdumpライブラリを使用して, movement\_diary01インデックスの全ドキュメントをJSON形式でエクスポートした.
+\section{pvlibの概要}
+pvlib pythonは、太陽光発電システムの性能シミュレーションや関連するタスクを実行するための関数とクラスのセットを提供する、コミュニティが開発したツールボックスである。
 
-\subsection{データのインポート}
-pythonのelasticsearchライブラリを使用し, 移行先のElasticsearchにmovement\_diary01という名前のインデックスを作成して, エクスポートしたデータを全てインサートした.
+\section{pvlibを使って求めた計算値と実測値のプロット}
+取得したElasticsearchサーバーの日射量データと, pblivを用いて求めた日射量データをプロットしたものを図\ref{2-p1}に示す.
+図\ref{2-p1}はElasticsearchサーバーから取得した2022年6月2日の日射量データと, リサイクル館の緯度経度と日付情報(2022年6月2日)を入力として求めた日射量の計算値をプロットしている.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=160mm]{sotu/figure/2/pvlib-20220602-corr.png}
+    \caption{2022年6月2日の日射量の実測値と計算値をプロットしたもの}
+    \label{2-p1}
+  \end{center}
+\end{figure}
+
+\section{pvlibを用いて計算した日射量を使用した, 相互相関による最小ラグの選定}
+相互相関の計算に使用する実測データの範囲を, 2022年6月2日0時0分から2022年6月2日23時59分まで期間とする.
+
+次に, 実測データのタイムスタンプ列を入力として求めた計算データを1分ずつスライドさせ, その都度実測値データとの相互相関を計算する.
+
+相互相関を求めた結果, 計算値の日時を実測値より74秒進めた際に, 相互相関の値が最大となることが分かった.
+
+計算式を用いて求めた日射量データ用いて相互相関を計算した時と比較して, 124秒から74秒へと50秒改善している.
 
 \section{結言}
-本章学内ゾーンで稼働している Elasticsearch クラスタへのデータ移行について述べた。
-
-次章ではサーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証について述べる。
+本章では太陽光発電の計測データの補正について述べた。
+次章では学内ゾーンで稼働している Elasticsearch クラスタへのデータ移行について述べる。

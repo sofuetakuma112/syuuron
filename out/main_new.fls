@@ -57,8 +57,21 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
 INPUT out/main_new.aux
 INPUT out/main_new.aux
 INPUT out/sotu/chapter0.aux
@@ -73,8 +86,6 @@ INPUT out/sotu/chapter4.aux
 INPUT out/sotu/chapter4.aux
 INPUT out/sotu/chapter5.aux
 INPUT out/sotu/chapter5.aux
-INPUT out/sotu/chapter6.aux
-INPUT out/sotu/chapter6.aux
 INPUT out/sotu/syazi.aux
 INPUT out/sotu/syazi.aux
 INPUT out/sotu/refer.aux
@@ -82,6 +93,29 @@ INPUT out/sotu/refer.aux
 INPUT out/sotu/appendix.aux
 INPUT out/sotu/appendix.aux
 OUTPUT out/main_new.aux
+INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT sotu/title.tex
 INPUT sotu/title.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
@@ -96,13 +130,14 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm
 OUTPUT out/main_new.dvi
 OUTPUT out/sotu/chapter0.aux
@@ -115,16 +150,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT out/main_new.toc
 INPUT out/main_new.toc
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin8.tfm
 OUTPUT out/main_new.toc
 OUTPUT out/sotu/chapter1.aux
@@ -142,10 +167,27 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin6.tfm
+INPUT sotu/figure/2/output.png
+INPUT extractbb -B cropbox -O sotu/figure/2/output.png
+INPUT sotu/figure/2/original-20220602-corr.png
+INPUT extractbb -B cropbox -O sotu/figure/2/original-20220602-corr.png
+INPUT sotu/figure/2/pvlib-20220602-corr.png
+INPUT extractbb -B cropbox -O sotu/figure/2/pvlib-20220602-corr.png
+OUTPUT out/sotu/chapter3.aux
+INPUT sotu/chapter3.tex
+INPUT sotu/chapter3.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT sotu/figure/ppm.png
@@ -154,9 +196,9 @@ INPUT sotu/figure/rh.png
 INPUT extractbb -B cropbox -O sotu/figure/rh.png
 INPUT sotu/figure/temp.png
 INPUT extractbb -B cropbox -O sotu/figure/temp.png
-OUTPUT out/sotu/chapter3.aux
-INPUT sotu/chapter3.tex
-INPUT sotu/chapter3.tex
+OUTPUT out/sotu/chapter4.aux
+INPUT sotu/chapter4.tex
+INPUT sotu/chapter4.tex
 INPUT sotu/figure/docker-vmware.png
 INPUT extractbb -B cropbox -O sotu/figure/docker-vmware.png
 INPUT sotu/figure/elasticsearch-image.png
@@ -186,9 +228,6 @@ INPUT sotu/figure/4nodes-list.png
 INPUT extractbb -B cropbox -O sotu/figure/4nodes-list.png
 INPUT sotu/figure/es04-log.png
 INPUT extractbb -B cropbox -O sotu/figure/es04-log.png
-OUTPUT out/sotu/chapter4.aux
-INPUT sotu/chapter4.tex
-INPUT sotu/chapter4.tex
 INPUT sotu/figure/apt-grep.png
 INPUT extractbb -B cropbox -O sotu/figure/apt-grep.png
 INPUT sotu/figure/apt-list.png
@@ -200,7 +239,6 @@ INPUT extractbb -B cropbox -O sotu/figure/downtime.png
 OUTPUT out/sotu/chapter5.aux
 INPUT sotu/chapter5.tex
 INPUT sotu/chapter5.tex
-OUTPUT out/sotu/chapter6.aux
 OUTPUT out/sotu/syazi.aux
 INPUT sotu/syazi.tex
 INPUT sotu/syazi.tex
@@ -212,9 +250,6 @@ INPUT sotu/appendix.tex
 INPUT sotu/appendix.tex
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmitt10.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
@@ -233,8 +268,6 @@ INPUT out/sotu/chapter4.aux
 INPUT out/sotu/chapter4.aux
 INPUT out/sotu/chapter5.aux
 INPUT out/sotu/chapter5.aux
-INPUT out/sotu/chapter6.aux
-INPUT out/sotu/chapter6.aux
 INPUT out/sotu/syazi.aux
 INPUT out/sotu/syazi.aux
 INPUT out/sotu/refer.aux
