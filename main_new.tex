@@ -1,7 +1,7 @@
 \documentclass[12pt,openany]{jreport}
 \usepackage{listings}
 \usepackage{bezier}
-\usepackage[dvipdfmx]{graphicx}
+% \usepackage[dvipdfmx]{graphicx}
 \usepackage{sotsuron}
 \usepackage{misc}
 \usepackage{verbatim}
@@ -10,7 +10,8 @@
 \usepackage{amsmath}
 \usepackage{cite}
 \usepackage{siunitx} %%SI単位系用
-%\usepackage{color}
+\usepackage{graphicx}
+\usepackage[dvipdfmx]{color}
 \newcommand{\myfrac}[2]{\frac{\,{#1}\,}{\,{#2}\,}}
 
 \renewcommand{\baselinestretch}{1.2}
@@ -32,7 +33,6 @@
 \include{sotu/chapter3}   % 3章
 \include{sotu/chapter4}   % 4章
 \include{sotu/chapter5}   % 結論
-% \include{sotu/chapter6}   % 結論
 \include{sotu/syazi}      % 謝辞
 \include{sotu/refer}      % 参考文献
 % \appendix

@@ -20,7 +20,7 @@ Dockerは, 軽量で独立したコンテナ型仮想環境用のプラットフ
 しかし, DockerはホストOS上にゲストOSなしで独立したコンテナ型の仮想環境として構築される.
 Dockerコンテナを利用する場合は, Docker Engineをインストールすることでコンテナの立ち上げ, 停止, 削除といった操作を行うことができる.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/docker-vmware.png}
     \caption{仮想マシンとDockerの違い \cite{2}}
@@ -47,7 +47,7 @@ DockerイメージはDocker Hubやその他のレジストリで共有されて�
 
 今回はElasticsearchの開発元であるElastic社が提供しているElasticsearchのDockerイメージを使って検証を行う.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/elasticsearch-image.png}
     \caption{ElasticsearchのDockerイメージ}
@@ -106,7 +106,7 @@ Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用して�
 
 また, 図 \ref{d1}にListing \ref{sc1}のdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/all-7.19.9.png}
     \caption{docker-compose.ymlを図で表現したもの}
@@ -143,7 +143,7 @@ Listing \ref{sc1}のdocker-compose.ymlファイルで記述している内容に
 
 docker compose up -dコマンドを実行した後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{p1}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/curl-same.png}
     \caption{クラスタに参加しているノードを一覧表示した結果}
@@ -159,7 +159,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 図 \ref{d2}に変更後のdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/2-7.19.9-and-1-7.17.6.png}
     \caption{変更後のdocker-compose.ymlを図で表現したもの}
@@ -171,7 +171,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 クラスタの起動後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{p2}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/curl-different.png}
     \caption{クラスタに参加しているノードを一覧表示した結果}
@@ -183,7 +183,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 また, Elasticsearch起動時に出力されたログを確認したところ, 図 \ref{p3}に示すように, クラスタに参加できなかったes03のコンテナでElasticsearchがエラーログを出力して終了していることが分かった.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/log.png}
     \caption{es03のログ}
@@ -202,7 +202,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 図 \ref{d3}にクラスタAの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/1-7.17.9.png}
     \caption{クラスタAの構築の際に使用したdocker-compose.ymlを図で表現したもの}
@@ -212,7 +212,7 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 docker-composeを用いてノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{p1-1}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/es04-cluster.png}
     \caption{クラスタの情報について問い合わせた結果}
@@ -228,7 +228,7 @@ docker-composeを用いてノードを起動した後, クラスタの情報に�
 
 図 \ref{d4}にクラスタBの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/all-7.19.9.png}
     \caption{クラスタBの構築の際に使用したdocker-compose.ymlを図で表現したもの}
@@ -238,7 +238,7 @@ docker-composeを用いてノードを起動した後, クラスタの情報に�
 
 docker-composeを用いて3つのノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{p2-1}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/3nodes-cluster.png}
     \caption{クラスタの情報について問い合わせた結果}
@@ -250,7 +250,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{p2-2}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/3nodes-list.png}
     \caption{クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果}
@@ -268,7 +268,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 図 \ref{d5}に, 合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/4-7.17.9.png}
     \caption{合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したもの}
@@ -278,7 +278,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{p3-1}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/4nodes-list.png}
     \caption{合計4ノードでクラスタの起動を試みた後, クラスタに参加しているノードの一覧を取得した結果}
@@ -290,7 +290,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 es04コンテナ（クラスタAのノード）で出力されたログの一部を図 \ref{p3-2}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/es04-log.png}
     \caption{es04コンテナのログ}
@@ -323,7 +323,7 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 図 \ref{4-p1}に, aptによってインストールされたパッケージの中にelasticsearchという文字列を含むパッケージが存在するか調べた結果を示す.
 図 \ref{4-p1}より, aptによってインストールされたことが分かった.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/apt-grep.png}
     \caption{aptによってelasticsearchがインストールされたか調べた結果}
@@ -333,7 +333,7 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 
 次に, aptでインストール可能なelasticsearchのバージョンを一覧表示した結果を図 \ref{4-p2}に示す. 図 \ref{4-p2}にターゲットである7.17.9が含まれているため, aptを使用してバージョンアップできることが確認できた.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/apt-list.png}
     \caption{aptでインストール可能なelasticsearchのバージョンを一覧表示した結果}
@@ -351,7 +351,7 @@ elasticsearchをバージョンアップ後, \textbf{sudo systemctl start elasti
 
 ノードの起動後, Elasticsearchのバージョンを確認した結果を図 \ref{4-p3}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/version-check.png}
     \caption{ノードの起動後, Elasticsearchのバージョンを確認した結果}
@@ -369,7 +369,7 @@ kibanaもelasticsearchと同様, aptを使用してインストールされて�
 
 Elasticsearchのバージョンアップ後, 太陽光パネルの計測データがElasticsearchに保存されているかkibana上で確認した結果を図 \ref{p4}に示す.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/downtime.png}
     \caption{Elasticsearchのバージョンアップ後, 太陽光パネルの計測データが保存されているかkibana上で確認した結果}
