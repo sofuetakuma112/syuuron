@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1705073156 "out/main_new.dvi" "out/main_new.pdf" "out/main_new" 1705073159
-  "out/main_new.dvi" 1705073156 107880 5ce31486ffaa78457716d467a298893b "latex"
+["dvipdf"] 1705076134 "out/main_new.dvi" "out/main_new.pdf" "out/main_new" 1705076138
+  "out/main_new.dvi" 1705076134 107948 7bbc914ae8652ba92449b520d8251995 "latex"
   (generated)
   "out/main_new.pdf"
-["latex"] 1705073153 "/home/sofue/apps/syuuron/main_new.tex" "out/main_new.dvi" "main_new" 1705073159
+["latex"] 1705076131 "/home/sofue/apps/syuuron/main_new.tex" "out/main_new.dvi" "main_new" 1705076138
   "/etc/texmf/web2c/texmf.cnf" 1705066719 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/sofue/apps/syuuron/main_new.tex" 1705067989 1110 4b8fa57a2662eedc3197c4b71da41f68 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -74,18 +74,18 @@
   "/var/lib/texmf/web2c/eptex/platex.fmt" 1705066778 2754755 de7c07dd8c70031dccafc79ea5ee7f4e ""
   "main_new.tex" 1705067989 1110 4b8fa57a2662eedc3197c4b71da41f68 ""
   "misc.sty" 1705066871 2444 e7f9a3621858f0b0703e2b64aaa40cd0 ""
-  "out/main_new.aux" 1705073156 243 31b41eefa3fefd4616d2a0e44c73fffa "latex"
-  "out/main_new.toc" 1705073156 5157 a64e01c60d3de0e2eceee7efac634cb3 "latex"
-  "out/sotu/chapter0.aux" 1705073154 703 d36acf3674e7689b3cb981581cd4b9f4 "latex"
-  "out/sotu/chapter1.aux" 1705073154 820 6eee00c922659c8f5a74bd78df1bbbc6 "latex"
-  "out/sotu/chapter2.aux" 1705073154 2648 eab69c877378e1dc528a3aa558c54f90 "latex"
-  "out/sotu/chapter3.aux" 1705073154 3895 3b277a1b19b550b7e90f9be496cca82f "latex"
-  "out/sotu/chapter4.aux" 1705073156 8033 75100a7b8fa2cc5cb4e68d7f5d17c876 "latex"
-  "out/sotu/chapter5.aux" 1705073156 842 8d395438d0f4536454958454b03693ca "latex"
-  "out/sotu/refer.aux" 1705073156 733 2c056759549ffaa8e0674523d68aee85 "latex"
-  "out/sotu/syazi.aux" 1705073156 698 37155f148dba365c2083b086c07e2d8f "latex"
+  "out/main_new.aux" 1705076134 243 31b41eefa3fefd4616d2a0e44c73fffa "latex"
+  "out/main_new.toc" 1705076134 5157 a64e01c60d3de0e2eceee7efac634cb3 "latex"
+  "out/sotu/chapter0.aux" 1705076132 703 d36acf3674e7689b3cb981581cd4b9f4 "latex"
+  "out/sotu/chapter1.aux" 1705076132 820 6eee00c922659c8f5a74bd78df1bbbc6 "latex"
+  "out/sotu/chapter2.aux" 1705076132 2648 eab69c877378e1dc528a3aa558c54f90 "latex"
+  "out/sotu/chapter3.aux" 1705076132 3895 3b277a1b19b550b7e90f9be496cca82f "latex"
+  "out/sotu/chapter4.aux" 1705076134 8033 75100a7b8fa2cc5cb4e68d7f5d17c876 "latex"
+  "out/sotu/chapter5.aux" 1705076134 842 8d395438d0f4536454958454b03693ca "latex"
+  "out/sotu/refer.aux" 1705076134 733 2c056759549ffaa8e0674523d68aee85 "latex"
+  "out/sotu/syazi.aux" 1705076134 698 37155f148dba365c2083b086c07e2d8f "latex"
   "sotsuron.sty" 1705066871 19056 4e6daa9c03544c37ff6849c1c43adfb8 ""
-  "sotu/chapter0.tex" 1705067751 1755 4ed0c58f4efc53f1fdf87a3be0124c2c ""
+  "sotu/chapter0.tex" 1705076130 1664 abcf9d25785e7145aa376546b80227b3 ""
   "sotu/chapter1.tex" 1705066871 2660 9c398212612b917b8451ff9b6b18f0df ""
   "sotu/chapter2.tex" 1705073150 7388 3cfa9480ae5ea530b44c9a19c43056eb ""
   "sotu/chapter3.tex" 1705069859 16559 b6e8c50160c1dfa038f322533b916f2b ""
