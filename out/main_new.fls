@@ -543,9 +543,6 @@ INPUT ./sotu/chapter1.tex
 INPUT sotu/chapter1.tex
 INPUT ./sotu/chapter1.tex
 INPUT sotu/chapter1.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT ./sotu/chapter2.tex
 INPUT ./sotu/chapter2.tex
 INPUT ./sotu/chapter2.tex
@@ -562,6 +559,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT ./sotu/figure/2/original-20220602-corr.png
 INPUT ./sotu/figure/2/original-20220602-corr.png
 INPUT sotu/figure/2/original-20220602-corr.png
