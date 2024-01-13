@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.1-210218-2.6 (utf8.euc) (TeX Live 2022/dev/Debian) (preloaded format=platex 2024.1.12)  13 JAN 2024 16:09
+This is e-pTeX, Version 3.141592653-p3.9.1-210218-2.6 (utf8.euc) (TeX Live 2022/dev/Debian) (preloaded format=platex 2024.1.12)  13 JAN 2024 16:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -237,8 +237,120 @@ Package color Info: Driver file: dvipdfmx.def on input line 149.
 File: dvipdfmx.def 2021/03/18 v5.0j Graphics/color driver for dvipdfmx
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-))
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 19.
+)) (/usr/share/texlive/texmf-dist/tex/latex/breqn/breqn.sty
+Package: breqn 2021/10/28 v0.98l Breaking equations
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/flexisym.sty
+Package: flexisym 2021/10/28 v0.98l Make math characters macros
+LaTeX Info: Redefining \textprime on input line 299.
+LaTeX Info: Redefining \not on input line 357.
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/cmbase.sym
+File: cmbase.sym 2007/12/19 v0.92
+LaTeX Info: Redefining \hbar on input line 324.
+LaTeX Info: Redefining \surd on input line 326.
+LaTeX Info: Redefining \angle on input line 334.
+LaTeX Info: Redefining \neq on input line 335.
+LaTeX Info: Redefining \mapsto on input line 336.
+LaTeX Info: Redefining \cong on input line 337.
+LaTeX Info: Redefining \notin on input line 340.
+LaTeX Info: Redefining \rightleftharpoons on input line 341.
+LaTeX Info: Redefining \doteq on input line 342.
+LaTeX Info: Redefining \hookrightarrow on input line 343.
+LaTeX Info: Redefining \hookleftarrow on input line 344.
+LaTeX Info: Redefining \bowtie on input line 345.
+LaTeX Info: Redefining \models on input line 346.
+LaTeX Info: Redefining \Longrightarrow on input line 347.
+LaTeX Info: Redefining \longrightarrow on input line 348.
+LaTeX Info: Redefining \Longleftarrow on input line 349.
+LaTeX Info: Redefining \longleftarrow on input line 350.
+LaTeX Info: Redefining \longmapsto on input line 351.
+LaTeX Info: Redefining \longleftrightarrow on input line 352.
+LaTeX Info: Redefining \Longleftrightarrow on input line 353.
+LaTeX Info: Redefining \cdots on input line 357.
+LaTeX Info: Redefining \vdots on input line 360.
+LaTeX Info: Redefining \ddots on input line 365.
+) (/usr/share/texlive/texmf-dist/tex/latex/breqn/mathstyle.sty
+Package: mathstyle 2021/10/28 v0.98l Tracking mathstyle implicitly
+LaTeX Info: Redefining \displaystyle on input line 95.
+LaTeX Info: Redefining \textstyle on input line 97.
+LaTeX Info: Redefining \scriptstyle on input line 99.
+LaTeX Info: Redefining \scriptscriptstyle on input line 101.
+LaTeX Info: Redefining \genfrac on input line 149.
+)) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count299
+\calc@Bcount=\count300
+\calc@Adimen=\dimen189
+\calc@Bdimen=\dimen190
+\calc@Askip=\skip54
+\calc@Bskip=\skip55
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count301
+\calc@Cskip=\skip56
+)
+\inf@bad=\count302
+\maxint=\count303
+\listwidth=\dimen191
+\eqnumsep=\dimen192
+\eqmargin=\dimen193
+\eqlinespacing=\skip57
+\eqlineskip=\skip58
+\eqlineskiplimit=\dimen194
+\eqbinoffset=\muskip17
+\eqdelimoffset=\muskip18
+\eqindentstep=\dimen195
+\eqstyle=\toks28
+\eqbreakdepth=\count304
+\eqinterlinepenalty=\count305
+\intereqpenalty=\count306
+\intereqskip=\skip59
+\prerelpenalty=\count307
+\prebinoppenalty=\count308
+\Dmedmuskip=\muskip19
+\Dthickmuskip=\muskip20
+\eqleftskip=\skip60
+\eqrightskip=\skip61
+\eq@vspan=\skip62
+\eq@binoffset=\muskip21
+\EQ@box=\box92
+\EQ@copy=\box93
+\EQ@numbox=\box94
+\eq@wdNum=\dimen196
+\GRP@numbox=\box95
+\grp@wdNum=\dimen197
+\eq@lines=\count309
+\eq@curline=\count310
+\eq@badness=\count311
+\EQ@vims=\count312
+\eq@dp=\dimen198
+\eq@wdL=\dimen199
+\eq@wdT=\dimen256
+\eq@wdMin=\dimen257
+\grp@wdL=\dimen258
+\grp@wdR=\dimen259
+\grp@wdT=\dimen260
+\eq@wdRmax=\dimen261
+\eq@firstht=\dimen262
+\eq@wdCond=\dimen263
+\eq@indentstep=\dimen264
+\eq@linewidth=\dimen265
+\grp@linewidth=\dimen266
+\eq@hshift=\dimen267
+\eq@given@sidespace=\dimen268
+\mathindent=\dimen269
+\eq@final@linecount=\count313
+\eq@wdR=\dimen270
+\EQ@continue=\toks29
+\lr@level=\count314
+\GRP@queue=\toks30
+\GRP@box=\box96
+\GRP@wholebox=\box97
+\darraycolsep=\skip63
+\cur@row=\count315
+\cur@col=\count316
+\conditionsep=\skip64
+)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 20.
 (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux
 
 LaTeX Warning: Label `sc1' multiply defined.
@@ -246,29 +358,29 @@ LaTeX Warning: Label `sc1' multiply defined.
 ) (out/sotu/chapter5.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux))
 \openout1 = `main_new.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-\c@lstlisting=\count299
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+\c@lstlisting=\count317
 (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 19.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 20.
 (./sotu/title.tex
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <24.88> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 3.
@@ -296,9 +408,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--21
 
 )
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 23.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 23.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 24.
 [1
 
 
@@ -337,27 +449,27 @@ Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 27.
 
 
-Overfull \hbox (33.7424pt too wide) in alignment at lines 30--32
- [] [] [] [] 
+Overfull \hbox (50.4568pt too wide) in paragraph at lines 32--32
+\OT1/cmr/m/n/12 = []|$ 
  []
 
 
-Overfull \hbox (22.43437pt too wide) in alignment at lines 34--36
- [] [] [] [] 
- []
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 38.
 
+[4]
 File: sotu/figure/2/original-20220602-corr.png Graphic file (type bmp)
 <sotu/figure/2/original-20220602-corr.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 71--72
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 74--75
  [] 
  []
 
-[4] [5] [6]
+[5] [6]
 File: sotu/figure/2/pvlib-20220602-corr.png Graphic file (type bmp)
 <sotu/figure/2/pvlib-20220602-corr.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 115--116
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 118--119
  [] 
  []
 
@@ -365,7 +477,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 115--116
 File: sotu/figure/2/drop-under-0.2-q.png Graphic file (type bmp)
 <sotu/figure/2/drop-under-0.2-q.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 149--150
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 152--153
  [] 
  []
 
@@ -657,16 +769,26 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 (./sotu/refer.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
-[] \JY1/mc/m/n/12 ” \OT1/cmr/m/n/12 In-stall Elas-tic-search with Docker |
+[]\JY1/mc/m/n/12 中川清隆 ， \OT1/cmr/m/n/12 "\JY1/mc/m/n/12 太陽方位 、 高度 、 大気外日射量の計算\OT1/cmr/m/n/12 ",
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
+\OT1/cmr/m/n/12 http://www.es.ris.ac.jp/ nak-a-gawa/met[]cal/solar.html\JY1/mc/m/n/12 ， 参照 \OT1/cmr/m/n/12 May
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[] \JY1/mc/m/n/12 ” \OT1/cmr/m/n/12 In-stall Elas-tic-search with Docker |
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
 \OT1/cmr/m/n/12 Elas-tic-search Guide [7.17] | Elas-tic \JY1/mc/m/n/12 ” \OT1/cmr/m/n/12 ,
  []
 
 
-Overfull \hbox (10.55717pt too wide) in paragraph at lines 4--5
+Overfull \hbox (10.55717pt too wide) in paragraph at lines 5--6
 \OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
@@ -684,12 +806,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8297 strings out of 478741
- 181455 string characters out of 5860982
- 473425 words of memory out of 5000000
- 26568 multiletter control sequences out of 15000+600000
+ 9142 strings out of 478741
+ 193311 string characters out of 5860982
+ 487799 words of memory out of 5000000
+ 27397 multiletter control sequences out of 15000+600000
  486654 words of font info for 96 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 72i,15n,79p,743b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,15n,85p,743b,1831s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (49 pages, 112352 bytes).
+Output written on out/main_new.dvi (49 pages, 112680 bytes).
