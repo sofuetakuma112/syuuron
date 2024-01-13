@@ -510,6 +510,10 @@ INPUT ./sotu/figure/2/pvlib-20220602-corr.png
 INPUT ./sotu/figure/2/pvlib-20220602-corr.png
 INPUT sotu/figure/2/pvlib-20220602-corr.png
 INPUT extractbb -B cropbox -O sotu/figure/2/pvlib-20220602-corr.png
+INPUT ./sotu/figure/2/drop-under-0.2-q.png
+INPUT ./sotu/figure/2/drop-under-0.2-q.png
+INPUT sotu/figure/2/drop-under-0.2-q.png
+INPUT extractbb -B cropbox -O sotu/figure/2/drop-under-0.2-q.png
 INPUT ./sotu/chapter3.tex
 INPUT ./sotu/chapter3.tex
 INPUT ./sotu/chapter3.tex

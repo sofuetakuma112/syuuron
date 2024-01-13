@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.1-210218-2.6 (utf8.euc) (TeX Live 2022/dev/Debian) (preloaded format=platex 2024.1.12)  13 JAN 2024 01:15
+This is e-pTeX, Version 3.141592653-p3.9.1-210218-2.6 (utf8.euc) (TeX Live 2022/dev/Debian) (preloaded format=platex 2024.1.12)  13 JAN 2024 16:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -361,10 +361,18 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 115--116
  [] 
  []
 
-[7]) [8]
+[7] [8]
+File: sotu/figure/2/drop-under-0.2-q.png Graphic file (type bmp)
+<sotu/figure/2/drop-under-0.2-q.png>
+
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 149--150
+ [] 
+ []
+
+) [9] [10]
 \openout2 = `sotu/chapter3.aux'.
 
-(./sotu/chapter3.tex [9
+(./sotu/chapter3.tex [11
 
 
 
@@ -374,14 +382,14 @@ Overfull \hbox (14.6107pt too wide) in paragraph at lines 45--46
 []\JY1/mc/m/n/12 学内ゾ ーンでは\OT1/cmr/m/n/12 , 133.71.106.168 \JY1/mc/m/n/12 で単一ノ ードの \OT1/cmr/m/n/12 Elas-tic-search \JY1/mc/m/n/12 と\OT1/cmr/m/n/12 , 133.71.106.170,
  []
 
-[10] [11] [12]
+[12] [13] [14]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 85.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
-[13] [14]
+[15] [16]
 File: sotu/figure/ppm.png Graphic file (type bmp)
 <sotu/figure/ppm.png>
 
@@ -412,10 +420,10 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 167--168
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15] [16] [17] [18]) [19]
+[17] [18] [19] [20]) [21]
 \openout2 = `sotu/chapter4.aux'.
 
-(./sotu/chapter4.tex [20
+(./sotu/chapter4.tex [22
 
 
 
@@ -428,7 +436,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 25--26
  [] 
  []
 
-[21]
+[23]
 File: sotu/figure/elasticsearch-image.png Graphic file (type bmp)
 <sotu/figure/elasticsearch-image.png>
 
@@ -439,12 +447,12 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 52--53
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[22]
+[24]
 Overfull \hbox (59.91063pt too wide) in paragraph at lines 70--71
 [][][][][][][][][][][][][][][][] 
  []
 
-[23]
+[25]
 Overfull \hbox (59.91063pt too wide) in paragraph at lines 82--83
 [][][][][][][][][][][][][][][][] 
  []
@@ -454,7 +462,7 @@ Overfull \hbox (59.91063pt too wide) in paragraph at lines 92--93
 [][][][][][][][][][][][][][][][] 
  []
 
-[24]
+[26]
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
 
@@ -462,7 +470,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 111--112
  [] 
  []
 
-[25]
+[27]
 File: sotu/figure/curl-same.png Graphic file (type bmp)
 <sotu/figure/curl-same.png>
 
@@ -470,7 +478,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 148--149
  [] 
  []
 
-[26]
+[28]
 File: sotu/figure/2-7.19.9-and-1-7.17.6.png Graphic file (type bmp)
 <sotu/figure/2-7.19.9-and-1-7.17.6.png>
 
@@ -498,7 +506,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 188--189
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[27] [28]
+[29] [30]
 File: sotu/figure/1-7.17.9.png Graphic file (type bmp)
 <sotu/figure/1-7.17.9.png>
 
@@ -552,7 +560,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 255--256
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[29]
+[31]
 File: sotu/figure/4-7.17.9.png Graphic file (type bmp)
 <sotu/figure/4-7.17.9.png>
 
@@ -583,7 +591,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 295--296
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[30]
+[32]
 File: sotu/figure/apt-grep.png Graphic file (type bmp)
 <sotu/figure/apt-grep.png>
 
@@ -614,9 +622,9 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 356--357
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31]
+[33]
 
-LaTeX Warning: Reference `p4' on page 32 undefined on input line 370.
+LaTeX Warning: Reference `p4' on page 34 undefined on input line 370.
 
 File: sotu/figure/downtime.png Graphic file (type bmp)
 <sotu/figure/downtime.png>
@@ -628,10 +636,10 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 374--375
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [32] [33] [34] [35] [36] [37] [38] [39]
+) [34] [35] [36] [37] [38] [39] [40] [41]
 \openout2 = `sotu/chapter5.aux'.
 
-(./sotu/chapter5.tex) [40
+(./sotu/chapter5.tex) [42
 
 
 
@@ -639,7 +647,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ]
 \openout2 = `sotu/syazi.aux'.
 
-(./sotu/syazi.tex) [41
+(./sotu/syazi.tex) [43
 
 
 
@@ -662,7 +670,7 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 4--5
 \OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
-) [42
+) [44
 
 
 
@@ -676,12 +684,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8291 strings out of 478741
- 181268 string characters out of 5860982
- 473413 words of memory out of 5000000
- 26563 multiletter control sequences out of 15000+600000
+ 8297 strings out of 478741
+ 181455 string characters out of 5860982
+ 473425 words of memory out of 5000000
+ 26568 multiletter control sequences out of 15000+600000
  486654 words of font info for 96 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  72i,15n,79p,743b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (47 pages, 107948 bytes).
+Output written on out/main_new.dvi (49 pages, 112352 bytes).
