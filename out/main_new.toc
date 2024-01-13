@@ -53,5 +53,7 @@
 \contentsline {section}{\numberline {4.12節}サーバーゾーンにおけるクラスタの構築}{33}{}%
 \contentsline {section}{\numberline {4.13節}結言}{33}{}%
 \contentsline {chapter}{\numberline {第5章}結論と今後の課題}{41}{}%
-\contentsline {chapter}{謝 辞}{42}{}%
-\contentsline {chapter}{参考文献}{43}{}%
+\contentsline {section}{\numberline {5.1節}結論}{41}{}%
+\contentsline {section}{\numberline {5.2節}今後の課題}{41}{}%
+\contentsline {chapter}{謝 辞}{43}{}%
+\contentsline {chapter}{参考文献}{44}{}%
