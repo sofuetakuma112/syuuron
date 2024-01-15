@@ -18,16 +18,16 @@
 \contentsline {section}{\numberline {3.3節}kibanaの概要}{11}%
 \contentsline {section}{\numberline {3.4節}学内ゾーンで稼働しているElasticsearchシステムの状況}{12}%
 \contentsline {section}{\numberline {3.5節}データ移行対象のElasticsearchインデックスについて}{12}%
-\contentsline {section}{\numberline {3.6節}CO\textsubscript {2}データの移行手順について}{12}%
+\contentsline {section}{\numberline {3.6節}CO\textsubscript {2}データの移行ついて}{12}%
 \contentsline {subsection}{\numberline {3.6.1}データのエクスポート}{12}%
 \contentsline {subsection}{\numberline {3.6.2}データの重複削除}{13}%
 \contentsline {subsection}{\numberline {3.6.3}データのインポート}{15}%
 \contentsline {section}{\numberline {3.7節}一度目のデータ移行で移行できなかったCO\textsubscript {2}データの移行について}{15}%
 \contentsline {section}{\numberline {3.8節}kibanaによるデータの可視化}{16}%
-\contentsline {section}{\numberline {3.9節}LEAFの運行日誌に関するデータの移行について}{17}%
-\contentsline {section}{\numberline {3.10節}LEAFの運行日誌に関するデータの移行手順について}{20}%
-\contentsline {subsection}{\numberline {3.10.1}データのエクスポート}{20}%
-\contentsline {subsection}{\numberline {3.10.2}データのインポート}{20}%
+\contentsline {section}{\numberline {3.9節}LEAFの運行日誌に関するデータの移行について}{16}%
+\contentsline {section}{\numberline {3.10節}LEAFの運行日誌に関するデータの移行手順について}{19}%
+\contentsline {subsection}{\numberline {3.10.1}データのエクスポート}{19}%
+\contentsline {subsection}{\numberline {3.10.2}データのインポート}{19}%
 \contentsline {section}{\numberline {3.11節}結言}{20}%
 \contentsline {chapter}{\numberline {第4章}サーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証}{21}%
 \contentsline {section}{\numberline {4.1節}緒言}{21}%
