@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2023.8.28)  15 JAN 2024 16:00
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2023.8.28)  15 JAN 2024 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -359,11 +359,7 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \cur@row=\count308
 \cur@col=\count309
 \conditionsep=\skip68
-) (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux
-
-LaTeX Warning: Label `sc1' multiply defined.
-
-) (out/sotu/chapter5.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux))
+) (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux))
 \openout1 = `main_new.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -566,42 +562,25 @@ File: sotu/figure/docker-vmware.png Graphic file (type bmp)
 [22]
 File: sotu/figure/elasticsearch-image.png Graphic file (type bmp)
 <sotu/figure/elasticsearch-image.png>
-[23] [24]
-Overfull \hbox (59.91063pt too wide) in paragraph at lines 70--71
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (59.91063pt too wide) in paragraph at lines 82--83
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (59.91063pt too wide) in paragraph at lines 92--93
-[][][][][][][][][][][][][][][][] 
- []
-
-[25]
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
-[26]
 
-LaTeX Warning: Reference `p1' on page 27 undefined on input line 144.
+LaTeX Warning: Reference `p1' on page 23 undefined on input line 146.
 
+[23] [24]
 File: sotu/figure/curl-same.png Graphic file (type bmp)
 <sotu/figure/curl-same.png>
-[27]
 File: sotu/figure/2-7.19.9-and-1-7.17.6.png Graphic file (type bmp)
 <sotu/figure/2-7.19.9-and-1-7.17.6.png>
+[25]
 File: sotu/figure/curl-different.png Graphic file (type bmp)
 <sotu/figure/curl-different.png>
-[28]
 File: sotu/figure/log.png Graphic file (type bmp)
 <sotu/figure/log.png>
-[29]
+[26]
 File: sotu/figure/1-7.17.9.png Graphic file (type bmp)
 <sotu/figure/1-7.17.9.png>
-[30]
+[27]
 File: sotu/figure/es04-cluster.png Graphic file (type bmp)
 <sotu/figure/es04-cluster.png>
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
@@ -610,39 +589,39 @@ File: sotu/figure/3nodes-cluster.png Graphic file (type bmp)
 <sotu/figure/3nodes-cluster.png>
 File: sotu/figure/3nodes-list.png Graphic file (type bmp)
 <sotu/figure/3nodes-list.png>
-[31] [32]
+[28] [29]
 File: sotu/figure/4-7.17.9.png Graphic file (type bmp)
 <sotu/figure/4-7.17.9.png>
 File: sotu/figure/4nodes-list.png Graphic file (type bmp)
 <sotu/figure/4nodes-list.png>
-[33]
+[30]
 File: sotu/figure/es04-log.png Graphic file (type bmp)
 <sotu/figure/es04-log.png>
-[34]
+[31]
 File: sotu/figure/apt-grep.png Graphic file (type bmp)
 <sotu/figure/apt-grep.png>
-[35]
+[32]
 File: sotu/figure/apt-list.png Graphic file (type bmp)
 <sotu/figure/apt-list.png>
 File: sotu/figure/version-check.png Graphic file (type bmp)
 <sotu/figure/version-check.png>
-[36] [37]
+[33] [34]
 
-LaTeX Warning: Reference `p4' on page 38 undefined on input line 370.
+LaTeX Warning: Reference `p4' on page 35 undefined on input line 372.
 
 File: sotu/figure/downtime.png Graphic file (type bmp)
 <sotu/figure/downtime.png>
-) [38]
+) [35]
 \openout2 = `sotu/chapter5.aux'.
 
-(./sotu/chapter5.tex [39
+(./sotu/chapter5.tex [36
 
 
 
-]) [40]
+]) [37]
 \openout2 = `sotu/syazi.aux'.
 
-(./sotu/syazi.tex) [41
+(./sotu/syazi.tex) [38
 
 
 
@@ -654,7 +633,7 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 5--6
 []\OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
-) [42
+) [39
 
 
 
@@ -662,17 +641,14 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 5--6
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
  7338 strings out of 481768
  140670 string characters out of 5933620
- 388859 words of memory out of 5000000
+ 386820 words of memory out of 5000000
  22595 multiletter control sequences out of 15000+600000
  553739 words of font info for 109 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  39i,15n,40p,746b,1799s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (47 pages, 110180 bytes).
+Output written on out/main_new.dvi (44 pages, 102200 bytes).

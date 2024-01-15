@@ -61,50 +61,52 @@ Docker Composeは, 複数のコンテナを定義し, 実行するためのツ�
 \section{検証環境のセットアップ}
 \subsection{全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}
 
-Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlをを示す.
+% Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlをを示す.
 
-\begin{lstlisting}[caption=全て同じバージョンのElasticsearchを使用したクラスタを構成するdocker-compose.yml, label=sc1]
-  version: '2.2'
-  services:
-    es01:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-      container_name: es01
-      environment:
-        - node.name=es01
-        - cluster.name=es-docker-cluster
-        - discovery.seed_hosts=es02,es03
-        - cluster.initial_master_nodes=es01,es02,es03
-      ports:
-        - 9200:9200
-      networks:
-        - elastic
-    es02:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-      container_name: es02
-      environment:
-        - node.name=es02
-        - cluster.name=es-docker-cluster
-        - discovery.seed_hosts=es01,es03
-        - cluster.initial_master_nodes=es01,es02,es03
-      networks:
-        - elastic
-    es03:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-      container_name: es03
-      environment:
-        - node.name=es03
-        - cluster.name=es-docker-cluster
-        - discovery.seed_hosts=es01,es02
-        - cluster.initial_master_nodes=es01,es02,es03
-      networks:
-        - elastic
+% \begin{lstlisting}[caption=全て同じバージョンのElasticsearchを使用したクラスタを構成するdocker-compose.yml, label=sc1]
+%   version: '2.2'
+%   services:
+%     es01:
+%       image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+%       container_name: es01
+%       environment:
+%         - node.name=es01
+%         - cluster.name=es-docker-cluster
+%         - discovery.seed_hosts=es02,es03
+%         - cluster.initial_master_nodes=es01,es02,es03
+%       ports:
+%         - 9200:9200
+%       networks:
+%         - elastic
+%     es02:
+%       image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+%       container_name: es02
+%       environment:
+%         - node.name=es02
+%         - cluster.name=es-docker-cluster
+%         - discovery.seed_hosts=es01,es03
+%         - cluster.initial_master_nodes=es01,es02,es03
+%       networks:
+%         - elastic
+%     es03:
+%       image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+%       container_name: es03
+%       environment:
+%         - node.name=es03
+%         - cluster.name=es-docker-cluster
+%         - discovery.seed_hosts=es01,es02
+%         - cluster.initial_master_nodes=es01,es02,es03
+%       networks:
+%         - elastic
   
-  networks:
-    elastic:
-      driver: bridge
-  \end{lstlisting}
+%   networks:
+%     elastic:
+%       driver: bridge
+%   \end{lstlisting}
 
-また, 図 \ref{4-p3}にListing \ref{sc1}のdocker-compose.ymlを図で表現したものを示す.
+% また, 図 \ref{4-p3}にListing \ref{sc1}のdocker-compose.ymlを図で表現したものを示す.
+
+図 \ref{4-p3}に, 7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlを図で表現したものを示す.
 
 \begin{figure}
   \begin{center}
@@ -114,30 +116,30 @@ Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用して�
   \end{center}
 \end{figure}
 
-Listing \ref{sc1}のdocker-compose.ymlファイルで記述している内容について説明する.
+% Listing \ref{sc1}のdocker-compose.ymlファイルで記述している内容について説明する.
 
-\subsubsection*{サービスの定義}
-\begin{itemize}
-  \item \textbf{es01, es02, es03}: これらはElasticsearchのノード（サーバー）である. 各ノードは異なるコンテナとして定義されている. es01, es02, es03はそれぞれ異なるコンテナ名で, Elasticsearchの異なるインスタンスを実行する.
-\end{itemize}
+% \subsubsection*{サービスの定義}
+% \begin{itemize}
+%   \item \textbf{es01, es02, es03}: これらはElasticsearchのノード（サーバー）である. 各ノードは異なるコンテナとして定義されている. es01, es02, es03はそれぞれ異なるコンテナ名で, Elasticsearchの異なるインスタンスを実行する.
+% \end{itemize}
 
-\subsubsection*{各ノードの設定}
-\begin{itemize}
-  \item \textbf{image}: 使用するDockerイメージ. ここではElasticsearchの7.17.9バージョンを使用している.
-  \item \textbf{container\_name}: コンテナに割り当てられる名前.
-  \item \textbf{environment}: 環境変数の設定. Elasticsearchのクラスタ設定を含む.
-  \item \textbf{ports}: ホストマシンとコンテナ間のポートマッピング. 例えば, `9200:9200`はホストマシンの9200ポートをコンテナの9200ポートにマッピングする.
-  \item \textbf{networks}: コンテナ間通信のためのネットワーク設定. ここではelasticネットワークが使用されている.
-\end{itemize}
+% \subsubsection*{各ノードの設定}
+% \begin{itemize}
+%   \item \textbf{image}: 使用するDockerイメージ. ここではElasticsearchの7.17.9バージョンを使用している.
+%   \item \textbf{container\_name}: コンテナに割り当てられる名前.
+%   \item \textbf{environment}: 環境変数の設定. Elasticsearchのクラスタ設定を含む.
+%   \item \textbf{ports}: ホストマシンとコンテナ間のポートマッピング. 例えば, `9200:9200`はホストマシンの9200ポートをコンテナの9200ポートにマッピングする.
+%   \item \textbf{networks}: コンテナ間通信のためのネットワーク設定. ここではelasticネットワークが使用されている.
+% \end{itemize}
 
-\subsubsection*{ボリュームとネットワークの設定}
-\begin{itemize}
-  \item \textbf{networks}: デフォルトのドライバであるbridgeドライバを使用するelasticネットワークを定義している. これにより, 異なるコンテナが相互に通信できるようになる.
-\end{itemize}
+% \subsubsection*{ボリュームとネットワークの設定}
+% \begin{itemize}
+%   \item \textbf{networks}: デフォルトのドライバであるbridgeドライバを使用するelasticネットワークを定義している. これにより, 異なるコンテナが相互に通信できるようになる.
+% \end{itemize}
 
-この設定により, Elasticsearchの3ノードを含むクラスタがDocker上で動作するようセットアップされる.
+% この設定により, Elasticsearchの3ノードを含むクラスタがDocker上で動作するようセットアップされる.
 
-以降, 説明を簡単にするため, docker-compose.ymlを図で表現したもののみを掲示する.
+% 以降, 説明を簡単にするため, docker-compose.ymlを図で表現したもののみを掲示する.
 
 クラスタの起動には, docker compose up -dコマンドを使用する.
 
