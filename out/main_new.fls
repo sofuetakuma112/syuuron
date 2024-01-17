@@ -164,6 +164,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT out/main_new.toc
 INPUT out/main_new.toc
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin8.tfm
@@ -183,9 +186,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT sotu/figure/2/original-20220602-corr.png
 INPUT extractbb -B cropbox -O sotu/figure/2/original-20220602-corr.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
@@ -243,14 +243,6 @@ INPUT sotu/figure/4nodes-list.png
 INPUT extractbb -B cropbox -O sotu/figure/4nodes-list.png
 INPUT sotu/figure/es04-log.png
 INPUT extractbb -B cropbox -O sotu/figure/es04-log.png
-INPUT sotu/figure/apt-grep.png
-INPUT extractbb -B cropbox -O sotu/figure/apt-grep.png
-INPUT sotu/figure/apt-list.png
-INPUT extractbb -B cropbox -O sotu/figure/apt-list.png
-INPUT sotu/figure/version-check.png
-INPUT extractbb -B cropbox -O sotu/figure/version-check.png
-INPUT sotu/figure/downtime.png
-INPUT extractbb -B cropbox -O sotu/figure/downtime.png
 OUTPUT out/sotu/chapter5.aux
 INPUT sotu/chapter5.tex
 INPUT sotu/chapter5.tex
