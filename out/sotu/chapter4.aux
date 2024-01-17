@@ -12,7 +12,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}コンテナとは}{21}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Dockerイメージとは}{22}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.4節}Docker Composeとは}{22}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5節}検証環境のセットアップ}{22}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5節}異なるバージョンの Elasticsearch ノードを用いたクラスタ構築検証}{22}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}{22}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces ElasticsearchのDockerイメージ}}{23}\protected@file@percent }
 \newlabel{4-p2}{{4.2}{23}}
@@ -20,37 +20,36 @@
 \newlabel{4-p3}{{4.3}{23}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces クラスタに参加しているノードを一覧表示した結果}}{24}\protected@file@percent }
 \newlabel{4-p4}{{4.4}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces 変更後のdocker-compose.ymlを図で表現したもの}}{24}\protected@file@percent }
-\newlabel{4-p5}{{4.5}{24}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}{24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces 変更後のdocker-compose.ymlを図で表現したもの}}{25}\protected@file@percent }
+\newlabel{4-p5}{{4.5}{25}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces クラスタに参加しているノードを一覧表示した結果}}{25}\protected@file@percent }
 \newlabel{4-p6}{{4.6}{25}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces es03のログ}}{25}\protected@file@percent }
 \newlabel{4-p7}{{4.7}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6節}異なるElasticsearchクラスタへのノード参加検証}{25}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces クラスタAの構築の際に使用したdocker-compose.ymlを図で表現したもの}}{26}\protected@file@percent }
-\newlabel{4-p8}{{4.8}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.7節}手順}{26}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}単一ノードで稼働するクラスタAの構築}{26}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces クラスタの情報について問い合わせた結果}}{27}\protected@file@percent }
-\newlabel{4-p9}{{4.9}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}クラスタBの構築}{27}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.6節}異なるElasticsearchクラスタへのノード参加検証}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}単一ノードで稼働するクラスタAの構築}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}3ノードで稼働するクラスタBの構築}{26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces クラスタAの構築の際に使用したdocker-compose.ymlを図で表現したもの}}{27}\protected@file@percent }
+\newlabel{4-p8}{{4.8}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces クラスタの情報について問い合わせた結果}}{28}\protected@file@percent }
+\newlabel{4-p9}{{4.9}{28}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces クラスタBの構築の際に使用したdocker-compose.ymlを図で表現したもの}}{28}\protected@file@percent }
 \newlabel{4-p10}{{4.10}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces クラスタの情報について問い合わせた結果}}{28}\protected@file@percent }
-\newlabel{4-p11}{{4.11}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces クラスタの情報について問い合わせた結果}}{29}\protected@file@percent }
+\newlabel{4-p11}{{4.11}{29}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果}}{29}\protected@file@percent }
 \newlabel{4-p12}{{4.12}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces 合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したもの}}{29}\protected@file@percent }
-\newlabel{4-p13}{{4.13}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.3}クラスタBへの参加試行}{29}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces 合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したもの}}{30}\protected@file@percent }
+\newlabel{4-p13}{{4.13}{30}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces 合計4ノードでクラスタの起動を試みた後, クラスタに参加しているノードの一覧を取得した結果}}{30}\protected@file@percent }
 \newlabel{4-p14}{{4.14}{30}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces es04コンテナのログ}}{30}\protected@file@percent }
-\newlabel{4-p15}{{4.15}{30}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.8節}結言}{31}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}クラスタAへ参加しているノードのクラスタBへの参加試行}{30}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces es04コンテナのログ}}{31}\protected@file@percent }
+\newlabel{4-p15}{{4.15}{31}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7節}結言}{32}\protected@file@percent }
 \@setckpt{sotu/chapter4}{
-\setcounter{page}{32}
+\setcounter{page}{33}
 \setcounter{equation}{0}
 \setcounter{enumi}{5}
 \setcounter{enumii}{0}
@@ -61,7 +60,7 @@
 \setcounter{@paper}{1}
 \setcounter{part}{0}
 \setcounter{chapter}{4}
-\setcounter{section}{8}
+\setcounter{section}{7}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}

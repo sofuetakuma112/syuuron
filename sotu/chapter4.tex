@@ -58,7 +58,7 @@ DockerイメージはDocker Hubやその他のレジストリで共有されて�
 \section{Docker Composeとは}
 Docker Composeは, 複数のコンテナを定義し, 実行するためのツールである. これはYAMLファイルを使用して設定され, 複数のコンテナで協調して動作するアプリケーションの開発を単純化する.
 
-\section{検証環境のセットアップ}
+\section{異なるバージョンの Elasticsearch ノードを用いたクラスタ構築検証}
 \subsection{全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}
 
 % Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlをを示す.
@@ -196,8 +196,6 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 \section{異なるElasticsearchクラスタへのノード参加検証}
 サーバーゾーンでのクラスタ構築において, リサイクル館の太陽光パネルの計測データを保存しているElasticsearchノードを新たなノードとして構築したクラスタに参加できるか, Dockerを用いて検証した.
 
-\section{手順}
-
 \subsection{単一ノードで稼働するクラスタAの構築}
 
 まず, docker-composeを用いて単一ノード(コンテナ名はes04)でクラスタ以後このクラスタをクラスタAと呼ぶを構築する. 以後このクラスタをクラスタAと呼ぶ.
@@ -224,7 +222,7 @@ docker-composeを用いてノードを起動した後, クラスタの情報に�
 
 クラスタの情報について問い合わせた後, Dockerコンテナを停止してノードをシャットダウンした.
 
-\subsection{クラスタBの構築}
+\subsection{3ノードで稼働するクラスタBの構築}
 
 次に, クラスタAに使用したノードとは別の3ノード(コンテナ名はそれぞれes01, es02, es03)でクラスタを構築する. 以後このクラスタをクラスタBと呼ぶ.
 
@@ -264,7 +262,7 @@ docker-composeを用いて3つのノードを起動した後, クラスタの情
 
 クラスタに参加しているノードの一覧を取得した後, 全てのDockerコンテナを停止してノードを全てシャットダウンした.
 
-\subsection{クラスタBへの参加試行}
+\subsection{クラスタAへ参加しているノードのクラスタBへの参加試行}
 
 次に, 図 \ref{4-p10}のdocker-compose.ymlに対して, クラスタAのノード(es04コンテナ)を追加し, 合計4ノードでのクラスタBの起動を試みる.
 
@@ -363,18 +361,18 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 
 % 図 \ref{4-p18}より, Elasticsearchのバージョンが7.17.9にバージョンアップ出来たことが確認できた.
 
-% \section{kibanaのバージョンアップ}
+% \section{Kibanaのバージョンアップ}
 
-% kibanaもelasticsearchと同様, aptを使用してインストールされていたため, \textbf{sudo systemctl stop kibana.service}コマンド, \textbf{sudo apt install kibana=7.17.9}コマンド, \textbf{sudo systemctl start kibana}コマンドをそれぞれ実行して, kibanaのバージョンアップも行った.
+% Kibanaもelasticsearchと同様, aptを使用してインストールされていたため, \textbf{sudo systemctl stop Kibana.service}コマンド, \textbf{sudo apt install Kibana=7.17.9}コマンド, \textbf{sudo systemctl start Kibana}コマンドをそれぞれ実行して, Kibanaのバージョンアップも行った.
 
 % \section{バージョンアップ後の動作確認}
 
-% Elasticsearchのバージョンアップ後, 太陽光パネルの計測データがElasticsearchに保存されているかkibana上で確認した結果を図 \ref{p4}に示す.
+% Elasticsearchのバージョンアップ後, 太陽光パネルの計測データがElasticsearchに保存されているかKibana上で確認した結果を図 \ref{p4}に示す.
 
 % \begin{figure}
 %   \begin{center}
 %     \includegraphics[width=140mm]{sotu/figure/downtime.png}
-%     \caption{Elasticsearchのバージョンアップ後, 太陽光パネルの計測データが保存されているかkibana上で確認した結果}
+%     \caption{Elasticsearchのバージョンアップ後, 太陽光パネルの計測データが保存されているかKibana上で確認した結果}
 %     \label{4-p19}
 %   \end{center}
 % \end{figure}

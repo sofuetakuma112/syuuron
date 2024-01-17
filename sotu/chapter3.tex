@@ -23,7 +23,7 @@ Elasticsearchは, 分散処理に対応した全文検索エンジンである�
   \item ビジネス分析: 顧客データや販売データから, トレンドや傾向を分析する
 \end{itemize}
 
-\section{kibanaの概要}
+\section{Kibanaの概要}
 
 Kibanaは, Elasticsearchに保存されたデータを可視化するためのツールである。主な特徴は, 以下の通りである。
 
@@ -41,10 +41,10 @@ Kibanaは, Elasticsearchに保存されたデータを可視化するための�
   \item ビジネス分析: 顧客データや販売データから, トレンドや傾向を可視化する
 \end{itemize}
 
-\section{学内ゾーンで稼働しているElasticsearchシステムの状況}
-学内ゾーンでは, 単一ノードで稼働する133.71.106.168のElasticsearchと, 133.71.106.170, 133.71.106.141, 133.71.106.136のElasticsearchノードによって構成されたElasticsearchクラスタが稼働している.
+% \section{学内ゾーンで稼働しているElasticsearchシステムの状況}
+% 学内ゾーンでは, 単一ノードで稼働する133.71.106.168のElasticsearchと, 133.71.106.170, 133.71.106.141, 133.71.106.136のElasticsearchノードによって構成されたElasticsearchクラスタが稼働している.
 
-133.71.106.168のElasticsearchには, CO\textsubscript{2}濃度監視システムによって計測されたデータとLEAFの運行日誌に関するデータが保存されている.
+% 133.71.106.168のElasticsearchには, CO\textsubscript{2}濃度監視システムによって計測されたデータとLEAFの運行日誌に関するデータが保存されている.
 
 % \section{CO\textsubscript{2}濃度監視システムの概要}
 % CO\textsubscript{2}濃度監視システムとは共通講義棟 C, 工学部 5 号館，工学部 4 号館の各講義室(計 24 部屋)の CO2 濃度を学内ネットワーク内の web サイトで閲覧することができるシステムである．
@@ -53,7 +53,7 @@ Kibanaは, Elasticsearchに保存されたデータを可視化するための�
 
 133.71.106.168で稼働している単一ノードのElasticsearchに保存されたCO\textsubscript{2}データとLEAFの運行日誌に関するデータを, 学内ゾーンで稼働しているElasticsearchクラスタへ移行する.
 
-\section{CO\textsubscript{2}データの移行ついて}
+\section{CO\textsubscript{2}データの移行手順ついて}
 まず, Elasticsearchに保存されたCO\textsubscript{2}データの持つフィールドについて説明する. Elasticsearchに保存されたCO\textsubscript{2}データには, 計測した日時, 部屋番号, 部屋の気温, CO\textsubscript{2}濃度などの情報が含まれている.
 
 CO\textsubscript{2}のデータ移行を行う上で, タイムスタンプと部屋番号の組み合わせが重複しているデータが一部存在しており, この重複データを取り除いた上でデータ移行を行う必要がある. そこで一度, 移行元のElasticSearchサーバーのデータをローカルマシンにエクスポートして, 重複データを取り除いた上で, 移行先のElasticSearchサーバーにデータをインサートする.
@@ -140,7 +140,7 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
   \item フィルタリング後のデータを移行先ElasticSearchサーバーにバルクインサートする.
 \end{enumerate}
 
-\section{kibanaによるデータの可視化}
+\section{KibanaによるCO\textsubscript{2}データの可視化}
 
 計2回のCO\textsubscript{2}データを移行した後のco2\_modbusインデックスについて, 横軸をタイムスタンプ(utctime)とし, 縦軸をPPM, RH, TEMPとしてそれぞれプロットしたものを図 \ref{p12} 〜 図 \ref{p14}に示す.
 
