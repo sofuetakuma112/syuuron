@@ -30,21 +30,20 @@
 \contentsline {section}{\numberline {3.10節}結言}{18}%
 \contentsline {chapter}{\numberline {第4章}サーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証}{20}%
 \contentsline {section}{\numberline {4.1節}緒言}{20}%
-\contentsline {section}{\numberline {4.2節}サーバーゾーンで稼働しているElasticsearchシステムの状況}{20}%
-\contentsline {section}{\numberline {4.3節}Dockerとは}{21}%
-\contentsline {subsection}{\numberline {4.3.1}コンテナとは}{21}%
-\contentsline {subsection}{\numberline {4.3.2}Dockerイメージとは}{22}%
-\contentsline {section}{\numberline {4.4節}Docker Composeとは}{22}%
-\contentsline {section}{\numberline {4.5節}異なるバージョンの Elasticsearch ノードを用いたクラスタ構築検証}{22}%
-\contentsline {subsection}{\numberline {4.5.1}全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}{22}%
-\contentsline {subsection}{\numberline {4.5.2}異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}{24}%
-\contentsline {section}{\numberline {4.6節}異なるElasticsearchクラスタへのノード参加検証}{26}%
-\contentsline {subsection}{\numberline {4.6.1}単一ノードで稼働するクラスタAの構築}{26}%
-\contentsline {subsection}{\numberline {4.6.2}3ノードで稼働するクラスタBの構築}{26}%
-\contentsline {subsection}{\numberline {4.6.3}クラスタAへ参加しているノードのクラスタBへの参加試行}{30}%
-\contentsline {section}{\numberline {4.7節}結言}{32}%
-\contentsline {chapter}{\numberline {第5章}結論と今後の課題}{33}%
-\contentsline {section}{\numberline {5.1節}結論}{33}%
-\contentsline {section}{\numberline {5.2節}今後の課題}{33}%
-\contentsline {chapter}{謝 辞}{35}%
-\contentsline {chapter}{参考文献}{36}%
+\contentsline {section}{\numberline {4.2節}Dockerとは}{20}%
+\contentsline {subsection}{\numberline {4.2.1}コンテナとは}{20}%
+\contentsline {subsection}{\numberline {4.2.2}Dockerイメージとは}{21}%
+\contentsline {section}{\numberline {4.3節}Docker Composeとは}{23}%
+\contentsline {section}{\numberline {4.4節}異なるバージョンの Elasticsearch ノードを用いたクラスタ構築検証}{23}%
+\contentsline {subsection}{\numberline {4.4.1}全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}{23}%
+\contentsline {subsection}{\numberline {4.4.2}異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}{24}%
+\contentsline {section}{\numberline {4.5節}異なるElasticsearchクラスタへのノード参加検証}{25}%
+\contentsline {subsection}{\numberline {4.5.1}単一ノードで稼働するクラスタAの構築}{25}%
+\contentsline {subsection}{\numberline {4.5.2}3ノードで稼働するクラスタBの構築}{27}%
+\contentsline {subsection}{\numberline {4.5.3}クラスタAへ参加しているノードのクラスタBへの参加試行}{29}%
+\contentsline {section}{\numberline {4.6節}結言}{31}%
+\contentsline {chapter}{\numberline {第5章}結論と今後の課題}{32}%
+\contentsline {section}{\numberline {5.1節}結論}{32}%
+\contentsline {section}{\numberline {5.2節}今後の課題}{32}%
+\contentsline {chapter}{謝 辞}{34}%
+\contentsline {chapter}{参考文献}{35}%
