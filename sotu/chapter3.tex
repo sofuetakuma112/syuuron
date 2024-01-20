@@ -1,5 +1,5 @@
 
-\chapter{学内ゾーンにおけるElasticsearchクラスタへのデータ移行}
+\chapter{単一Elasticsearchノードをクラスタ化する前に行うデータ移行}
 \label{chap:third}
 
 \section{緒言}
@@ -52,6 +52,57 @@ Kibanaは, Elasticsearchに保存されたデータを可視化するための�
 \section{データ移行対象のElasticsearchインデックスについて}
 
 133.71.106.168で稼働している単一ノードのElasticsearchに保存されたCO\textsubscript{2}データとLEAFの運行日誌に関するデータを, 学内ゾーンで稼働しているElasticsearchクラスタへ移行する.
+
+\subsection{CO\textsubscript{2}データ}
+
+CO\textsubscript{2}データが保存されたインデックスは, インデックス名にco2という文字列が含まれているため, co2という文字列を含む全てのインデックスを移行対象とする.
+
+\subsection{LEAFの運行日誌に関するデータ}
+
+LEAFの運行日誌に関するデータが保存されたインデックスは以下の2つである.
+
+\begin{itemize}
+  \item movement\_diary
+  \item movement\_diary01
+\end{itemize}
+
+上記のインデックスに保存されているデータについて説明する.
+
+以下にmovement\_diaryとmovement\_diary01のドキュメントの違いを列挙する.
+
+\begin{enumerate}
+  \item driverフィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントでは, driverフィールドは文字列である.
+          \item movement\_diary01のドキュメントでは, driverフィールドは配列で, その中に文字列と2つのnull値が含まれている.
+        \end{itemize}
+        
+  \item ``destination''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントでは, ``destination''フィールドは単一の文字列である.
+          \item movement\_diary01のドキュメントでは, ``destination''フィールドは配列で, その中に2つの文字列が含まれている.
+        \end{itemize}
+        
+  \item ``charge\_place''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントには, ``charge\_place''フィールドは存在しない.
+          \item movement\_diary01のドキュメントでは, ``charge\_place''フィールドが追加されているが, その値は空文字列である.
+        \end{itemize}
+        
+  \item ``battery\_rate''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントには, ``battery\_rate''フィールドは存在しない.
+          \item movement\_diary01のドキュメントでは, ``battery\_rate''フィールドが追加されており, その値は数値である.
+        \end{itemize}
+        
+  \item ``battery\_rate\_distance''フィールド:
+        \begin{itemize}
+          \item movement\_diaryのドキュメントには, ``battery\_rate\_distance''フィールドは存在しない.
+          \item movement\_diary01のドキュメントでは, ``battery\_rate\_distance''フィールドが追加されており, その値は数値である.
+        \end{itemize}
+\end{enumerate}
+
+上述したmovement\_diaryとmovement\_diary01のドキュメントの違いより, movement\_diary01はmovement\_diaryのもつ全ての情報を保持しており, 更にmovement\_diaryにはないフィールドを持っている. 更に, movement_diaryとmovement_diary01のドキュメント数は等しく, すべてのドキュメントのタイムスタンプが一致しているため, movement\_diary01インデックスのみ移行する.
 
 \section{CO\textsubscript{2}データの移行手順ついて}
 まず, Elasticsearchに保存されたCO\textsubscript{2}データの持つフィールドについて説明する. Elasticsearchに保存されたCO\textsubscript{2}データには, 計測した日時, 部屋番号, 部屋の気温, CO\textsubscript{2}濃度などの情報が含まれている.
@@ -170,56 +221,11 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
 
 図 \ref{p12} 〜 図 \ref{p14}より, 連続的にデータが変化していることが目視で確認できるので, データ移行は正常に出来たと判断できる.
 
-\section{LEAFの運行日誌に関するデータの移行について}
-
-LEAFの運行日誌に関するデータが保存されたインデックスは以下の2つである.
-
-\begin{itemize}
-  \item movement\_diary
-  \item movement\_diary01
-\end{itemize}
-
-これらのインデックスのデータ移行は, 同名のインデックスを移行先のElasticSearchサーバーに作成して, 作成したインデックスにデータを挿入することで行った.
-
-次に, 上記のインデックスに保存されているデータについて説明する.
-
-以下にmovement\_diaryとmovement\_diary01のドキュメントの違いを列挙する.
-
-\begin{enumerate}
-  \item driverフィールド:
-        \begin{itemize}
-          \item movement\_diaryのドキュメントでは, driverフィールドは文字列である.
-          \item movement\_diary01のドキュメントでは, driverフィールドは配列で, その中に文字列と2つのnull値が含まれている.
-        \end{itemize}
-        
-  \item ``destination''フィールド:
-        \begin{itemize}
-          \item movement\_diaryのドキュメントでは, ``destination''フィールドは単一の文字列である.
-          \item movement\_diary01のドキュメントでは, ``destination''フィールドは配列で, その中に2つの文字列が含まれている.
-        \end{itemize}
-        
-  \item ``charge\_place''フィールド:
-        \begin{itemize}
-          \item movement\_diaryのドキュメントには, ``charge\_place''フィールドは存在しない.
-          \item movement\_diary01のドキュメントでは, ``charge\_place''フィールドが追加されているが, その値は空文字列である.
-        \end{itemize}
-        
-  \item ``battery\_rate''フィールド:
-        \begin{itemize}
-          \item movement\_diaryのドキュメントには, ``battery\_rate''フィールドは存在しない.
-          \item movement\_diary01のドキュメントでは, ``battery\_rate''フィールドが追加されており, その値は数値である.
-        \end{itemize}
-        
-  \item ``battery\_rate\_distance''フィールド:
-        \begin{itemize}
-          \item movement\_diaryのドキュメントには, ``battery\_rate\_distance''フィールドは存在しない.
-          \item movement\_diary01のドキュメントでは, ``battery\_rate\_distance''フィールドが追加されており, その値は数値である.
-        \end{itemize}
-\end{enumerate}
-
-上述したmovement\_diaryとmovement\_diary01のドキュメントの違いより, movement\_diary01はmovement\_diaryのもつ全ての情報を保持しており, 更にmovement\_diaryにはないフィールドを持っていることから, 移行するのはmovement\_diary01インデックスのみで十分であることが分かる.
+% \section{LEAFの運行日誌に関するデータの移行について}
 
 \section{LEAFの運行日誌に関するデータの移行手順について}
+
+movement\_diary01インデックスのデータ移行は, 同名のインデックスを移行先のElasticSearchサーバーに作成して, 作成したインデックスにデータを挿入することで行う.
 
 \subsection{データのエクスポート}
 移行元のElasticSearchサーバーのデータのローカルマシンへのエクスポートには, elasticdumpライブラリを使用して, movement\_diary01インデックスの全ドキュメントをJSON形式でエクスポートした.
