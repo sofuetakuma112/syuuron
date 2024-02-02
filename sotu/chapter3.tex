@@ -172,24 +172,26 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
 
 \section{一度目のデータ移行で移行できなかったCO\textsubscript{2}データの移行について}
 
-2023年5月中旬頃に, 実装したデータ移行プログラムを使用して移行元である133.71.106.168のElasticsearchからElasticsearchクラスタへCO\textsubscript{2}データ移行を行った. しかし, CO\textsubscript{2}濃度監視システムを開発と運用を担当している高木君が, CO\textsubscript{2}濃度監視システムの計測データのインサート先を, 移行先のElasticsearchクラスタに変更したのが2023年7月中旬頃であった. このため, 2023年5月中旬から2023年7月中旬までの間の約2ヶ月間のCO\textsubscript{2}データが移行先のElasticSearchクラスタに移行出来ていなかった. そこで, 追加の移行作業を行った.
+2023年5月中旬頃に, 実装したデータ移行プログラムを使用してElasticsearchクラスタへCO\textsubscript{2}データの移行を行った. しかし, CO\textsubscript{2}濃度監視システムの開発と運用を担当している高木君が, 計測データのインサート先を, Elasticsearchクラスタに変更したのが2023年7月中旬頃であった. このため, 2023年5月中旬から2023年7月中旬までの間の約2ヶ月間のCO\textsubscript{2}データがElasticSearchクラスタに移行出来ていなかった. そこで, 追加の移行作業を行った.
 
 移行方法は以下のとおりである.
 
 \begin{enumerate}
   \item まず, 2023年5月中旬に移行した際の全ての移行データの中で最も最新のutctimeフィールドの値を検索する.
-        \begin{itemize}
-          \item 検索した結果, 2023年5月中旬に移行した際の全移行データの中で最も最新のutctimeは「2023-05-16T05:48:30.081305」であった.
-        \end{itemize}
-  \item 次に, 学内ゾーンのElasticsearchクラスタに対して, ラズベリーパイからインサートした全データの中で最も古いutctimeフィールドの値を検索する.
-        \begin{itemize}
-          \item 検索した結果, ラズベリーパイからインサートされた全データの中で最も古いutctimeは「2023-07-20T07:15:39.314008」であった.
-        \end{itemize}
-  \item 前回のCO\textsubscript{2}データの移行は2023年5月中旬頃に行ったため, 2023年5月1日0時0分0秒以降のutctimeを持つドキュメントを, 133.71.106.168のElasticsearchのインデックス名にco2という文字列を含むインデックスからelasticdumpライブラリを使用してローカルマシンにエクスポートする.
-  \item 部屋番号(number)と計測日時(utctime)の組み合わせがユニークになるようSQLiteを用いてエクスポートデータから重複削除を行う.
-  \item 更に, 1と2で得られたutctimeの範囲に含まれるutctimeを持つドキュメントのみになるようフィルタリングする.
-  \item フィルタリング後のデータを移行先ElasticSearchサーバーにバルクインサートする.
+        % \begin{itemize}
+        %   \item 検索した結果, 2023年5月中旬に移行した際の全移行データの中で最も新しいutctimeは「2023-05-16T05:48:30.081305」であった.
+        % \end{itemize}
+  \item 次に, Elasticsearchクラスタに対して, CO\textsubscript{2}濃度監視システムからインサートした全データの中で最も古いutctimeフィールドの値を検索する.
+        % \begin{itemize}
+        %   \item 検索した結果, CO\textsubscript{2}濃度監視システムからインサートされた全データの中で最も古いutctimeは「2023-07-20T07:15:39.314008」であった.
+        % \end{itemize}
+  \item co2という文字列を含むインデックスに保存された2023年5月1日0時0分0秒以降のutctimeを持つドキュメントを, elasticdumpライブラリを使用して移行元Elasticsearchサーバーからローカルマシンにエクスポートする.
+  \item 部屋番号(number)と計測日時(utctime)の組み合わせがユニークになるようSQLiteを用いて, エクスポートしたデータの重複削除を行う.
+  \item ステップ1, 2で得られたutctimeの範囲に含まれるutctimeを持つドキュメントのみになるよう重複削除後のデータをフィルタリングする.
+  \item フィルタリング後のデータを移行先ElasticSearchクラスタにインサートする.
 \end{enumerate}
+
+上記に手順に従い, 追加のデータ移行を行った.
 
 \section{KibanaによるCO\textsubscript{2}データの可視化}
 

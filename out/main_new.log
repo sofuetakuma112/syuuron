@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  2 FEB 2024 18:36
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  2 FEB 2024 18:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -547,7 +547,7 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
 File: sotu/figure/ppm.png Graphic file (type bmp)
 <sotu/figure/ppm.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 200--201
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 202--203
  [] 
  []
 
@@ -557,7 +557,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sotu/figure/rh.png Graphic file (type bmp)
 <sotu/figure/rh.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 208--209
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 210--211
  [] 
  []
 
@@ -567,7 +567,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sotu/figure/temp.png Graphic file (type bmp)
 <sotu/figure/temp.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 216--217
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 218--219
  [] 
  []
 
@@ -579,39 +579,34 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[17]
+[17])
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[18])
+[18]
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
 [19]
-Overfull \hbox (0.99327pt too wide) has occurred while \output is active
- \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
- []
-
-[20]
 \openout2 = `sotu/chapter4.aux'.
 
 (./sotu/chapter4.tex
 File: sotu/figure/docker-vmware.png Graphic file (type bmp)
 <sotu/figure/docker-vmware.png>
-[21
+[20
 
 
 
 ]
 File: sotu/figure/elasticsearch-image.png Graphic file (type bmp)
 <sotu/figure/elasticsearch-image.png>
-[22] [23]
+[21] [22]
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
 
-LaTeX Warning: Reference `p1' on page 24 undefined on input line 146.
+LaTeX Warning: Reference `p1' on page 23 undefined on input line 146.
 
 File: sotu/figure/curl-same.png Graphic file (type bmp)
 <sotu/figure/curl-same.png>
@@ -619,14 +614,14 @@ File: sotu/figure/2-7.19.9-and-1-7.17.6.png Graphic file (type bmp)
 <sotu/figure/2-7.19.9-and-1-7.17.6.png>
 File: sotu/figure/curl-different.png Graphic file (type bmp)
 <sotu/figure/curl-different.png>
-[24] [25] [26]
+[23] [24] [25]
 File: sotu/figure/log.png Graphic file (type bmp)
 <sotu/figure/log.png>
 File: sotu/figure/1-7.17.9.png Graphic file (type bmp)
 <sotu/figure/1-7.17.9.png>
 File: sotu/figure/es04-cluster.png Graphic file (type bmp)
 <sotu/figure/es04-cluster.png>
-[27] [28]
+[26] [27]
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
 File: sotu/figure/3nodes-cluster.png Graphic file (type bmp)
@@ -639,17 +634,17 @@ File: sotu/figure/4nodes-list.png Graphic file (type bmp)
 <sotu/figure/4nodes-list.png>
 File: sotu/figure/es04-log.png Graphic file (type bmp)
 <sotu/figure/es04-log.png>
-[29] [30] [31] [32] [33]) [34]
+[28] [29] [30] [31] [32]) [33]
 \openout2 = `sotu/chapter5.aux'.
 
-(./sotu/chapter5.tex [35
+(./sotu/chapter5.tex [34
 
 
 
-]) [36]
+]) [35]
 \openout2 = `sotu/syazi.aux'.
 
-(./sotu/syazi.tex) [37
+(./sotu/syazi.tex) [36
 
 
 
@@ -661,7 +656,7 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 5--6
 []\OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
-) [38
+) [37
 
 
 
@@ -679,4 +674,4 @@ Here is how much of TeX's memory you used:
  929 hyphenation exceptions out of 8191
  39i,15n,40p,742b,1799s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (44 pages, 91516 bytes).
+Output written on out/main_new.dvi (43 pages, 90304 bytes).
