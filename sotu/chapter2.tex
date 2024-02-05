@@ -67,7 +67,7 @@ $\delta$, $\phi$, $h$の値が既知となったので$\alpha$は
 \subsection{実測データと大気外日射量との比較}
 Elasticsearchサーバーから取得した2022年6月2日の実測データと, 計算式から求めた大気外日射量をプロットしたものを図\ref{20220529-p1}に示す. 実測データは地表に設置された太陽光パネルが計測したものであるのに対して, 大気外日射量は地球大気の上端（約8km上空）で受け取る日射量を計算したものであるため, 一日を通して最大となる日射量の大きさに差がある.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/2/original-20220602-corr.png}
     \caption{2022年6月2日の日射量の実測データと大気外日射量をプロットしたもの}
@@ -111,7 +111,7 @@ Elasticsearchサーバーから取得した実測データと, pvlibを用いて
 
 図\ref{2-p1}と図\ref{20220529-p1}と比較すると, 大気外日射量より地表日射量の方が実測データにより近い概形となっていることが分かる.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/2/pvlib-20220602-corr.png}
     \caption{2022年6月2日の実測データと地表日射量をプロットしたもの}
@@ -145,9 +145,7 @@ Elasticsearchサーバーから取得した実測データと, pvlibを用いて
 
 図\ref{2-p2}に, 上述の前処理を行った実測データと, 地表日射量をプロットしたものを示す.
 
-\clearpage
-
-\begin{figure}[h]
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=140mm]{sotu/figure/2/drop-under-0.2-q.png}
     \caption{前処理を行った実測データと, 地表日射量をプロットしたもの}

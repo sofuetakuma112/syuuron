@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  2 FEB 2024 18:50
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  5 FEB 2024 20:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -30,27 +30,34 @@ LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
 \@lnumwidth=\dimen151
 \bibindent=\dimen152
 \heisei=\count176
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count177
+\float@exts=\toks15
+\float@box=\box61
+\@float@everytoks=\toks16
+\@floatcapt=\box62
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks15
+\KV@toks@=\toks17
 )
-\lst@mode=\count177
-\lst@gtempboxa=\box61
-\lst@token=\toks16
-\lst@length=\count178
+\lst@mode=\count178
+\lst@gtempboxa=\box63
+\lst@token=\toks18
+\lst@length=\count179
 \lst@currlwidth=\dimen153
-\lst@column=\count179
-\lst@pos=\count180
+\lst@column=\count180
+\lst@pos=\count181
 \lst@lostspace=\dimen154
 \lst@width=\dimen155
-\lst@newlines=\count181
-\lst@lineno=\count182
+\lst@newlines=\count182
+\lst@lineno=\count183
 \lst@maxwidth=\dimen156
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count183
-\lst@skipnumbers=\count184
-\lst@framebox=\box62
+\c@lstnumber=\count184
+\lst@skipnumbers=\count185
+\lst@framebox=\box64
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2019/09/10 1.8c listings configuration
 ))
@@ -60,15 +67,15 @@ Original Style `sotsuron'. <15 Feb 1993>
 \leftheadmargin=\dimen157
 \rightheadmargin=\dimen158
 \rightheadoutmargin=\dimen159
-\c@program@label=\count185
-\c@program@list=\count186
+\c@program@label=\count186
+\c@program@list=\count187
 ) (./misc.sty
 \pmboffset=\dimen160
-\lineno=\count187
+\lineno=\count188
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks17
-\verbatim@line=\toks18
+\every@verbatim=\toks19
+\verbatim@line=\toks20
 \verbatim@in@stream=\read2
 ) (/usr/share/texlive/texmf-dist/tex/latex/ascmac/ascmac.sty
 Package: ascmac 2020/01/15 v2.1 ascmac wrapper (community edition) 
@@ -76,20 +83,20 @@ Package: ascmac 2020/01/15 v2.1 ascmac wrapper (community edition)
 Package: tascmac 2020/01/15 v2.1 ascmac package (community edition) 
 \@savetbaselineshift=\dimen161
 \@saveybaselineshift=\dimen162
-\scb@x=\box63
-\scscb@x=\box64
+\scb@x=\box65
+\scscb@x=\box66
 \@bw=\dimen163
-\@nbox=\box65
-\@nbody=\box66
+\@nbox=\box67
+\@nbody=\box68
 \@scw=\dimen164
-\ascmac@hoboxa=\box67
-\ascmac@hoboxb=\box68
+\ascmac@hoboxa=\box69
+\ascmac@hoboxb=\box70
 \@itemh=\dimen165
-\@iboxpos=\toks19
-\@iboxstr=\box69
-\@bwsp=\box70
-\@@bwsp=\box71
-\@bcal=\count188
+\@iboxpos=\toks21
+\@iboxstr=\box71
+\@bwsp=\box72
+\@@bwsp=\box73
+\@bcal=\count189
 \shaderule=\dimen166
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
@@ -99,7 +106,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
+\@emptytoks=\toks22
 \ex@=\dimen167
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -108,41 +115,41 @@ LaTeX Info: Redefining \pmb on input line 40.
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count189
+\inf@bad=\count190
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count190
-\leftroot@=\count191
+\uproot@=\count191
+\leftroot@=\count192
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count192
-\DOTSCASE@=\count193
+\classnum@=\count193
+\DOTSCASE@=\count194
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box72
-\strutbox@=\box73
+\Mathstrutbox@=\box74
+\strutbox@=\box75
 \big@size=\dimen169
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count194
-\c@MaxMatrixCols=\count195
+\macc@depth=\count195
+\c@MaxMatrixCols=\count196
 \dotsspace@=\muskip16
-\c@parentequation=\count196
-\dspbrk@lvl=\count197
-\tag@help=\toks21
-\row@=\count198
-\column@=\count199
-\maxfields@=\count266
-\andhelp@=\toks22
+\c@parentequation=\count197
+\dspbrk@lvl=\count198
+\tag@help=\toks23
+\row@=\count199
+\column@=\count266
+\maxfields@=\count267
+\andhelp@=\toks24
 \eqnshift@=\dimen170
 \alignsep@=\dimen171
 \tagshift@=\dimen172
 \tagwidth@=\dimen173
 \totwidth@=\dimen174
 \lineht@=\dimen175
-\@envbody=\toks23
+\@envbody=\toks25
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks24
+\mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 ) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
@@ -153,56 +160,56 @@ Package: cite 2015/02/27  v 5.5
 Package: expl3 2020-02-14 L3 programming layer (loader) 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 File: l3backend-dvips.def 2020-02-03 L3 backend support: dvips
-\l__pdf_internal_box=\box74
-\g__pdf_backend_object_int=\count267
-\l__pdf_backend_content_box=\box75
-\l__pdf_backend_model_box=\box76
-\g__pdf_backend_annotation_int=\count268
-\g__pdf_backend_link_int=\count269
-\g__pdf_backend_link_sf_int=\count270
+\l__pdf_internal_box=\box76
+\g__pdf_backend_object_int=\count268
+\l__pdf_backend_content_box=\box77
+\l__pdf_backend_model_box=\box78
+\g__pdf_backend_annotation_int=\count269
+\g__pdf_backend_link_int=\count270
+\g__pdf_backend_link_sf_int=\count271
 )) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2020-02-14 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count271
-\g__xparse_grabber_int=\count272
-\l__xparse_m_args_int=\count273
-\l__xparse_v_nesting_int=\count274
+\l__xparse_current_arg_int=\count272
+\g__xparse_grabber_int=\count273
+\l__xparse_m_args_int=\count274
+\l__xparse_v_nesting_int=\count275
 )
 Package: siunitx 2020/01/15 v2.7u A comprehensive (SI) units package
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen176
-\ar@mcellbox=\box77
+\ar@mcellbox=\box79
 \extrarowheight=\dimen177
-\NC@list=\toks25
+\NC@list=\toks27
 \extratabsurround=\skip52
 \backup@length=\skip53
-\ar@cellbox=\box78
+\ar@cellbox=\box80
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2020-02-14 LaTeX2e option processing using LaTeX3 keys
 )
-\l__siunitx_tmp_box=\box79
+\l__siunitx_tmp_box=\box81
 \l__siunitx_tmp_dim=\dimen178
-\l__siunitx_tmp_int=\count275
-\l__siunitx_number_mantissa_length_int=\count276
-\l__siunitx_number_uncert_length_int=\count277
-\l__siunitx_round_int=\count278
-\l__siunitx_process_decimal_int=\count279
-\l__siunitx_process_uncertainty_int=\count280
-\l__siunitx_process_fixed_int=\count281
-\l__siunitx_process_integer_min_int=\count282
-\l__siunitx_process_precision_int=\count283
-\l__siunitx_group_min_int=\count284
-\l__siunitx_angle_marker_box=\box80
-\l__siunitx_angle_unit_box=\box81
+\l__siunitx_tmp_int=\count276
+\l__siunitx_number_mantissa_length_int=\count277
+\l__siunitx_number_uncert_length_int=\count278
+\l__siunitx_round_int=\count279
+\l__siunitx_process_decimal_int=\count280
+\l__siunitx_process_uncertainty_int=\count281
+\l__siunitx_process_fixed_int=\count282
+\l__siunitx_process_integer_min_int=\count283
+\l__siunitx_process_precision_int=\count284
+\l__siunitx_group_min_int=\count285
+\l__siunitx_angle_marker_box=\box82
+\l__siunitx_angle_unit_box=\box83
 \l__siunitx_angle_marker_dim=\dimen179
 \l__siunitx_angle_unit_dim=\dimen180
-\l__siunitx_unit_int=\count285
-\l__siunitx_unit_denominator_int=\count286
-\l__siunitx_unit_numerator_int=\count287
-\l__siunitx_unit_prefix_int=\count288
-\l__siunitx_unit_prefix_base_int=\count289
-\l__siunitx_unit_prefix_gram_int=\count290
-\l__siunitx_number_product_int=\count291
+\l__siunitx_unit_int=\count286
+\l__siunitx_unit_denominator_int=\count287
+\l__siunitx_unit_numerator_int=\count288
+\l__siunitx_unit_prefix_int=\count289
+\l__siunitx_unit_prefix_base_int=\count290
+\l__siunitx_unit_prefix_gram_int=\count291
+\l__siunitx_number_product_int=\count292
 \c__siunitx_one_fill_skip=\skip54
 \l__siunitx_table_unit_align_skip=\skip55
 \l__siunitx_table_exponent_dim=\dimen181
@@ -214,10 +221,10 @@ Package: l3keys2e 2020-02-14 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_table_fill_pre_dim=\dimen187
 \l__siunitx_table_fill_post_dim=\dimen188
 \l__siunitx_table_fill_mid_dim=\dimen189
-\l__siunitx_table_pre_box=\box82
-\l__siunitx_table_post_box=\box83
-\l__siunitx_table_mantissa_box=\box84
-\l__siunitx_table_result_box=\box85
+\l__siunitx_table_pre_box=\box84
+\l__siunitx_table_post_box=\box85
+\l__siunitx_table_mantissa_box=\box86
+\l__siunitx_table_result_box=\box87
 \l__siunitx_table_number_align_skip=\skip56
 \l__siunitx_table_text_align_skip=\skip57
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
@@ -287,19 +294,19 @@ LaTeX Info: Redefining \scriptscriptstyle on input line 99.
 LaTeX Info: Redefining \genfrac on input line 145.
 )) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count292
-\calc@Bcount=\count293
+\calc@Acount=\count293
+\calc@Bcount=\count294
 \calc@Adimen=\dimen192
 \calc@Bdimen=\dimen193
 \calc@Askip=\skip58
 \calc@Bskip=\skip59
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count294
+\calc@Ccount=\count295
 \calc@Cskip=\skip60
 )
-\inf@bad=\count295
-\maxint=\count296
+\inf@bad=\count296
+\maxint=\count297
 \listwidth=\dimen194
 \eqnumsep=\dimen195
 \eqmargin=\dimen196
@@ -309,29 +316,29 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \eqbinoffset=\muskip17
 \eqdelimoffset=\muskip18
 \eqindentstep=\dimen198
-\eqstyle=\toks26
-\eqbreakdepth=\count297
-\eqinterlinepenalty=\count298
-\intereqpenalty=\count299
+\eqstyle=\toks28
+\eqbreakdepth=\count298
+\eqinterlinepenalty=\count299
+\intereqpenalty=\count300
 \intereqskip=\skip63
-\prerelpenalty=\count300
-\prebinoppenalty=\count301
+\prerelpenalty=\count301
+\prebinoppenalty=\count302
 \Dmedmuskip=\muskip19
 \Dthickmuskip=\muskip20
 \eqleftskip=\skip64
 \eqrightskip=\skip65
 \eq@vspan=\skip66
 \eq@binoffset=\muskip21
-\EQ@box=\box86
-\EQ@copy=\box87
-\EQ@numbox=\box88
+\EQ@box=\box88
+\EQ@copy=\box89
+\EQ@numbox=\box90
 \eq@wdNum=\dimen199
-\GRP@numbox=\box89
+\GRP@numbox=\box91
 \grp@wdNum=\dimen256
-\eq@lines=\count302
-\eq@curline=\count303
-\eq@badness=\count304
-\EQ@vims=\count305
+\eq@lines=\count303
+\eq@curline=\count304
+\eq@badness=\count305
+\EQ@vims=\count306
 \eq@dp=\dimen257
 \eq@wdL=\dimen258
 \eq@wdT=\dimen259
@@ -348,39 +355,39 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \eq@hshift=\dimen270
 \eq@given@sidespace=\dimen271
 \mathindent=\dimen272
-\eq@final@linecount=\count306
+\eq@final@linecount=\count307
 \eq@wdR=\dimen273
-\EQ@continue=\toks27
-\lr@level=\count307
-\GRP@queue=\toks28
-\GRP@box=\box90
-\GRP@wholebox=\box91
+\EQ@continue=\toks29
+\lr@level=\count308
+\GRP@queue=\toks30
+\GRP@box=\box92
+\GRP@wholebox=\box93
 \darraycolsep=\skip67
-\cur@row=\count308
-\cur@col=\count309
+\cur@row=\count309
+\cur@col=\count310
 \conditionsep=\skip68
 ) (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux))
 \openout1 = `main_new.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-\c@lstlisting=\count310
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+\c@lstlisting=\count311
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
@@ -485,12 +492,10 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 116--117
  [] 
  []
 
-[6] [7] [8]
+[6] [7]
 File: sotu/figure/2/drop-under-0.2-q.png Graphic file (type bmp)
 <sotu/figure/2/drop-under-0.2-q.png>
-) [9
-
-]
+[8]) [9]
 \openout2 = `sotu/chapter3.aux'.
 
 (./sotu/chapter3.tex [10
@@ -552,17 +557,17 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 202--203
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (0.99327pt too wide) has occurred while \output is active
+ \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
+ []
 
+[17]
 File: sotu/figure/rh.png Graphic file (type bmp)
 <sotu/figure/rh.png>
 
 Overfull \hbox (56.9055pt too wide) in paragraph at lines 210--211
  [] 
  []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: sotu/figure/temp.png Graphic file (type bmp)
 <sotu/figure/temp.png>
@@ -572,14 +577,6 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 218--219
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (0.99327pt too wide) has occurred while \output is active
- \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
- []
-
-[17])
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
@@ -589,62 +586,72 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[19]
+[19])
+Overfull \hbox (0.99327pt too wide) has occurred while \output is active
+ \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
+ []
+
+[20]
 \openout2 = `sotu/chapter4.aux'.
 
 (./sotu/chapter4.tex
 File: sotu/figure/docker-vmware.png Graphic file (type bmp)
 <sotu/figure/docker-vmware.png>
-[20
+[21
 
 
 
 ]
 File: sotu/figure/elasticsearch-image.png Graphic file (type bmp)
 <sotu/figure/elasticsearch-image.png>
-[21] [22]
+[22]
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
-
-LaTeX Warning: Reference `p1' on page 23 undefined on input line 146.
-
+[23] [24]
 File: sotu/figure/curl-same.png Graphic file (type bmp)
 <sotu/figure/curl-same.png>
 File: sotu/figure/2-7.19.9-and-1-7.17.6.png Graphic file (type bmp)
 <sotu/figure/2-7.19.9-and-1-7.17.6.png>
+[25]
 File: sotu/figure/curl-different.png Graphic file (type bmp)
 <sotu/figure/curl-different.png>
-[23] [24] [25]
+[26]
 File: sotu/figure/log.png Graphic file (type bmp)
 <sotu/figure/log.png>
+[27]
 File: sotu/figure/1-7.17.9.png Graphic file (type bmp)
 <sotu/figure/1-7.17.9.png>
 File: sotu/figure/es04-cluster.png Graphic file (type bmp)
 <sotu/figure/es04-cluster.png>
-[26] [27]
+[28]
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
+[29]
 File: sotu/figure/3nodes-cluster.png Graphic file (type bmp)
 <sotu/figure/3nodes-cluster.png>
+[30]
 File: sotu/figure/3nodes-list.png Graphic file (type bmp)
 <sotu/figure/3nodes-list.png>
+[31]
 File: sotu/figure/4-7.17.9.png Graphic file (type bmp)
 <sotu/figure/4-7.17.9.png>
+[32]
 File: sotu/figure/4nodes-list.png Graphic file (type bmp)
 <sotu/figure/4nodes-list.png>
+[33]
 File: sotu/figure/es04-log.png Graphic file (type bmp)
 <sotu/figure/es04-log.png>
-[28] [29] [30] [31] [32]) [33]
+[34]) [35]
 \openout2 = `sotu/chapter5.aux'.
 
-(./sotu/chapter5.tex [34
+(./sotu/chapter5.tex [36
 
 
 
-]) [35]
+]) [37]
 \openout2 = `sotu/syazi.aux'.
 
-(./sotu/syazi.tex) [36
+(./sotu/syazi.tex) [38
 
 
 
@@ -656,22 +663,18 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 5--6
 []\OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
-) [37
+) [39
 
 
 
-] (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux))
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux)) ) 
 Here is how much of TeX's memory you used:
- 7324 strings out of 481768
- 140307 string characters out of 5933620
- 382767 words of memory out of 5000000
- 22584 multiletter control sequences out of 15000+600000
+ 7380 strings out of 481768
+ 141039 string characters out of 5933620
+ 385353 words of memory out of 5000000
+ 22636 multiletter control sequences out of 15000+600000
  554742 words of font info for 113 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  39i,15n,40p,742b,1799s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (43 pages, 90304 bytes).
+Output written on out/main_new.dvi (45 pages, 89924 bytes).

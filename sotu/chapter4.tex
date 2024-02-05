@@ -2,7 +2,7 @@
 \label{chap:fourth}
 
 \section{緒言}
-本章では、サーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証ついて述べる。
+本章ではDockerによる仮想環境を使用したクラスタリング動作の可否の検証ついて述べる.
 
 % \section{サーバーゾーンで稼働しているElasticsearchシステムの状況}
 % サーバーゾーンでは, 133.71.201.197で単一ノードのElasticsearchが稼働しており, リサイクル館の太陽光パネルの計測データが保存されている.
@@ -20,7 +20,7 @@ Dockerは, 軽量で独立したコンテナ型仮想環境用のプラットフ
 しかし, DockerはホストOS上にゲストOSなしで独立したコンテナ型の仮想環境として構築される.
 Dockerコンテナを利用する場合は, Docker Engineをインストールすることでコンテナの立ち上げ, 停止, 削除といった操作を行うことができる.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=120mm]{sotu/figure/docker-vmware.png}
     \caption{仮想マシンとDockerの違い \cite{3}}
@@ -47,7 +47,7 @@ DockerイメージはDocker Hubやその他のレジストリで共有されて�
 
 今回はElasticsearchの開発元であるElastic社が提供しているElasticsearchのDockerイメージを使って検証を行う.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=120mm]{sotu/figure/elasticsearch-image.png}
     \caption{ElasticsearchのDockerイメージ}
@@ -58,7 +58,7 @@ DockerイメージはDocker Hubやその他のレジストリで共有されて�
 \section{Docker Composeとは}
 Docker Composeは, 複数のコンテナを定義し, 実行するためのツールである. これはYAMLファイルを使用して設定され, 複数のコンテナで協調して動作するアプリケーションの開発を単純化する.
 
-\section{異なるバージョンの Elasticsearch ノードを用いたクラスタ構築検証}
+\section{バージョンの異なるElasticsearchノードを用いたクラスタ構築の可否の検証}
 \subsection{全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}
 
 % Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlをを示す.
@@ -98,7 +98,7 @@ Docker Composeは, 複数のコンテナを定義し, 実行するためのツ�
 %         - cluster.initial_master_nodes=es01,es02,es03
 %       networks:
 %         - elastic
-  
+
 %   networks:
 %     elastic:
 %       driver: bridge
@@ -108,7 +108,7 @@ Docker Composeは, 複数のコンテナを定義し, 実行するためのツ�
 
 図 \ref{4-p3}に, 7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=120mm]{sotu/figure/all-7.19.9.png}
     \caption{docker-compose.ymlを図で表現したもの}
@@ -143,11 +143,11 @@ Docker Composeは, 複数のコンテナを定義し, 実行するためのツ�
 
 クラスタの起動には, docker compose up -dコマンドを使用する.
 
-docker compose up -dコマンドを実行した後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{p1}に示す.
+docker compose up -dコマンドを実行した後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{4-p4}に示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=120mm]{sotu/figure/curl-same.png}
+    \includegraphics[width=140mm]{sotu/figure/curl-same.png}
     \caption{クラスタに参加しているノードを一覧表示した結果}
     \label{4-p4}
   \end{center}
@@ -157,11 +157,11 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 \subsection{異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}
 
-図 \ref{4-p3}のdocker-compose.ymlのes03のコンテナが使用するDockerイメージを変更して, es03のノードで使用するElasticsearchのバージョンを7.17.9から7.17.6に変更する.
+図 \ref{4-p3}で示されたdocker-compose.ymlにおいて, es03のコンテナで使用されるDockerイメージを変更して, Elasticsearchのバージョンを7.17.9から7.17.6にダウングレードする.
 
 図 \ref{4-p5}に変更後のdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=120mm]{sotu/figure/2-7.19.9-and-1-7.17.6.png}
     \caption{変更後のdocker-compose.ymlを図で表現したもの}
@@ -173,19 +173,19 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 クラスタの起動後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{4-p6}に示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=120mm]{sotu/figure/curl-different.png}
+    \includegraphics[width=140mm]{sotu/figure/curl-different.png}
     \caption{クラスタに参加しているノードを一覧表示した結果}
     \label{4-p6}
   \end{center}
 \end{figure}
 
-図 \ref{4-p6}より, バージョンが7.17.9である2つのノード（es01, es02）のみが正常にクラスタに参加できていることが確認できる.
+図 \ref{4-p6}より, Elasticsearchのバージョンが7.17.9である2つのノード（es01, es02）のみがクラスタに参加できていることが確認できる.
 
-また, Elasticsearch起動時に出力されたログを確認したところ, 図 \ref{4-p7}に示すように, クラスタに参加できなかったes03のコンテナでElasticsearchがエラーログを出力して終了していることが分かった.
+es03のコンテナでElasticsearchの起動を試みた時に出力されたログを確認したところ, 図 \ref{4-p7}に示すように, エラーログを出力して起動に失敗していた.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=120mm]{sotu/figure/log.png}
     \caption{es03のログ}
@@ -193,28 +193,28 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
   \end{center}
 \end{figure}
 
-\section{異なるElasticsearchクラスタへのノード参加検証}
-サーバーゾーンでのクラスタ構築において, リサイクル館の太陽光パネルの計測データを保存しているElasticsearchノードを新たなノードとして構築したクラスタに参加できるか, Dockerを用いて検証した.
+\section{既存Elasticsearchノードの異なるクラスタへの参加の可否の検証}
+クラスタ構築において, 既に稼働しているElasticsearchノードを新たなノードとして異なるクラスタへ参加できるか, Dockerによる仮想環境を用いて検証した.
 
 \subsection{単一ノードで稼働するクラスタAの構築}
 
-まず, docker-composeを用いて単一ノード(コンテナ名はes04)でクラスタ以後このクラスタをクラスタAと呼ぶを構築する. 以後このクラスタをクラスタAと呼ぶ.
+まず, docker-composeを用いて単一ノード(コンテナ名はes04)でクラスタを構築する. 以後このクラスタをクラスタAと呼ぶ.
 
-図 \ref{4-p8}にクラスタAの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
+図 \ref{4-p8}にクラスタAを構築する際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=80mm]{sotu/figure/1-7.17.9.png}
-    \caption{クラスタAの構築の際に使用したdocker-compose.ymlを図で表現したもの}
+    \caption{クラスタAを構築する際に使用したdocker-compose.ymlを図で表現したもの}
     \label{4-p8}
   \end{center}
 \end{figure}
 
-docker-composeを用いてノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{4-p9}に示す.
+docker-composeを用いてクラスタAを起動した後, クラスタの情報について問い合わせた結果を図 \ref{4-p9}に示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=120mm]{sotu/figure/es04-cluster.png}
+    \includegraphics[width=140mm]{sotu/figure/es04-cluster.png}
     \caption{クラスタの情報について問い合わせた結果}
     \label{4-p9}
   \end{center}
@@ -224,90 +224,90 @@ docker-composeを用いてノードを起動した後, クラスタの情報に�
 
 \subsection{3ノードで稼働するクラスタBの構築}
 
-次に, クラスタAに使用したノードとは別の3ノード(コンテナ名はそれぞれes01, es02, es03)でクラスタを構築する. 以後このクラスタをクラスタBと呼ぶ.
+次に, クラスタAの構築に使用したノードとは別の3ノード(コンテナ名はそれぞれes01, es02, es03)でクラスタを構築する. 以後このクラスタをクラスタBと呼ぶ.
 
 図 \ref{4-p10}にクラスタBの構築の際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=120mm]{sotu/figure/all-7.19.9.png}
-    \caption{クラスタBの構築の際に使用したdocker-compose.ymlを図で表現したもの}
+    \caption{クラスタBを構築する際に使用したdocker-compose.ymlを図で表現したもの}
     \label{4-p10}
   \end{center}
 \end{figure}
 
-docker-composeを用いて3つのノードを起動した後, クラスタの情報について問い合わせた結果を図 \ref{4-p11}に示す.
+docker-composeを用いてクラスタBを起動した後, クラスタの情報について問い合わせた結果を図 \ref{4-p11}に示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=120mm]{sotu/figure/3nodes-cluster.png}
+    \includegraphics[width=140mm]{sotu/figure/3nodes-cluster.png}
     \caption{クラスタの情報について問い合わせた結果}
     \label{4-p11}
   \end{center}
 \end{figure}
 
-図 \ref{4-p9}, \ref{4-p11}より, クラスタAとクラスタBはそれぞれ異なるクラスタIDを付与されたことが分かる.
+図 \ref{4-p9}と図\ref{4-p11}を比較した結果, クラスタAとクラスタBはそれぞれ異なるクラスタIDを付与されたことが分かった.
 
-クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{4-p12}に示す.
+クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{4-p12}に示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=120mm]{sotu/figure/3nodes-list.png}
+    \includegraphics[width=140mm]{sotu/figure/3nodes-list.png}
     \caption{クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果}
     \label{4-p12}
   \end{center}
 \end{figure}
 
-図 \ref{4-p12}より, es01, es02, es03ノードが全てクラスタBに参加できていることが分かる.
+図 \ref{4-p12}より, es01, es02, es03ノードがクラスタBに参加できていることを確認した.
 
-クラスタに参加しているノードの一覧を取得した後, 全てのDockerコンテナを停止してノードを全てシャットダウンした.
+クラスタBに参加しているノードの一覧を取得した後, 全てのDockerコンテナを停止してノードを全てシャットダウンした.
 
 \subsection{クラスタAに参加しているノードのクラスタBへの参加試行}
 
 次に, 図 \ref{4-p10}のdocker-compose.ymlに対して, クラスタAのノード(es04コンテナ)を追加し, 合計4ノードでのクラスタBの起動を試みる.
 
-図 \ref{4-p13}に, 合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したものを示す.
+図 \ref{4-p13}に, es04コンテナを含めた4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したものを示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=120mm]{sotu/figure/4-7.17.9.png}
-    \caption{合計4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したもの}
+    \caption{es04コンテナを含めた4ノードでクラスタBの起動を試みた際に使用したdocker-compose.ymlを図で表現したもの}
     \label{4-p13}
   \end{center}
 \end{figure}
 
-クラスタの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{4-p14}に示す.
+クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{4-p14}に示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics[width=120mm]{sotu/figure/4nodes-list.png}
-    \caption{合計4ノードでクラスタの起動を試みた後, クラスタに参加しているノードの一覧を取得した結果}
+    \includegraphics[width=140mm]{sotu/figure/4nodes-list.png}
+    \caption{es04コンテナを含めたノードでクラスタBの起動を試みた後, クラスタに参加しているノードの一覧を取得した結果}
     \label{4-p14}
   \end{center}
 \end{figure}
 
-図 \ref{4-p14}より, クラスタAのノードがクラスタBに参加できていないことが分かる.
+図 \ref{4-p14}より, クラスタAのノードがクラスタBに参加できていないことを確認した.
 
-es04コンテナ（クラスタAのノード）で出力されたログの一部を図 \ref{4-p15}に示す.
+es04コンテナ（クラスタAに参加しているノード）で出力されたログの一部を図 \ref{4-p15}に示す.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=140mm]{sotu/figure/es04-log.png}
-    \caption{es04コンテナのログ}
+    \caption{es04コンテナのログの一部}
     \label{4-p15}
   \end{center}
 \end{figure}
 
-図 \ref{4-p15}には, 異なるクラスタIDを持つクラスタにノードが参加することは禁止されており, これを行うためにはインデックスやドキュメント情報などが格納されているデータパス配下のフォルダ, ファイルを削除する必要があると書かれている.
+図 \ref{4-p15}では, 異なるクラスタIDを持つクラスタにノードが参加することは禁止されており, 参加するためにはインデックスやドキュメント情報などが格納されているデータパス配下のフォルダ, ファイルを削除する必要があると書かれている.
 
 以上の検証結果から, 既に稼働しているノードを別のクラスタに新しいノードとして参加させることは出来ないことが分かった.
 
-したがって, リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードをクラスタに参加させるには以下の2通りの方法が考えられる.
+% したがって, リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードをクラスタに参加させるには以下の2通りの方法が考えられる.
 
-\begin{itemize}
-  \item リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードのバックアップを取り, ノードに保存されたインデックスやドキュメントのデータを削除した上で, CO\textsubscript{2}データなどが保存されたクラスタに新しいノードとして参加させる
-  \item CO\textsubscript{2}データなどが保存されたクラスタとは別で, サーバーゾーンに新たにクラスタを構築する. クラスタの構築にはリサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードが所属するクラスタを使用する.
-\end{itemize}
+% \begin{itemize}
+%   \item リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードのバックアップを取り, ノードに保存されたインデックスやドキュメントのデータを削除した上で, CO\textsubscript{2}データなどが保存されたクラスタに新しいノードとして参加させる
+%   \item CO\textsubscript{2}データなどが保存されたクラスタとは別で, サーバーゾーンに新たにクラスタを構築する. クラスタの構築にはリサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードが所属するクラスタを使用する.
+% \end{itemize}
 
 % 本来であれば、次の章の内容
 
@@ -323,7 +323,7 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 % 図 \ref{4-p16}に, aptによってインストールされたパッケージの中にelasticsearchという文字列を含むパッケージが存在するか調べた結果を示す.
 % 図 \ref{4-p16}より, aptによってインストールされたことが分かった.
 
-% \begin{figure}
+% \begin{figure}[H]
 %   \begin{center}
 %     \includegraphics[width=120mm]{sotu/figure/apt-grep.png}
 %     \caption{aptによってelasticsearchがインストールされたか調べた結果}
@@ -333,7 +333,7 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 
 % 次に, aptでインストール可能なelasticsearchのバージョンを一覧表示した結果を図 \ref{4-p17}に示す. 図 \ref{4-p17}にターゲットである7.17.9が含まれているため, aptを使用してバージョンアップできることが確認できた.
 
-% \begin{figure}
+% \begin{figure}[H]
 %   \begin{center}
 %     \includegraphics[width=120mm]{sotu/figure/apt-list.png}
 %     \caption{aptでインストール可能なelasticsearchのバージョンを一覧表示した結果}
@@ -351,7 +351,7 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 
 % ノードの起動後, Elasticsearchのバージョンを確認した結果を図 \ref{4-p18}に示す.
 
-% \begin{figure}
+% \begin{figure}[H]
 %   \begin{center}
 %     \includegraphics[width=140mm]{sotu/figure/version-check.png}
 %     \caption{ノードの起動後, Elasticsearchのバージョンを確認した結果}
@@ -369,7 +369,7 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 
 % Elasticsearchのバージョンアップ後, 太陽光パネルの計測データがElasticsearchに保存されているかKibana上で確認した結果を図 \ref{p4}に示す.
 
-% \begin{figure}
+% \begin{figure}[H]
 %   \begin{center}
 %     \includegraphics[width=140mm]{sotu/figure/downtime.png}
 %     \caption{Elasticsearchのバージョンアップ後, 太陽光パネルの計測データが保存されているかKibana上で確認した結果}
@@ -380,6 +380,6 @@ es04コンテナ（クラスタAのノード）で出力されたログの一部
 % 図 \ref{4-p19}より, バージョンアップ後のElasicsearchノードを起動した14:22:00以降にドキュメントがインサートされていることが確認できた.
 
 \section{結言}
-本章では、サーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証について述べた．
+本章ではDockerによる仮想環境を使用したクラスタリング動作の可否の検証ついて述べた.
 
-次章では結論と今後の課題について述べる。
+次章では結論と今後の課題について述べる.

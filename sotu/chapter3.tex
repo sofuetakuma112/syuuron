@@ -3,10 +3,10 @@
 \label{chap:third}
 
 \section{緒言}
-本章では学内ゾーンで稼働している Elasticsearch クラスタへのデータ移行について述べる．
+本章では単一ElasticsearchノードからElasticsearchクラスタへのデータ移行について述べる．
 
 \section{Elasticsearchの概要}
-Elasticsearchは, 分散処理に対応した全文検索エンジンである。主な特徴は, 以下の通りである。
+Elasticsearchは, 分散処理に対応した全文検索エンジンである. 主な特徴は, 以下の通りである.
 
 \begin{itemize}
   \item 高速な検索性能: ビッグデータなどの巨大で複雑なデータの集合にも対応可能
@@ -15,7 +15,7 @@ Elasticsearchは, 分散処理に対応した全文検索エンジンである�
   \item スケーラビリティ: サーバー数を増やすことで, 検索性能と処理能力を拡張可能
 \end{itemize}
 
-これらの特徴から, Elasticsearchは, 以下のような用途に適している。
+これらの特徴から, Elasticsearchは, 以下のような用途に適している.
 
 \begin{itemize}
   \item ログ分析: Webサイトやアプリケーションのログから, アクセス状況やエラー情報を分析する
@@ -25,7 +25,7 @@ Elasticsearchは, 分散処理に対応した全文検索エンジンである�
 
 \section{Kibanaの概要}
 
-Kibanaは, Elasticsearchに保存されたデータを可視化するためのツールである。主な特徴は, 以下の通りである。
+Kibanaは, Elasticsearchに保存されたデータを可視化するためのツールである. 主な特徴は, 以下の通りである.
 
 \begin{itemize}
   \item 直感的な操作性: ドラッグ＆ドロップで簡単に可視化を作成できる
@@ -33,7 +33,7 @@ Kibanaは, Elasticsearchに保存されたデータを可視化するための�
   \item 高度なフィルタリング機能: 条件を指定して, データを詳細に絞り込むことができる
 \end{itemize}
 
-これらの特徴から, Kibanaは, 以下のような用途に適している。
+これらの特徴から, Kibanaは, 以下のような用途に適している.
 
 \begin{itemize}
   \item ログ分析: Webサイトやアプリケーションのログから, アクセス状況やエラー情報を可視化する
@@ -197,7 +197,7 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
 
 計2回のCO\textsubscript{2}データを移行した後のco2\_modbusインデックスについて, 横軸を計測日時(utctime)とし, 縦軸をPPM, RH, TEMPとしてそれぞれプロットしたものを図 \ref{p12} 〜 図 \ref{p14}に示す.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/ppm.png}
     \caption{co2\_modbusのPPM}
@@ -205,7 +205,7 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
   \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/rh.png}
     \caption{co2\_modbusのRH}
@@ -213,7 +213,7 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
   \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=160mm]{sotu/figure/temp.png}
     \caption{co2\_modbusのTEMP}
@@ -236,6 +236,6 @@ movement\_diary01インデックスのデータ移行は, 同名のインデッ�
 pythonのelasticsearchライブラリを使用し, 移行先のElasticsearchにmovement\_diary01という名前のインデックスを作成して, エクスポートしたデータを全てインサートした.
 
 \section{結言}
-本章では学内ゾーンで稼働している Elasticsearch クラスタへのデータ移行について述べた。
+本章では単一ElasticsearchノードからElasticsearchクラスタへのデータ移行について述べた.
 
-次章ではサーバーゾーンでのクラスタ構築における仮想環境を使用した事前検証について述べる。
+次章ではDockerによる仮想環境を使用したクラスタリング動作の可否の検証ついて述べる.
