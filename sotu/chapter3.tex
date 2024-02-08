@@ -195,33 +195,33 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
 
 \section{KibanaによるCO\textsubscript{2}データの可視化}
 
-計2回のCO\textsubscript{2}データを移行した後のco2\_modbusインデックスについて, 横軸を計測日時(utctime)とし, 縦軸をPPM, RH, TEMPとしてそれぞれプロットしたものを図 \ref{p12} 〜 図 \ref{p14}に示す.
+計2回のCO\textsubscript{2}データを移行した後のco2\_modbusインデックスについて, 横軸を計測日時(utctime)とし, 縦軸をPPM, RH, 気温としてそれぞれプロットしたものを図 \ref{p12} 〜 図 \ref{p14}に示す.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/ppm.png}
-    \caption{co2\_modbusのPPM}
+    \includegraphics[width=140mm]{sotu/figure/ppm.png}
+    \caption{co2\_modbusのPPM（30日間のPPMの平均値）}
     \label{p12}
   \end{center}
 \end{figure}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/rh.png}
-    \caption{co2\_modbusのRH}
+    \includegraphics[width=140mm]{sotu/figure/rh.png}
+    \caption{co2\_modbusのRH（30日間のRHの平均値）}
     \label{p13}
   \end{center}
 \end{figure}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=160mm]{sotu/figure/temp.png}
-    \caption{co2\_modbusのTEMP}
+    \includegraphics[width=140mm]{sotu/figure/temp.png}
+    \caption{co2\_modbusの気温（30日間の気温の平均値）}
     \label{p14}
   \end{center}
 \end{figure}
 
-図 \ref{p12} 〜 図 \ref{p14}より, 連続的にデータが変化していることが目視で確認できるので, データ移行は正常に出来たと判断できる.
+図 \ref{p12} 〜 図 \ref{p14}より, 連続的にデータが変化していることが目視で確認できるので, データを欠落することなく重複データを削除出来たと判断した. なお, EL31教室にて気温が連続的に変化していないがこれはデータ計測システムが計測出来ていなかったことが原因である. また, E531教室の気温が他の教室より20℃程度高い点があるが, これはセンサー不良による誤った計測値であり, 連続的に変化しなくて良いデータである.
 
 % \section{LEAFの運行日誌に関するデータの移行について}
 
