@@ -39,7 +39,7 @@
 \contentsline {subsection}{\numberline {4.4.1}全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}{24}%
 \contentsline {subsection}{\numberline {4.4.2}異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}{26}%
 \contentsline {section}{\numberline {4.5節}既存Elasticsearchノードの異なるクラスタへの参加の可否の検証}{28}%
-\contentsline {subsection}{\numberline {4.5.1}単一ノードで稼働するクラスタAの構築}{29}%
+\contentsline {subsection}{\numberline {4.5.1}単一ノードで稼働するクラスタAの構築}{28}%
 \contentsline {subsection}{\numberline {4.5.2}3ノードで稼働するクラスタBの構築}{30}%
 \contentsline {subsection}{\numberline {4.5.3}クラスタAに参加しているノードのクラスタBへの参加試行}{33}%
 \contentsline {section}{\numberline {4.6節}結言}{36}%
