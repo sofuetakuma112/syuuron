@@ -249,6 +249,10 @@ INPUT sotu/figure/4nodes-list.png
 INPUT extractbb -B cropbox -O sotu/figure/4nodes-list.png
 INPUT sotu/figure/es04-log.png
 INPUT extractbb -B cropbox -O sotu/figure/es04-log.png
+INPUT sotu/figure/youshi-3.png
+INPUT extractbb -B cropbox -O sotu/figure/youshi-3.png
+INPUT sotu/figure/youshi-4.png
+INPUT extractbb -B cropbox -O sotu/figure/youshi-4.png
 OUTPUT out/sotu/chapter5.aux
 INPUT sotu/chapter5.tex
 INPUT sotu/chapter5.tex

@@ -380,6 +380,28 @@ es04コンテナ（クラスタAに参加しているノード）で出力され
 % 図 \ref{4-p19}より, バージョンアップ後のElasicsearchノードを起動した14:22:00以降にドキュメントがインサートされていることが確認できた.
 
 \section{結言}
-本章ではDockerによる仮想環境を使用したクラスタリング動作の可否の検証ついて述べた.
+% 本章ではDockerによる仮想環境を使用したクラスタリング動作の可否の検証ついて述べた.
+
+本章では, 異なるバージョンのElasticsearchノードを用いたクラスタリングの動作の検証と, 異なるクラスタへの Elasticsearchノードの参加の可否の検証を行った.
+
+はじめに, 異なるバージョンのElasticsearchノードのクラスタリングを検証した. まず同じバージョンのElasticsearchノードを用いてクラスタを構築した後, 異なるバージョンの Elasticsearchノードを新たにクラスタに含めてクラスタ起動を試みたが, バージョンの不一致によりクラスタリングは失敗した. これにより, 異なるバージョンのElasticsearchノードを用いたクラスタ構築は出来ないことを確認した.
+
+次に, 既に稼働している Elasticsearchノードを異なるクラスタに参加させる検証を行った. まずクラスタAとクラスタBをそれぞれ構築した後, クラスタAの ElasticsearchノードをクラスタBの Elasticsearchノードとして参加させて, クラスタBの起動を試みた. しかし, クラスタAの ElasticsearchノードはクラスタBに参加できなかった. これにより, 既に稼働している Elasticsearchノードを異なるクラスタに参加させることは出来ないことを確認した.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=140mm]{sotu/figure/youshi-3.png}
+    \caption{Elasticsearchノードのバージョンが異なる場合のクラスタリングの可否}
+    \label{4-p16}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=140mm]{sotu/figure/youshi-4.png}
+    \caption{UUIDが異なるクラスタにElasticsearchノードを参加させた場合のクラスタリング動作の可否}
+    \label{4-p17}
+  \end{center}
+\end{figure}
 
 次章では結論と今後の課題について述べる.
