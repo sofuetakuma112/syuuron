@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  10 FEB 2024 20:37
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  10 FEB 2024 21:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -488,7 +488,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 72--73
 File: sotu/figure/2/pvlib-20220602-corr.png Graphic file (type bmp)
 <sotu/figure/2/pvlib-20220602-corr.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 116--117
+Overfull \hbox (56.9055pt too wide) in paragraph at lines 109--110
  [] 
  []
 
@@ -665,7 +665,12 @@ File: sotu/figure/youshi-4.png Graphic file (type bmp)
 \openout2 = `sotu/refer.aux'.
 
 (./sotu/refer.tex
-Overfull \hbox (10.55717pt too wide) in paragraph at lines 5--6
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[]\OT1/cmr/m/n/12 Sandia Na-tional Lab-o-ra-to-ries and pvlib python De-vel-op-ment
+ []
+
+
+Overfull \hbox (10.55717pt too wide) in paragraph at lines 6--7
 []\OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
@@ -675,12 +680,12 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 5--6
 
 ] (out/main_new.aux (out/sotu/chapter0.aux) (out/sotu/chapter1.aux) (out/sotu/chapter2.aux) (out/sotu/chapter3.aux) (out/sotu/chapter4.aux) (out/sotu/chapter5.aux) (out/sotu/syazi.aux) (out/sotu/refer.aux)) ) 
 Here is how much of TeX's memory you used:
- 7390 strings out of 481768
- 141247 string characters out of 5933620
- 385377 words of memory out of 5000000
- 22644 multiletter control sequences out of 15000+600000
+ 7391 strings out of 481768
+ 141250 string characters out of 5933620
+ 384380 words of memory out of 5000000
+ 22645 multiletter control sequences out of 15000+600000
  554742 words of font info for 113 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  39i,15n,40p,742b,1799s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (48 pages, 95324 bytes).
+Output written on out/main_new.dvi (48 pages, 95612 bytes).
