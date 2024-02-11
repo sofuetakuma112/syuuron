@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  11 FEB 2024 22:10
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  11 FEB 2024 22:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -544,6 +544,11 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  []
 
 [14]
+Overfull \hbox (0.93484pt too wide) in paragraph at lines 171--172
+[]\JY1/mc/m/n/12 インサ ートする際は\OT1/cmr/m/n/12 , python \JY1/mc/m/n/12 の \OT1/cmr/m/n/12 elas-tic-search \JY1/mc/m/n/12 ライブラリを使用し\OT1/cmr/m/n/12 , co2[]modbus
+ []
+
+
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
@@ -686,4 +691,4 @@ Here is how much of TeX's memory you used:
  929 hyphenation exceptions out of 8191
  39i,15n,40p,742b,1799s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (45 pages, 93676 bytes).
+Output written on out/main_new.dvi (45 pages, 93924 bytes).

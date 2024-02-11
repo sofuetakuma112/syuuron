@@ -3,7 +3,7 @@
 \label{chap:third}
 
 \section{緒言}
-本章では単一Elasticsearchノードをクラスタ化する前に行うデータ移行について述べる.
+本章では単一Elasticsearchノードにあるデータのエクスポート, 重複データの削除, そしてクラスタにインポートするデータ移行に関する作業ついて述べる.
 
 \section{Elasticsearchの概要}
 Elasticsearchは, 分散処理に対応した全文検索エンジンである. 主な特徴は, 以下の通りである.
@@ -55,7 +55,7 @@ Kibanaは, Elasticsearchに保存されたデータを可視化するための�
 
 \subsection{CO\textsubscript{2}データ}
 
-CO\textsubscript{2}データが保存されたインデックスは, インデックス名にco2という文字列が含まれているため, co2という文字列を含む全てのインデックスを移行対象とする.
+CO\textsubscript{2}データが保存されたインデックスは, インデックス名にco2という文字列が含まれているため, co2という文字列を含む全てのインデックスを移行対象とした.
 
 \subsection{LEAFの運行日誌に関するデータ}
 
@@ -102,18 +102,18 @@ LEAFの運行日誌に関するデータが保存されたインデックスは�
         \end{itemize}
 \end{enumerate}
 
-上述したドキュメントの違いより, movement\_diary01はmovement\_diaryのもつ全ての情報を保持しており, 更にmovement\_diaryにはないフィールドを持っている. 更に, movement\_diaryとmovement\_diary01のドキュメント数は等しく, すべてのドキュメントのタイムスタンプが一致しているため, movement\_diary01インデックスのみ移行する.
+上述したドキュメントの違いより, movement\_diary01はmovement\_diaryのもつ全ての情報を保持しており, 更にmovement\_diaryにはないフィールドを持っている. 更に, movement\_diaryとmovement\_diary01のドキュメント数は等しく, すべてのドキュメントのタイムスタンプが一致しているため, movement\_diary01インデックスのみ移行した.
 
 \section{CO\textsubscript{2}データの移行手順ついて}
 Elasticsearchに保存されたCO\textsubscript{2}データには, 計測時刻, 部屋番号, 部屋の気温, CO\textsubscript{2}濃度などの情報が含まれている.
 
-CO\textsubscript{2}デーのタ移行を行うに当たって, 計測時刻と部屋番号の組み合わせが重複しているデータが一部存在しているため, 重複データを削除した上でデータを移行する必要がある. そこで一度, 移行元のElasticSearchサーバーのデータをローカルマシンにエクスポートして, 重複データを取り除いた上で, 移行先のElasticSearchサーバーにデータをインサートする.
+CO\textsubscript{2}デーのタ移行を行うに当たって, 計測時刻と部屋番号の組み合わせが重複しているデータが一部存在しているため, 重複データを削除した上でデータを移行する必要があった. そこで一度, 移行元のElasticSearchサーバーのデータをローカルマシンにエクスポートして, 重複データを取り除いた上で, 移行先のElasticSearchサーバーにデータをインサートした.
 
 \subsection{データのエクスポート}
 移行元のElasticSearchサーバーのデータのローカルマシンへのエクスポートには, elasticdumpライブラリを使用して, JSON形式でエクスポートした.その際, co2という文字列を含むインデックスのデータのみをエクスポートした.
 
 \subsection{データの重複削除}
-重複データの削除はSQLiteデータベースを用いて行った.
+重複データの削除はインストールが容易だったSQLiteデータベースを用いて行った.
 
 SQLiteは, 軽量で自己完結型のデータベースエンジンである. SQLiteは以下の特徴を持っている.
 
@@ -168,7 +168,7 @@ SQLiteでは, 複合主キーを使って複数のテーブルカラムの組み
 \subsection{データのインポート}
 重複データ削除を行った後のデータが保存されているSQLiteからすべてのレコードを読み出して, 移行先のElasticSearchサーバーにインサートした.
 
-その際, pythonのelasticsearchライブラリを使用し, co2\_modbusという名前のインデックスに保存した.
+インサートする際は, pythonのelasticsearchライブラリを使用し, co2\_modbusという名前のインデックスに保存した.
 
 \section{一度目のデータ移行で移行できなかったCO\textsubscript{2}データの移行について}
 
