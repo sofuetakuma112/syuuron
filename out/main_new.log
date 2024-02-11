@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  11 FEB 2024 19:46
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  11 FEB 2024 22:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -446,7 +446,7 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 
 
 
-] [2]
+]
 \openout2 = `sotu/chapter2.aux'.
 
 (./sotu/chapter2.tex
@@ -458,7 +458,7 @@ LaTeX Font Info:    Font shape `JY1/mc/b/n' in size <17.28> not available
 (Font)              Font shape `JY1/mc/bx/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 5.
-[3
+[2
 
 
 
@@ -476,7 +476,7 @@ Overfull \hbox (50.4568pt too wide) in paragraph at lines 32--32
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 38.
 
-[4]
+[3]
 File: sotu/figure/2/original-20220602-corr.png Graphic file (type bmp)
 <sotu/figure/2/original-20220602-corr.png>
 
@@ -484,7 +484,7 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 72--73
  [] 
  []
 
-[5]
+[4]
 File: sotu/figure/2/pvlib-20220602-corr.png Graphic file (type bmp)
 <sotu/figure/2/pvlib-20220602-corr.png>
 
@@ -492,13 +492,13 @@ Overfull \hbox (56.9055pt too wide) in paragraph at lines 109--110
  [] 
  []
 
-[6] [7]
+[5] [6]
 File: sotu/figure/2/drop-under-0.2-q.png Graphic file (type bmp)
 <sotu/figure/2/drop-under-0.2-q.png>
-[8]) [9]
+[7]) [8]
 \openout2 = `sotu/chapter3.aux'.
 
-(./sotu/chapter3.tex [10
+(./sotu/chapter3.tex [9
 
 
 
@@ -507,7 +507,7 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[11]
+[10]
 LaTeX Font Info:    Font shape `JT1/mc/b/n' in size <10> not available
 (Font)              Font shape `JT1/mc/bx/n' tried instead on input line 56.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
@@ -521,17 +521,17 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
+[11]
+Overfull \hbox (0.99327pt too wide) has occurred while \output is active
+ \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
+ []
+
 [12]
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
 [13]
-Overfull \hbox (0.99327pt too wide) has occurred while \output is active
- \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
- []
-
-[14]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 134.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -543,12 +543,12 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[15]
+[14]
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[16]
+[15]
 File: sotu/figure/ppm.png Graphic file (type bmp)
 <sotu/figure/ppm.png>
 
@@ -561,7 +561,7 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[17]
+[16]
 File: sotu/figure/rh.png Graphic file (type bmp)
 <sotu/figure/rh.png>
 
@@ -581,81 +581,81 @@ Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[18]
+[17]
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[19])
+[18])
 Overfull \hbox (0.99327pt too wide) has occurred while \output is active
  \JY1/gt/m/n/12 第 \OT1/cmr/bx/n/12 3 \JY1/gt/m/n/12 章  単一 \OT1/cmr/bx/n/12 ELASTICSEARCH \JY1/gt/m/n/12 ノ ードをクラスタ化する前に行うデ ータ移行
  []
 
-[20]
+[19]
 \openout2 = `sotu/chapter4.aux'.
 
 (./sotu/chapter4.tex
 File: sotu/figure/docker-vmware.png Graphic file (type bmp)
 <sotu/figure/docker-vmware.png>
-[21
+[20
 
 
 
-] [22]
+] [21]
 File: sotu/figure/elasticsearch-image.png Graphic file (type bmp)
 <sotu/figure/elasticsearch-image.png>
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
-[23] [24]
+[22] [23]
 File: sotu/figure/curl-same.png Graphic file (type bmp)
 <sotu/figure/curl-same.png>
 File: sotu/figure/2-7.19.9-and-1-7.17.6.png Graphic file (type bmp)
 <sotu/figure/2-7.19.9-and-1-7.17.6.png>
-[25]
+[24]
 File: sotu/figure/curl-different.png Graphic file (type bmp)
 <sotu/figure/curl-different.png>
-[26]
+[25]
 File: sotu/figure/log.png Graphic file (type bmp)
 <sotu/figure/log.png>
 File: sotu/figure/1-7.17.9.png Graphic file (type bmp)
 <sotu/figure/1-7.17.9.png>
-[27]
+[26]
 File: sotu/figure/es04-cluster.png Graphic file (type bmp)
 <sotu/figure/es04-cluster.png>
-[28]
+[27]
 File: sotu/figure/all-7.19.9.png Graphic file (type bmp)
 <sotu/figure/all-7.19.9.png>
 File: sotu/figure/3nodes-cluster.png Graphic file (type bmp)
 <sotu/figure/3nodes-cluster.png>
-[29]
+[28]
 File: sotu/figure/3nodes-list.png Graphic file (type bmp)
 <sotu/figure/3nodes-list.png>
-[30]
+[29]
 File: sotu/figure/4-7.17.9.png Graphic file (type bmp)
 <sotu/figure/4-7.17.9.png>
-[31]
+[30]
 File: sotu/figure/4nodes-list.png Graphic file (type bmp)
 <sotu/figure/4nodes-list.png>
-[32]
+[31]
 File: sotu/figure/es04-log.png Graphic file (type bmp)
 <sotu/figure/es04-log.png>
-[33]
+[32]
 File: sotu/figure/youshi-3.png Graphic file (type bmp)
 <sotu/figure/youshi-3.png>
-[34]
+[33]
 File: sotu/figure/youshi-4.png Graphic file (type bmp)
 <sotu/figure/youshi-4.png>
-[35]) [36]
+[34]) [35]
 \openout2 = `sotu/chapter5.aux'.
 
-(./sotu/chapter5.tex [37
+(./sotu/chapter5.tex [36
 
 
 
-]) [38]
+]) [37]
 \openout2 = `sotu/syazi.aux'.
 
-(./sotu/syazi.tex) [39
+(./sotu/syazi.tex) [38
 
 
 
@@ -672,7 +672,7 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 6--7
 []\OT1/cmr/m/n/12 https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html,
  []
 
-) [40
+) [39
 
 
 
@@ -680,10 +680,10 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 6--7
 Here is how much of TeX's memory you used:
  7391 strings out of 481768
  141250 string characters out of 5933620
- 384380 words of memory out of 5000000
+ 384378 words of memory out of 5000000
  22645 multiletter control sequences out of 15000+600000
  554742 words of font info for 113 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  39i,15n,40p,742b,1799s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (46 pages, 94740 bytes).
+Output written on out/main_new.dvi (45 pages, 93676 bytes).
