@@ -61,51 +61,6 @@ Docker Composeは, 複数のコンテナを定義し, 実行するためのツ�
 \section{バージョンの異なるElasticsearchノードを用いたクラスタ構築の可否の検証}
 \subsection{全て同じバージョンのElasticsearchを使用したクラスタ構成 (全ノード バージョン 7.17.9)}
 
-% Listing \ref{sc1}に7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlをを示す.
-
-% \begin{lstlisting}[caption=全て同じバージョンのElasticsearchを使用したクラスタを構成するdocker-compose.yml, label=sc1]
-%   version: '2.2'
-%   services:
-%     es01:
-%       image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%       container_name: es01
-%       environment:
-%         - node.name=es01
-%         - cluster.name=es-docker-cluster
-%         - discovery.seed_hosts=es02,es03
-%         - cluster.initial_master_nodes=es01,es02,es03
-%       ports:
-%         - 9200:9200
-%       networks:
-%         - elastic
-%     es02:
-%       image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%       container_name: es02
-%       environment:
-%         - node.name=es02
-%         - cluster.name=es-docker-cluster
-%         - discovery.seed_hosts=es01,es03
-%         - cluster.initial_master_nodes=es01,es02,es03
-%       networks:
-%         - elastic
-%     es03:
-%       image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-%       container_name: es03
-%       environment:
-%         - node.name=es03
-%         - cluster.name=es-docker-cluster
-%         - discovery.seed_hosts=es01,es02
-%         - cluster.initial_master_nodes=es01,es02,es03
-%       networks:
-%         - elastic
-
-%   networks:
-%     elastic:
-%       driver: bridge
-%   \end{lstlisting}
-
-% また, 図 \ref{4-p3}にListing \ref{sc1}のdocker-compose.ymlを図で表現したものを示す.
-
 図 \ref{4-p3}に, 7.17.9バージョンのElasticsearchのみを使用してクラスタを構築した時のdocker-compose.ymlを図で表現したものを示す.
 
 \begin{figure}[H]
@@ -115,31 +70,6 @@ Docker Composeは, 複数のコンテナを定義し, 実行するためのツ�
     \label{4-p3}
   \end{center}
 \end{figure}
-
-% Listing \ref{sc1}のdocker-compose.ymlファイルで記述している内容について説明する.
-
-% \subsubsection*{サービスの定義}
-% \begin{itemize}
-%   \item \textbf{es01, es02, es03}: これらはElasticsearchのノード（サーバー）である. 各ノードは異なるコンテナとして定義されている. es01, es02, es03はそれぞれ異なるコンテナ名で, Elasticsearchの異なるインスタンスを実行する.
-% \end{itemize}
-
-% \subsubsection*{各ノードの設定}
-% \begin{itemize}
-%   \item \textbf{image}: 使用するDockerイメージ. ここではElasticsearchの7.17.9バージョンを使用している.
-%   \item \textbf{container\_name}: コンテナに割り当てられる名前.
-%   \item \textbf{environment}: 環境変数の設定. Elasticsearchのクラスタ設定を含む.
-%   \item \textbf{ports}: ホストマシンとコンテナ間のポートマッピング. 例えば, `9200:9200`はホストマシンの9200ポートをコンテナの9200ポートにマッピングする.
-%   \item \textbf{networks}: コンテナ間通信のためのネットワーク設定. ここではelasticネットワークが使用されている.
-% \end{itemize}
-
-% \subsubsection*{ボリュームとネットワークの設定}
-% \begin{itemize}
-%   \item \textbf{networks}: デフォルトのドライバであるbridgeドライバを使用するelasticネットワークを定義している. これにより, 異なるコンテナが相互に通信できるようになる.
-% \end{itemize}
-
-% この設定により, Elasticsearchの3ノードを含むクラスタがDocker上で動作するようセットアップされる.
-
-% 以降, 説明を簡単にするため, docker-compose.ymlを図で表現したもののみを掲示する.
 
 クラスタの起動には, docker compose up -dコマンドを使用する.
 
@@ -302,86 +232,7 @@ es04コンテナ（クラスタAに参加しているノード）で出力され
 
 以上の検証結果から, 既に稼働しているノードを別のクラスタに新しいノードとして参加させることは出来ないことが分かった.
 
-% したがって, リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードをクラスタに参加させるには以下の2通りの方法が考えられる.
-
-% \begin{itemize}
-%   \item リサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードのバックアップを取り, ノードに保存されたインデックスやドキュメントのデータを削除した上で, CO\textsubscript{2}データなどが保存されたクラスタに新しいノードとして参加させる
-%   \item CO\textsubscript{2}データなどが保存されたクラスタとは別で, サーバーゾーンに新たにクラスタを構築する. クラスタの構築にはリサイクル館の太陽光パネルの計測データが保存されたElasticsearchノードが所属するクラスタを使用する.
-% \end{itemize}
-
-% 本来であれば、次の章の内容
-
-% \section{Elasticsearchのバージョンアップ}
-% 3章の検証結果より, 異なるバージョンのElasticsearchノードでクラスタを構築することは出来ないため, リサイクル館の太陽光パネルの計測データを保存しているElasticsearch(133.71.201.197)をバージョンアップする必要がある. そこで, 133.71.201.197にインストールされたElasticsearchのバージョンアップを行う.
-
-% \section{バージョンアップ手順}
-
-% \subsection{インストール方法の特定}
-
-% バージョンアップを行うためには, 133.71.201.197のUbuntuPCにどのようにElasticsearchをインストールしたか特定する必要がある.
-
-% 図 \ref{4-p16}に, aptによってインストールされたパッケージの中にelasticsearchという文字列を含むパッケージが存在するか調べた結果を示す.
-% 図 \ref{4-p16}より, aptによってインストールされたことが分かった.
-
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=120mm]{sotu/figure/apt-grep.png}
-%     \caption{aptによってelasticsearchがインストールされたか調べた結果}
-%     \label{4-p16}
-%   \end{center}
-% \end{figure}
-
-% 次に, aptでインストール可能なelasticsearchのバージョンを一覧表示した結果を図 \ref{4-p17}に示す. 図 \ref{4-p17}にターゲットである7.17.9が含まれているため, aptを使用してバージョンアップできることが確認できた.
-
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=120mm]{sotu/figure/apt-list.png}
-%     \caption{aptでインストール可能なelasticsearchのバージョンを一覧表示した結果}
-%     \label{4-p17}
-%   \end{center}
-% \end{figure}
-
-% \subsection{aptによるバージョンアップ}
-
-% まず, \textbf{sudo systemctl stop elasticsearch.service}コマンドを実行してelasticsearchノードをシャットダウンする.
-
-% 次に, \textbf{sudo apt install elasticsearch=7.17.9}コマンドを実行してelasticsearchパッケージをバージョンアップする.
-
-% elasticsearchをバージョンアップ後, \textbf{sudo systemctl start elasticsearch}コマンドを実行してElasticsearchノードを起動する.
-
-% ノードの起動後, Elasticsearchのバージョンを確認した結果を図 \ref{4-p18}に示す.
-
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=140mm]{sotu/figure/version-check.png}
-%     \caption{ノードの起動後, Elasticsearchのバージョンを確認した結果}
-%     \label{4-p18}
-%   \end{center}
-% \end{figure}
-
-% 図 \ref{4-p18}より, Elasticsearchのバージョンが7.17.9にバージョンアップ出来たことが確認できた.
-
-% \section{Kibanaのバージョンアップ}
-
-% Kibanaもelasticsearchと同様, aptを使用してインストールされていたため, \textbf{sudo systemctl stop Kibana.service}コマンド, \textbf{sudo apt install Kibana=7.17.9}コマンド, \textbf{sudo systemctl start Kibana}コマンドをそれぞれ実行して, Kibanaのバージョンアップも行った.
-
-% \section{バージョンアップ後の動作確認}
-
-% Elasticsearchのバージョンアップ後, 太陽光パネルの計測データがElasticsearchに保存されているかKibana上で確認した結果を図 \ref{p4}に示す.
-
-% \begin{figure}[H]
-%   \begin{center}
-%     \includegraphics[width=140mm]{sotu/figure/downtime.png}
-%     \caption{Elasticsearchのバージョンアップ後, 太陽光パネルの計測データが保存されているかKibana上で確認した結果}
-%     \label{4-p19}
-%   \end{center}
-% \end{figure}
-
-% 図 \ref{4-p19}より, バージョンアップ後のElasicsearchノードを起動した14:22:00以降にドキュメントがインサートされていることが確認できた.
-
 \section{結言}
-% 本章ではDockerによる仮想環境を使用したクラスタリング動作の可否の検証ついて述べた.
-
 本章では, 異なるバージョンのElasticsearchノードを用いたクラスタリングの動作の検証と, 異なるクラスタへの Elasticsearchノードの参加の可否の検証を行った.
 
 はじめに, 異なるバージョンのElasticsearchノードのクラスタリングを検証した. まず同じバージョンのElasticsearchノードを用いてクラスタを構築した後, 異なるバージョンの Elasticsearchノードを新たにクラスタに含めてクラスタ起動を試みたが, バージョンの不一致によりクラスタリングは失敗した. これにより, 異なるバージョンのElasticsearchノードを用いたクラスタ構築は出来ないことを確認した.
