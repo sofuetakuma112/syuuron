@@ -217,6 +217,8 @@ INPUT sotu/figure/rh.png
 INPUT extractbb -B cropbox -O sotu/figure/rh.png
 INPUT sotu/figure/temp.png
 INPUT extractbb -B cropbox -O sotu/figure/temp.png
+INPUT sotu/figure/battery-s.png
+INPUT extractbb -B cropbox -O sotu/figure/battery-s.png
 OUTPUT out/sotu/chapter4.aux
 INPUT sotu/chapter4.tex
 INPUT sotu/chapter4.tex
