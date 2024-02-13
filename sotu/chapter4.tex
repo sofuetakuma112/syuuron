@@ -66,17 +66,24 @@ Docker Composeは, 複数のコンテナを定義し, 実行するためのツ�
 
 クラスタの起動には, docker compose up -dコマンドを使用する.
 
-docker compose up -dコマンドを実行した後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{4-p4}に示す.
+docker compose up -dコマンドを実行した後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果をリスト \ref{4-sc1}に示す.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/curl-same.png}
-    \caption{クラスタに参加しているノードを一覧表示した結果}
-    \label{4-p4}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/curl-same.png}
+%     \caption{クラスタに参加しているノードを一覧表示した結果}
+%     \label{4-p4}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=クラスタに参加しているノードを一覧表示した結果, label=4-sc1]
+  $ curl -X GET "localhost:9200/_cat/nodes?v=true&pretty"
+  ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role   master name
+  172.21.0.2           17          92   1    2.25    1.22     0.81 cdfhilmrstw *      es02
+  172.21.0.4           11          92   1    2.25    1.22     0.81 cdfhilmrstw -      es03
+  172.21.0.3           39          92   2    2.25    1.22     0.81 cdfhilmrstw -      es01
+\end{lstlisting}
 
-図 \ref{4-p4}より, 3つのノード（es01, es02, es03）すべてが正常にクラスタに参加できていることが確認できる.
+リスト \ref{4-sc1}より, 3つのノード（es01, es02, es03）すべてが正常にクラスタに参加できていることが確認できる.
 
 \subsection{異なるバージョンのElasticsearchを使用したクラスタ構成 (2ノード バージョン 7.17.9, 1ノード バージョン 7.17.6)}
 
@@ -94,27 +101,37 @@ docker compose up -dコマンドを実行した後, curlコマンドを使用し
 
 変更後, docker compose up -dコマンドを実行してクラスタを起動する.
 
-クラスタの起動後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果を図 \ref{4-p6}に示す.
+クラスタの起動後, curlコマンドを使用してクラスタに参加しているノードを一覧表示した結果をリスト \ref{4-sc2}に示す.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/curl-different.png}
-    \caption{クラスタに参加しているノードを一覧表示した結果}
-    \label{4-p6}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/curl-different.png}
+%     \caption{クラスタに参加しているノードを一覧表示した結果}
+%     \label{4-p6}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=クラスタに参加しているノードを一覧表示した結果, label=4-sc2]
+  $ curl -X GET "localhost:9200/_cat/nodes?v=true&pretty"
+  ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role   master name
+  172.22.0.2           22          77  29    2.10    1.28     0.87 cdfhilmrstw *      es01
+  172.22.0.3           24          77  27    2.10    1.28     0.87 cdfhilmrstw -      es02
+\end{lstlisting}
 
-図 \ref{4-p6}より, Elasticsearchのバージョンが7.17.9である2つのノード（es01, es02）のみがクラスタに参加できていることが確認できる.
+リスト \ref{4-sc2}より, Elasticsearchのバージョンが7.17.9である2つのノード（es01, es02）のみがクラスタに参加できていることが確認できる.
 
-es03のコンテナでElasticsearchの起動を試みた時に出力されたログを確認したところ, 図 \ref{4-p7}に示すように, エラーログを出力して起動に失敗していた.
+es03のコンテナでElasticsearchの起動を試みた時に出力されたログを確認したところ, リスト \ref{4-sc3}に示すエラーログを出力して起動に失敗していた.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/log.png}
-    \caption{es03のログ}
-    \label{4-p7}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/log.png}
+%     \caption{es03のログ}
+%     \label{4-p7}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=es03のログ, label=4-sc3]
+  es03  | java.lang.IllegalStateException: cannot downgrade a
+  node from version [7.17.9] to version [7.17.6]
+\end{lstlisting}
 
 \section{既存Elasticsearchノードの異なるクラスタへの参加の可否の検証}
 クラスタ構築において, 既に稼働しているElasticsearchノードを新たなノードとして異なるクラスタへ参加できるか, Dockerによる仮想環境を用いて検証した.
@@ -133,15 +150,35 @@ es03のコンテナでElasticsearchの起動を試みた時に出力されたロ
   \end{center}
 \end{figure}
 
-docker-composeを用いてクラスタAを起動した後, クラスタの情報について問い合わせた結果を図 \ref{4-p9}に示す.
+docker-composeを用いてクラスタAを起動した後, クラスタの情報について問い合わせた結果をリスト \ref{4-sc4}に示す.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/es04-cluster.png}
-    \caption{クラスタの情報について問い合わせた結果}
-    \label{4-p9}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/es04-cluster.png}
+%     \caption{クラスタの情報について問い合わせた結果}
+%     \label{4-p9}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=クラスタAの情報について問い合わせた結果, label=4-sc4, breaklines=false]
+  $ curl -XGET http://localhost:9200/
+  {
+    "name" : "es04",
+    "cluster_name" : "docker-cluster",
+    "cluster_uuid" : "NCg_UaW0Q6KTakJG5HJrHg",
+    "version" : {
+      "number" : "7.17.9",
+      "build_flavor" : "default",
+      "build_type" : "docker",
+      "build_hash" : "ef48222227ee6b9e70e502f0f0daa52435ee634d",
+      "build_date" : "2023-01-31T05:34:43.305517834Z",
+      "build_snapshot" : false,
+      "lucene_version" : "8.11.1",
+      "minimum_wire_compatibility_version" : "6.8.0",
+      "minimum_index_compatibility_version" : "6.0.0-beta1"
+    },
+    "tagline" : "You Know, for Search"
+  }
+\end{lstlisting}
 
 クラスタの情報について問い合わせた後, Dockerコンテナを停止してノードをシャットダウンした.
 
@@ -159,29 +196,56 @@ docker-composeを用いてクラスタAを起動した後, クラスタの情報
   \end{center}
 \end{figure}
 
-docker-composeを用いてクラスタBを起動した後, クラスタの情報について問い合わせた結果を図 \ref{4-p11}に示す.
+docker-composeを用いてクラスタBを起動した後, クラスタの情報について問い合わせた結果をリスト \ref{4-sc5}に示す.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/3nodes-cluster.png}
-    \caption{クラスタの情報について問い合わせた結果}
-    \label{4-p11}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/3nodes-cluster.png}
+%     \caption{クラスタの情報について問い合わせた結果}
+%     \label{4-p11}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=クラスタBの情報について問い合わせた結果, label=4-sc5, breaklines=false]
+  $ curl -XGET http://localhost:9200/
+  {
+    "name" : "es01",
+    "cluster_name" : "docker-cluster",
+    "cluster_uuid" : "2A69V1hxSFCisgmIo1LB_A",
+    "version" : {
+      "number" : "7.17.9",
+      "build_flavor" : "default",
+      "build_type" : "docker",
+      "build_hash" : "ef48222227ee6b9e70e502f0f0daa52435ee634d",
+      "build_date" : "2023-01-31T05:34:43.305517834Z",
+      "build_snapshot" : false,
+      "lucene_version" : "8.11.1",
+      "minimum_wire_compatibility_version" : "6.8.0",
+      "minimum_index_compatibility_version" : "6.0.0-beta1"
+    },
+    "tagline" : "You Know, for Search"
+  }
+\end{lstlisting}
 
-図 \ref{4-p9}と図\ref{4-p11}を比較した結果, クラスタAとクラスタBはそれぞれ異なるクラスタIDを付与されたことが分かった.
+リスト \ref{4-sc4}とリスト \ref{4-sc5}を比較した結果, クラスタAとクラスタBはそれぞれ異なるクラスタIDを付与されたことが分かった.
 
-クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{4-p12}に示す.
+クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果をリスト \ref{4-sc6}に示す.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/3nodes-list.png}
-    \caption{クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果}
-    \label{4-p12}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/3nodes-list.png}
+%     \caption{クラスタに参加しているノード一覧}
+%     \label{4-p12}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=クラスタBに参加しているノード一覧, label=4-sc6]
+  $ curl -X GET 'localhost:9200/_cat/nodes?v&pretty'
+  ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role   master name
+  172.30.0.4           22          88  28    5.99    2.99     1.72 cdfhilmrstw -      es03
+  172.30.0.3           17          88  29    5.99    2.99     1.72 cdfhilmrstw *      es02
+  172.30.0.2           36          88  30    5.99    2.99     1.72 cdfhilmrstw -      es01
+\end{lstlisting}
 
-図 \ref{4-p12}より, es01, es02, es03ノードがクラスタBに参加できていることを確認した.
+リスト \ref{4-sc6}より, es01, es02, es03ノードがクラスタBに参加できていることを確認した.
 
 クラスタBに参加しているノードの一覧を取得した後, 全てのDockerコンテナを停止してノードを全てシャットダウンした.
 
@@ -199,29 +263,46 @@ docker-composeを用いてクラスタBを起動した後, クラスタの情報
   \end{center}
 \end{figure}
 
-クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果を図 \ref{4-p14}に示す.
+クラスタBの起動後, クラスタに参加しているノードの一覧を取得した結果をリスト \ref{4-sc7}に示す.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/4nodes-list.png}
-    \caption{es04コンテナを含めたノードでクラスタBの起動を試みた後, クラスタに参加しているノードの一覧を取得した結果}
-    \label{4-p14}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/4nodes-list.png}
+%     \caption{クラスタに参加しているノード一覧}
+%     \label{4-p14}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=クラスタBに参加しているノード一覧, label=4-sc7]
+  $ curl -X GET 'localhost:9200/_cat/nodes?v&pretty'
+  ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role   master name
+  172.30.0.4           22          88  28    5.99    2.99     1.72 cdfhilmrstw -      es03
+  172.30.0.3           17          88  29    5.99    2.99     1.72 cdfhilmrstw *      es02
+  172.30.0.2           36          88  30    5.99    2.99     1.72 cdfhilmrstw -      es01
+\end{lstlisting}
 
-図 \ref{4-p14}より, クラスタAのノードがクラスタBに参加できていないことを確認した.
+リスト \ref{4-sc7}より, クラスタAのノードがクラスタBに参加できていないことを確認した.
 
-es04コンテナ（クラスタAに参加しているノード）で出力されたログの一部を図 \ref{4-p15}に示す.
+es04コンテナ（クラスタAに参加しているノード）で出力されたログの一部をリスト \ref{4-sc8}に示す.
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=140mm]{sotu/figure/es04-log.png}
-    \caption{es04コンテナのログの一部}
-    \label{4-p15}
-  \end{center}
-\end{figure}
+% \begin{figure}[H]
+%   \begin{center}
+%     \includegraphics[width=140mm]{sotu/figure/es04-log.png}
+%     \caption{es04コンテナのログの一部}
+%     \label{4-p15}
+%   \end{center}
+% \end{figure}
+\begin{lstlisting}[language=bash, caption=es04コンテナのログの一部, label=4-sc8]
+This node previously joined a cluster with UUID
+[2A69V1hxSFCisgmIo1LB_A] and is now trying to join a different
+cluster with UUID [NCg_UaW0Q6KTakJG5HJrHg].
+This is forbidden and usually indicates an incorrect discovery
+or cluster bootstrapping configuration. Note that the cluster
+UUID persists across restarts and can only be changed by
+deleting the contents of the node's data paths [] which will
+also remove any data held by this node.
+\end{lstlisting}
 
-図 \ref{4-p15}では, 異なるクラスタIDを持つクラスタにノードが参加することは禁止されており, 参加するためにはインデックスやドキュメント情報などが格納されているデータパス配下のフォルダ, ファイルを削除する必要があると書かれている.
+リスト \ref{4-sc8}では, 異なるクラスタIDを持つクラスタにノードが参加することは禁止されており, 参加するためにはインデックスやドキュメント情報などが格納されているデータパス配下のフォルダ, ファイルを削除する必要があると書かれている.
 
 以上の検証結果から, 既に稼働しているノードを別のクラスタに新しいノードとして参加させることは出来ないことが分かった.
 

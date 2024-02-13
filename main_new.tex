@@ -14,6 +14,26 @@
 \usepackage{graphicx}
 \usepackage[dvipdfmx]{color}
 \usepackage{breqn}
+\usepackage{xcolor}
+
+\lstset{
+  language={bash},
+  basicstyle={\ttfamily},
+  identifierstyle={\small\ttfamily},
+  keywordstyle={\ttfamily\small\bfseries\color[rgb]{0,0,1}},
+  ndkeywordstyle={\ttfamily\small},
+  stringstyle={\small\ttfamily\color[rgb]{1,0,1}},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  numbersep=1zw,
+  lineskip=-0.5ex,
+  showstringspaces=false
+}
+\renewcommand{\lstlistingname}{リスト}
 \newcommand{\myfrac}[2]{\frac{\,{#1}\,}{\,{#2}\,}}
 
 \renewcommand{\baselinestretch}{1.2}
