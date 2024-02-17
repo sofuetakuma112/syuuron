@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  15 FEB 2024 21:09
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2024.1.23)  17 FEB 2024 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -499,19 +499,19 @@ Package amsmath Warning: Cannot use `split' here;
 File: sotu/figure/2/original-20220602-corr.png Graphic file (type bmp)
 <sotu/figure/2/original-20220602-corr.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 72--73
- [] 
+Overfull \hbox (31.06384pt too wide) in paragraph at lines 71--74
+ []|  [] 
  []
 
-[4]
+[4] [5]
 File: sotu/figure/2/pvlib-20220602-corr.png Graphic file (type bmp)
 <sotu/figure/2/pvlib-20220602-corr.png>
 
-Overfull \hbox (56.9055pt too wide) in paragraph at lines 109--110
- [] 
+Overfull \hbox (31.06384pt too wide) in paragraph at lines 108--111
+ []|  [] 
  []
 
-[5] [6]
+[6]
 File: sotu/figure/2/drop-under-0.2-q.png Graphic file (type bmp)
 <sotu/figure/2/drop-under-0.2-q.png>
 [7]) [8]
@@ -708,10 +708,10 @@ Overfull \hbox (10.55717pt too wide) in paragraph at lines 6--7
 Here is how much of TeX's memory you used:
  7979 strings out of 481768
  147773 string characters out of 5933620
- 640228 words of memory out of 5000000
+ 639228 words of memory out of 5000000
  23226 multiletter control sequences out of 15000+600000
  555671 words of font info for 117 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  39i,15n,49p,742b,1929s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on out/main_new.dvi (45 pages, 117940 bytes).
+Output written on out/main_new.dvi (45 pages, 117864 bytes).
