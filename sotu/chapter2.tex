@@ -65,7 +65,9 @@ $\delta$, $\phi$, $h$の値が既知となったので$\alpha$は
 % 20220529
 
 \subsection{実測値と大気外日射量との比較}
-Elasticsearchサーバーから取得した2022年6月2日の実測値と, 計算式から求めた大気外日射量を図\ref{20220529-p1}に示す. 実測値は地表に設置された太陽光パネルが計測したものであるのに対して, 大気外日射量は地球大気の上端（約8km上空）で受け取る日射量を計算したものであるため, 一日を通して最大となる日射量の大きさに差がある.
+Elasticsearchサーバーから取得した2022年6月2日のリサイクル館の実測値と, 計算式から求めた大気外日射量を図\ref{20220529-p1}に示す. 実測値は地表に設置された太陽光パネルが計測したものであるのに対して, 大気外日射量は地球大気の上端（約8km上空）で受け取る日射量を計算したものであるため, 一日を通して最大となる日射量の大きさに差がある.
+
+なお, 図\ref{20220529-p1}は\texttt{python3 calc_corr.py -dt 2022/06/02 -surface_tilt 22 -surface_azimuth 179 -show_graph}コマンドを実行してプロットしている.
 
 \begin{figure}[H]
   \hspace*{-1cm}
@@ -100,7 +102,9 @@ pvlibは, 太陽光発電システムの性能シミュレーションや関連�
 \end{itemize}
 
 \subsection{実測値とpvlibにより求まる地表日射量の比較}
-Elasticsearchサーバーから取得した実測値と, pvlibを用いて求めた地表日射量との比較を図\ref{2-p1}に示す.
+Elasticsearchサーバーから取得したリサイクル館の実測値と, pvlibを用いて求めた地表日射量との比較を図\ref{2-p1}に示す.
+
+なお, 図\ref{2-p1}は\texttt{python3 calc_corr.py -dt 2022/06/02 -surface_tilt 22 -surface_azimuth 179 -show_graph}コマンドを実行してプロットしている.
 
 図\ref{2-p1}と図\ref{20220529-p1}と比較すると, 大気外日射量より地表日射量の方が実測値により近い概形となっていることが分かる.
 
@@ -134,7 +138,9 @@ Elasticsearchサーバーから取得した実測値と, pvlibを用いて求め
   \item 地表日射量との相互相関の計算: 実測値の歪み部分を0 \si{\kilo\watt}/\si{\metre\squared}とした後, 地表日射量との相互相関を計算した.
 \end{enumerate}
 
-図\ref{2-p2}に, この前処理を行った実測値と地表日射量を比較する.
+図\ref{2-p2}に, この前処理を行ったリサイクル館の実測値と地表日射量を比較する.
+
+なお, 図\ref{2-p2}は\texttt{python3 selective_corr.py -dt 2022/06/02 -slide_seconds 0 -surface_tilt 22 -surface_azimuth 179 -threshold_q 0.2 -show_preprocessing_data \\ -show_threshold_q}コマンドを実行してプロットしている.
 
 \begin{figure}[H]
   \begin{center}
