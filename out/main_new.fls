@@ -1,4 +1,4 @@
-PWD /home/sofue/apps/syuuron_tex
+PWD /home/sofue/apps/syuuron
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
@@ -6,7 +6,7 @@ INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/eptex/platex.fmt
-INPUT /home/sofue/apps/syuuron_tex/main_new.tex
+INPUT /home/sofue/apps/syuuron/main_new.tex
 OUTPUT out/main_new.log
 INPUT /usr/share/texlive/texmf-dist/tex/platex/base/jreport.cls
 INPUT /usr/share/texlive/texmf-dist/tex/platex/base/jreport.cls
